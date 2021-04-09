@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary" />
+  <xs:complexType name="RootAutomationDataClass">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="AppMasterData_Types" nillable="true" type="q1:ArrayOfApplicationTypes" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="AutomationGroups" nillable="true" type="q2:AutomationGroupTree" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DicApplications" nillable="true" type="q3:ArrayOfKeyValueOfintEntityDetailsMIK_P8A7e" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="GroupProcessMapperCollection" nillable="true" type="q4:GroupProcesses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RootAutomationDataClass" nillable="true" type="tns:RootAutomationDataClass" />
+  <xs:complexType name="ArrayOfConditionApplicationCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConditionApplicationCollection" nillable="true" type="tns:ConditionApplicationCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConditionApplicationCollection" nillable="true" type="tns:ArrayOfConditionApplicationCollection" />
+  <xs:complexType name="ConditionApplicationCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConditionLoopType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentLoopVal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceAppId" type="xs:int" />
+      <xs:element minOccurs="0" name="SourcePropertyId" type="xs:long" />
+      <xs:element minOccurs="0" name="lstConditionSrcMapperProp" nillable="true" type="tns:ArrayOfConditionApplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConditionApplicationCollection" nillable="true" type="tns:ConditionApplicationCollection" />
+  <xs:complexType name="ArrayOfConditionApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConditionApplication" nillable="true" type="tns:ConditionApplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConditionApplication" nillable="true" type="tns:ArrayOfConditionApplication" />
+  <xs:complexType name="ConditionApplication">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CommonLibrary" minOccurs="0" name="ConditionFieldsCollection" nillable="true" type="q5:ArrayOfConditionMapperProperties" />
+      <xs:element minOccurs="0" name="ConditionType1" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConditionApplication" nillable="true" type="tns:ConditionApplication" />
+</xs:schema>

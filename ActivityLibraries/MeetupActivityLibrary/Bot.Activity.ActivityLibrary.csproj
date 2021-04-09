@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9212F9E7-B12C-4FBA-AF4D-EA9B42A2AAFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bot.Activity.ActivityLibrary</RootNamespace>
+    <AssemblyName>Bot.Activity.ActivityLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9212F9E7-B12C-4FBA-AF4D-EA9B42A2AAFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bot.Activity.ActivityLibrary</RootNamespace>
+    <AssemblyName>Bot.Activity.ActivityLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Activities\AddNewColumnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\AddNewColumnForm.designer.cs">
+      <DependentUpon>AddNewColumnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\BaseNativeActivity.cs" />
+    <Compile Include="Activities\CloseApplication_ActivityDesigner.xaml.cs">
+      <DependentUpon>CloseApplication_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\CommentOut.cs" />
+    <Compile Include="Activities\CommentOutDesigner.xaml.cs" />
+    <Compile Include="Activities\DataTableAddColumn_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableAddColumn_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableAddRowByValue.cs" />
+    <Compile Include="Activities\DataTableAddRowByValue_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableAddRowByValue_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\DataTableCreateForm.designer.cs">
+      <DependentUpon>DataTableCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableCreate_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableCreate_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableMerge.cs" />
+    <Compile Include="Activities\DataTableMerge_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableMerge_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableOutput.cs" />
+    <Compile Include="Activities\DataTableOutput_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableOutput_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableRemoveDuplicateRows.cs" />
+    <Compile Include="Activities\DataTableRemoveDuplicateRows_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableRemoveDuplicateRows_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableSetCurrentRowCellValue_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableSetCurrentRowCellValue_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableSort.cs" />
+    <Compile Include="Activities\DataTableSort_ActivityDesigner.xaml.cs">
+      <DependentUpon>DataTableSort_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DatatableTranspose_ActivityDesigner.xaml.cs">
+      <DependentUpon>DatatableTranspose_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DatatTableCreate.cs" />
+    <Compile Include="Activities\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\EditForm.designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\ForEachRowWithIndex.cs" />
+    <Compile Include="Activities\ForEachRowWithIndex_ActivityDesigner.xaml.cs">
+      <DependentUpon>ForEachRowWithIndex_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Image_Capture_ActivityDesigner.xaml.cs">
+      <DependentUpon>Image_Capture_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Image_FindeAndClick1.xaml.cs">
+      <DependentUpon>Image_FindeAndClick1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\CloseApplication.cs" />
+    <Compile Include="Activities\CaptureImage1.xaml.cs">
+      <DependentUpon>CaptureImage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\ActivitySendKey.cs" />
+    <Compile Include="Activities\ActivitySendKeyDesigner1.xaml.cs">
+      <DependentUpon>ActivitySendKeyDesigner1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Image_Capture.cs" />
+    <Compile Include="Activities\DataTableAddColumn.cs" />
+    <Compile Include="Activities\DefaultDesigner.xaml.cs">
+      <DependentUpon>DefaultDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\InvokeChildWorkflow\DynamicActivityStore.cs" />
+    <Compile Include="Activities\InvokeChildWorkflow\InvokeXamlWorkflow.cs" />
+    <Compile Include="Activities\InvokeChildWorkflow\InvokeXamlWorkflowDesigner.xaml.cs" />
+    <Compile Include="Activities\InvokeChildWorkflow\StringToFilenameConverter.cs" />
+    <Compile Include="Activities\InvokeChildWorkflow\ThreadSafeDictionary.cs" />
+    <Compile Include="Activities\CheckOuterIntervention.cs" />
+    <Compile Include="Activities\InvokeCode.cs" />
+    <Compile Include="Activities\InvokeCodeDesigner.xaml.cs">
+      <DependentUpon>InvokeCodeDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Log.cs" />
+    <Compile Include="Activities\DataTableForEach1.xaml.cs">
+      <DependentUpon>DataTableForEach1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableForEach.cs" />
+    <Compile Include="Activities\AttachApplicationActivity.cs" />
+    <Compile Include="Activities\AttachApplicationActivitiesDesigner.xaml.cs">
+      <DependentUpon>AttachApplicationActivitiesDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\DataTableSetCurrentRowCellValue.cs" />
+    <Compile Include="Activities\DataTableSetCurrentRowValue1.xaml.cs" />
+    <Compile Include="Activities\ImageCapture\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\ImageCapture\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\ImageCapture\SnippingTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\ImageCapture\SnippingTool.Designer.cs">
+      <DependentUpon>SnippingTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Misc\ShowMessageBox.cs" />
+    <Compile Include="Activities\Misc\ShowMessageBox_ActivityDesigner.xaml.cs">
+      <DependentUpon>ShowMessageBox_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Mouse_DragDrop.cs" />
+    <Compile Include="Activities\Mouse_DragDrop_ActivityDesigner.xaml.cs" />
+    <Compile Include="Activities\OpenDesktopApplication.cs" />
+    <Compile Include="Activities\OpenDesktopApplication_ActivityDesigner.xaml.cs">
+      <DependentUpon>OpenDesktopApplication_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\RangeEnumeration.cs" />
+    <Compile Include="Activities\RangeEnumeration_ActivityDesigner.xaml.cs">
+      <DependentUpon>RangeEnumeration_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Regex_IsMatch.cs" />
+    <Compile Include="Activities\Regex_IsMatch_ActivityDesigner.xaml.cs">
+      <DependentUpon>Regex_IsMatch_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Regex_Replace.cs" />
+    <Compile Include="Activities\Regex_Replace_ActivityDesigner.xaml.cs">
+      <DependentUpon>Regex_Replace_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\Retry.cs" />
+    <Compile Include="Activities\Retry_ActivityDesigner.xaml.cs">
+      <DependentUpon>Retry_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\WindowsGetDesktopWindowsTitles.cs" />
+    <Compile Include="Activities\ActivityDesigner1.xaml.cs" />
+    <Compile Include="Activities\Image_FindAndClick.cs" />
+    <Compile Include="Activities\Image_FindAndSetText.cs" />
+    <Compile Include="Activities\Image_FindeAndSetText1.xaml.cs">
+      <DependentUpon>Image_FindeAndSetText1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Activities\WindowsGetDesktopWindowsTitles_ActivityDesigner.xaml.cs">
+      <DependentUpon>WindowsGetDesktopWindowsTitles_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityDesignerForLog.xaml.cs">
+      <DependentUpon>ActivityDesignerForLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessException.cs" />
+    <Compile Include="CollectionToDataTable.cs" />
+    <Compile Include="CollectionToDataTableDesigner.xaml.cs">
+      <DependentUpon>CollectionToDataTableDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataTableTranspose.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveFields.xaml.cs">
+      <DependentUpon>SaveFields.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScrapingWindow.xaml.cs">
+      <DependentUpon>ScrapingWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Activities\CloseApplication_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableAddColumn_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableAddRowByValue_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableCreate_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\DataTableMerge_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableOutput_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableRemoveDuplicateRows_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableSetCurrentRowCellValue_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableSort_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DatatableTranspose_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\ForEachRowWithIndex_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\Image_Capture_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\InvokeCodeDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\Misc\ShowMessageBox_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\Mouse_DragDrop_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\OpenDesktopApplication_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\RangeEnumeration_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\Regex_IsMatch_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\Regex_Replace_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\Retry1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\CommentOutDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\Image_FindeAndClick1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\CaptureImage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\ActivitySendKeyDesigner1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\DefaultDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\InvokeChildWorkflow\InvokeXamlWorkflowDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\DataTableForEach1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\AttachApplicationActivitiesDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\DataTableSetCurrentRowValue1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\ActivityDesigner1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\Image_FindeAndSetText1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Activities\Retry_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Activities\WindowsGetDesktopWindowsTitles_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActivityDesignerForLog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CollectionToDataTableDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveFields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScrapingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BotDesignCommon\BotDesignCommon.csproj">
+      <Project>{33f02234-88b2-4a87-be1b-e65df1e2de9d}</Project>
+      <Name>BotDesignCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b2b0bd5b-2f01-49f5-8848-c426b91e33d7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logger\Logger.csproj">
+      <Project>{03ce7420-f2b5-4ad2-ab80-317de1d6d59b}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Windows\Bot.Activity.Windows.csproj">
+      <Project>{e385babf-bfe0-40e0-a7b8-dd7c7e140375}</Project>
+      <Name>Bot.Activity.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Windows\Window\Tools\visualuiverify\visualuiaverify.csproj">
+      <Project>{136560b3-a744-4442-92fb-3556ca6098cc}</Project>
+      <Name>visualuiaverify</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Windows\Window\UIAComWrapper\UIAComWrapper\UIAComWrapper.csproj">
+      <Project>{1DD63894-DBB9-40EF-BFF2-55624CB285AF}</Project>
+      <Name>UIAComWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Windows\Window\uialogging\uialogging.csproj">
+      <Project>{7f4b9045-8fef-4875-8ea8-dd8091288e2b}</Project>
+      <Name>uialogging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Activities\AddNewColumnForm.resx">
+      <DependentUpon>AddNewColumnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Activities\DataTableCreateForm.resx">
+      <DependentUpon>DataTableCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Activities\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Activities\ImageCapture\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Activities\ImageCapture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CommentOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CloseApplication.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\Resources\CommentOut2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CollectionToDataTable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableAddColumn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableAddRowByValue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableCreate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableForEach.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableMerge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableOutput.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableRemoveDuplicateRows.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableSetCurrentRowCellValue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataTableSort.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DatatableTranspose.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ForEachRowWithIndex.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ImageCapture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ImageFindAndClick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ImageFindAndSetText.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\InvokeXamlWorkflow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Log.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MouseDragDrop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\OpenDesktopApplication.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RangeEnumeration.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RegexIsMatch.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RegexReplace.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Retry.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SendKey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShowMessageBox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WindowsGetDesktopWindowsTitles.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CollectionToDataTable2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\Resources\CloseApplication2.png" />
+    <SplashScreen Include="Activities\Resources\DataTableAddColumn2.png" />
+    <Resource Include="Activities\Resources\DataTableAddRowByValue2.png" />
+    <Resource Include="Activities\Resources\DataTableCreate2.png" />
+    <Resource Include="Activities\Resources\DataTableForEach2.png" />
+    <Resource Include="Activities\Resources\DataTableMerge2.png" />
+    <Resource Include="Activities\Resources\DataTableOutput2.png" />
+    <Resource Include="Activities\Resources\DataTableRemoveDuplicateRows2.png" />
+    <Resource Include="Activities\Resources\DataTableSetCurrentRowCellValue2.png" />
+    <Resource Include="Activities\Resources\DataTableSort2.png" />
+    <Resource Include="Activities\Resources\DatatableTranspose2.png" />
+    <Resource Include="Activities\Resources\ForEachRowWithIndex2.png" />
+    <Resource Include="Activities\Resources\ImageCapture2.png" />
+    <Resource Include="Activities\Resources\ImageFindAndClick2.png" />
+    <Resource Include="Activities\Resources\ImageFindAndSetText2.png" />
+    <Resource Include="Activities\Resources\MouseDragDrop2.png" />
+    <Resource Include="Activities\Resources\RangeEnumeration2.png" />
+    <Resource Include="Activities\Resources\RegexIsMatch2.png" />
+    <Resource Include="Activities\Resources\RegexReplace2.png" />
+    <Resource Include="Activities\Resources\Retry2.png" />
+    <Resource Include="Activities\Resources\SendKey2.png" />
+    <Resource Include="Activities\Resources\ShowMessageBox2.png" />
+    <Resource Include="Activities\Resources\WindowsGetDesktopWindowsTitles2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\InvokeChildWorkflow\Resources\InvokeXamlWorkflow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\Misc\Resources\ShowMessageBox2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\Resources\OpenDesktopApplication2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Log2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Activities\Resources\InvokeCode2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\InvokeCode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities.Build" />
+    <Reference Include="Microsoft.Activities.Extensions, Version=2.0.6.9, Culture=neutral, PublicKeyToken=23b0c89d0d5ad43f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net45\Microsoft.Activities.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities.UnitTesting, Version=2.0.6.9, Culture=neutral, PublicKeyToken=30c1df11edd2bb96, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net45\Microsoft.Activities.UnitTesting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="White.Core">
+      <HintPath>..\..\ExternalDLL\White.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

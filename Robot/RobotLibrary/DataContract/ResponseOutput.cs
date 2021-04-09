@@ -1,0 +1,33 @@
+// <copyright file=ResponseOutput company=E2E Robotics>
+// Copyright (c) 2018 All Rights Reserved
+// </copyright>
+// <author>Saurabh Mundhe</author>
+// <date> 03-10-2018 16:02:51</date>
+// <summary></summary>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Web;
+
+namespace RobotLibrary
+{
+    //[DataContract]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30219.1")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    //public class ResponseOutput
+    //{
+    //    [DataMember]
+    //    [System.Xml.Serialization.XmlElementAttribute()]
+    //    public RequestInput requestInput { get; set; }
+
+    //    [DataMember]
+    //    [System.Xml.Serialization.XmlElementAttribute()]
+    //    public List<CViewFields> cviewResultsAll { get; set; }
+    //}
+}

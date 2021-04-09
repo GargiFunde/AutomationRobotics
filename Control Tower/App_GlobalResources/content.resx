@@ -1,0 +1,1488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BotDashBoard" xml:space="preserve">
+    <value>Bot DashBoard</value>
+  </data>
+  <data name="lbltotalProcess" xml:space="preserve">
+    <value>Total Executed Processes</value>
+  </data>
+  <data name="LitAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="LitActivityLog" xml:space="preserve">
+    <value>Activity Log</value>
+  </data>
+  <data name="LitAddGroup" xml:space="preserve">
+    <value>Add Group</value>
+  </data>
+  <data name="LitAddons" xml:space="preserve">
+    <value>Addons</value>
+  </data>
+  <data name="LitAddRobot" xml:space="preserve">
+    <value>Add Robot</value>
+  </data>
+  <data name="LitAddRole" xml:space="preserve">
+    <value>Add Role</value>
+  </data>
+  <data name="LitAddSchedule" xml:space="preserve">
+    <value>Add Schedule</value>
+  </data>
+  <data name="LitAddTenant" xml:space="preserve">
+    <value>Add Tenant</value>
+  </data>
+  <data name="LitAddUploadProcess" xml:space="preserve">
+    <value>Add/Upload Process</value>
+  </data>
+  <data name="LitAddUser" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="LitAreyousureyouwantto" xml:space="preserve">
+    <value>Are you sure you want to</value>
+  </data>
+  <data name="LitAssetManagement" xml:space="preserve">
+    <value>Asset Management</value>
+  </data>
+  <data name="LitAssignQueue" xml:space="preserve">
+    <value>Assign Queue</value>
+  </data>
+  <data name="LitAssignRobot" xml:space="preserve">
+    <value>Assign Robot</value>
+  </data>
+  <data name="LitAuditCenter" xml:space="preserve">
+    <value>Audit Center</value>
+  </data>
+  <data name="LitAuditTrail" xml:space="preserve">
+    <value>Audit Trail</value>
+  </data>
+  <data name="LitBOTGOVERNOR" xml:space="preserve">
+    <value>BOT GOVERNOR</value>
+  </data>
+  <data name="LitBotLog" xml:space="preserve">
+    <value>Bot Log</value>
+  </data>
+  <data name="LitBotName" xml:space="preserve">
+    <value>Bot Name</value>
+  </data>
+  <data name="LitBOTS" xml:space="preserve">
+    <value>BOTS</value>
+  </data>
+  <data name="LitButton" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="LitButtonDeleteProcessbyclicking" xml:space="preserve">
+    <value>Button. Delete Process by clicking</value>
+  </data>
+  <data name="LitbuttontochecktheLogs" xml:space="preserve">
+    <value>button to check the Logs.</value>
+  </data>
+  <data name="LitButtontoStartProcessand" xml:space="preserve">
+    <value>Button to Start Process and</value>
+  </data>
+  <data name="LitButtonUploadProcessbyClicking" xml:space="preserve">
+    <value>Button. Upload Process by Clicking</value>
+  </data>
+  <data name="LitCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LitChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="LitCheckQueueMappingandtheTimeofExecutionoftheProcessYoucanalso" xml:space="preserve">
+    <value>Check Queue Mapping and the Time of Execution of the Process. You can also</value>
+  </data>
+  <data name="LitChron" xml:space="preserve">
+    <value>Chron :</value>
+  </data>
+  <data name="LitClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="LitConfigurationManagement" xml:space="preserve">
+    <value>Configuration Management</value>
+  </data>
+  <data name="LitCreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="LitCreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="LitCredentialManager" xml:space="preserve">
+    <value>Credential Manager</value>
+  </data>
+  <data name="LitCronExpression" xml:space="preserve">
+    <value>Cron Expression</value>
+  </data>
+  <data name="LitDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LitDeleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="LitDeleteProcess" xml:space="preserve">
+    <value>Delete Process</value>
+  </data>
+  <data name="LitDeleteProcessDetails" xml:space="preserve">
+    <value>Delete Process Details</value>
+  </data>
+  <data name="LitDeleteProcessPermanently" xml:space="preserve">
+    <value>Delete Process Permanently</value>
+  </data>
+  <data name="LitDeleteQueueDetails" xml:space="preserve">
+    <value>Delete Queue Details</value>
+  </data>
+  <data name="LitDetailLogs" xml:space="preserve">
+    <value>Detail Logs</value>
+  </data>
+  <data name="LitExecutingAutomation" xml:space="preserve">
+    <value>Executing Automation</value>
+  </data>
+  <data name="LitGetMoreAuditTrails" xml:space="preserve">
+    <value>Get More Audit Trails..</value>
+  </data>
+  <data name="LitGroupId" xml:space="preserve">
+    <value>Group Id</value>
+  </data>
+  <data name="LitIsLatest" xml:space="preserve">
+    <value>Is Latest :</value>
+  </data>
+  <data name="LitLogCenter" xml:space="preserve">
+    <value>Log Center</value>
+  </data>
+  <data name="LitLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LitMachineName" xml:space="preserve">
+    <value>Machine Name</value>
+  </data>
+  <data name="LitManageUsers" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="LitPleasePress" xml:space="preserve">
+    <value>Please Press</value>
+  </data>
+  <data name="LitPleaseSelectZipFile" xml:space="preserve">
+    <value>Please Select Zip File :</value>
+  </data>
+  <data name="LitpmDelete" xml:space="preserve">
+    <value>Delete?</value>
+  </data>
+  <data name="LitpmPROCESSES" xml:space="preserve">
+    <value>PROCESSES</value>
+  </data>
+  <data name="LitpmProcessId" xml:space="preserve">
+    <value>Process Id :</value>
+  </data>
+  <data name="LitpmProcessName" xml:space="preserve">
+    <value>Process Name :</value>
+  </data>
+  <data name="LitpmProcessVersion" xml:space="preserve">
+    <value>Process Version :</value>
+  </data>
+  <data name="LitProcess" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="LitProcesses" xml:space="preserve">
+    <value>Processes</value>
+  </data>
+  <data name="LitProcessesFailed" xml:space="preserve">
+    <value>Processes Failed</value>
+  </data>
+  <data name="LitProcessId" xml:space="preserve">
+    <value>Process Id</value>
+  </data>
+  <data name="LitProcessManagement" xml:space="preserve">
+    <value>Process Management</value>
+  </data>
+  <data name="LitProcessName" xml:space="preserve">
+    <value>Process Name</value>
+  </data>
+  <data name="LitProcessVersion" xml:space="preserve">
+    <value>Process Version</value>
+  </data>
+  <data name="LitProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="LitqdBotName" xml:space="preserve">
+    <value> Bot Name :</value>
+  </data>
+  <data name="LitQueingComponents" xml:space="preserve">
+    <value>Queing Components:</value>
+  </data>
+  <data name="LitQueueDetails" xml:space="preserve">
+    <value>Queue Details</value>
+  </data>
+  <data name="LitQueueListener" xml:space="preserve">
+    <value>Queue Listener</value>
+  </data>
+  <data name="LitQueueManagement" xml:space="preserve">
+    <value>Queue Management</value>
+  </data>
+  <data name="LitQueueName" xml:space="preserve">
+    <value>Queue Name :</value>
+  </data>
+  <data name="LitQUEUES" xml:space="preserve">
+    <value>QUEUES</value>
+  </data>
+  <data name="LitReports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="LitReqServedInSession" xml:space="preserve">
+    <value>Req Served In Session</value>
+  </data>
+  <data name="LitSaveZIP" xml:space="preserve">
+    <value>Save ZIP</value>
+  </data>
+  <data name="LitScheduleDetails" xml:space="preserve">
+    <value>Schedule Details</value>
+  </data>
+  <data name="LitScheduledProcesses" xml:space="preserve">
+    <value>Scheduled Processes</value>
+  </data>
+  <data name="LitScheduledQueues" xml:space="preserve">
+    <value>Scheduled Queue's</value>
+  </data>
+  <data name="LitScheduleId" xml:space="preserve">
+    <value>Schedule Id :</value>
+  </data>
+  <data name="LitSchedules" xml:space="preserve">
+    <value>Schedules</value>
+  </data>
+  <data name="LitSelectVersion" xml:space="preserve">
+    <value>Select Version :</value>
+  </data>
+  <data name="LitShowAllLogs" xml:space="preserve">
+    <value>Show All Logs</value>
+  </data>
+  <data name="LitStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="LitSuccessfully" xml:space="preserve">
+    <value>Successfully</value>
+  </data>
+  <data name="LitSuccessfulProcesses" xml:space="preserve">
+    <value>Successful Processes</value>
+  </data>
+  <data name="LitTenantId" xml:space="preserve">
+    <value>Tenant Id</value>
+  </data>
+  <data name="LittheQueuebyClicking" xml:space="preserve">
+    <value>the Queue by Clicking</value>
+  </data>
+  <data name="LitToRobot" xml:space="preserve">
+    <value>To Robot</value>
+  </data>
+  <data name="LitTotalExecutedProcesses" xml:space="preserve">
+    <value>Total Executed Processes</value>
+  </data>
+  <data name="LitToUser" xml:space="preserve">
+    <value>To User</value>
+  </data>
+  <data name="LitTroubleShoot" xml:space="preserve">
+    <value>TroubleShoot</value>
+  </data>
+  <data name="LitUpdateProcessFile" xml:space="preserve">
+    <value>Update Process File</value>
+  </data>
+  <data name="LitUpload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="LitUploadProcessbyclicking" xml:space="preserve">
+    <value>Upload Process by clicking</value>
+  </data>
+  <data name="LitUseLatest" xml:space="preserve">
+    <value>Use Latest</value>
+  </data>
+  <data name="LitUserManagement" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="LitVersion" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="LitWelcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="LitYouareabouttodeletetheprocesspermanentlyDeletedprocesswillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the process permanently.The Deleted process will not be recovered.</value>
+  </data>
+  <data name="LiOfevery" xml:space="preserve">
+    <value>Of every</value>
+  </data>
+  <data name="Lit1SelectBotName" xml:space="preserve">
+    <value>1. Select Bot Name.</value>
+  </data>
+  <data name="Lit2SelectQueueName" xml:space="preserve">
+    <value>2. Select Queue Name.</value>
+  </data>
+  <data name="Lit3SettheScheduleTimeAppointmentTime" xml:space="preserve">
+    <value>3. Set the Schedule Time/Appointment Time.</value>
+  </data>
+  <data name="Lit4SetStopScheduleTimeOptional" xml:space="preserve">
+    <value>4. Set Stop Schedule Time(Optional).</value>
+  </data>
+  <data name="LitADDSCHEDULES" xml:space="preserve">
+    <value>ADD SCHEDULES</value>
+  </data>
+  <data name="LitAdvanced" xml:space="preserve">
+    <value>&amp;nbsp; Advanced &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="LitAppointmentTime" xml:space="preserve">
+    <value> Appointment Time</value>
+  </data>
+  <data name="LitAt" xml:space="preserve">
+    <value>At</value>
+  </data>
+  <data name="LitbtnScheduleUsingProcess" xml:space="preserve">
+    <value>Schedule Using Process</value>
+  </data>
+  <data name="LitbtnScheduleUsingQueue" xml:space="preserve">
+    <value>Schedule Using Queue</value>
+  </data>
+  <data name="LitCompletedProcesses" xml:space="preserve">
+    <value>Completed Processes</value>
+  </data>
+  <data name="LitCreateSchedule" xml:space="preserve">
+    <value>Create Schedule</value>
+  </data>
+  <data name="LitCurrentlyExecutingProcesses" xml:space="preserve">
+    <value>Currently Executing Processes</value>
+  </data>
+  <data name="LitDaily" xml:space="preserve">
+    <value>&amp;nbsp; Daily &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="LitDays" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="LitDeleteProcessDetailsPermanently" xml:space="preserve">
+    <value>Delete Process Details Permanently</value>
+  </data>
+  <data name="LitDeleteQueueDetailsPermanently" xml:space="preserve">
+    <value>Delete Queue Details Permanently</value>
+  </data>
+  <data name="LitFailedExecutingProcesses" xml:space="preserve">
+    <value>Failed Executing Processes</value>
+  </data>
+  <data name="LitFailedProcesses" xml:space="preserve">
+    <value>Failed Processes</value>
+  </data>
+  <data name="LitFriday" xml:space="preserve">
+    <value>&amp;nbsp; Friday</value>
+  </data>
+  <data name="Lithoursand" xml:space="preserve">
+    <value>hours and</value>
+  </data>
+  <data name="LitLogLevel" xml:space="preserve">
+    <value>Log Level</value>
+  </data>
+  <data name="LitLogs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="LitMessageValue" xml:space="preserve">
+    <value>Message Value</value>
+  </data>
+  <data name="Litminutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="LitMonday" xml:space="preserve">
+    <value>&amp;nbsp;Monday</value>
+  </data>
+  <data name="LitMonthly" xml:space="preserve">
+    <value>&amp;nbsp; Monthly &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="Litmonths" xml:space="preserve">
+    <value>month(s)</value>
+  </data>
+  <data name="LitOnevery" xml:space="preserve">
+    <value>On every :</value>
+  </data>
+  <data name="LitPreviouslyExecutedProcesses" xml:space="preserve">
+    <value>Previously Executed Processes</value>
+  </data>
+  <data name="LitSaturday" xml:space="preserve">
+    <value>&amp;nbsp; Saturday</value>
+  </data>
+  <data name="LitScheduleDetailsLogs" xml:space="preserve">
+    <value>Schedule Details Logs</value>
+  </data>
+  <data name="LitScheduledExecutableProcesses" xml:space="preserve">
+    <value>Scheduled Executable Processes</value>
+  </data>
+  <data name="LitScheduleRobotUsingaProcess" xml:space="preserve">
+    <value>Schedule Robot Using a Process</value>
+  </data>
+  <data name="LitScheduleRobotUsingaQueue" xml:space="preserve">
+    <value>Schedule Robot Using a Queue</value>
+  </data>
+  <data name="LitsCronExpression" xml:space="preserve">
+    <value>Cron Expression :</value>
+  </data>
+  <data name="LitsdCronExpression" xml:space="preserve">
+    <value>Cron Expression</value>
+  </data>
+  <data name="LitsdQueueName" xml:space="preserve">
+    <value>Queue Name</value>
+  </data>
+  <data name="LitStopafter" xml:space="preserve">
+    <value>&amp;nbsp; Stop after</value>
+  </data>
+  <data name="LitSunday" xml:space="preserve">
+    <value>&amp;nbsp; Sunday</value>
+  </data>
+  <data name="LitThursday" xml:space="preserve">
+    <value>&amp;nbsp;Thursday</value>
+  </data>
+  <data name="LitTimeStamp" xml:space="preserve">
+    <value>Time Stamp</value>
+  </data>
+  <data name="LitTuesday" xml:space="preserve">
+    <value>&amp;nbsp; Tuesday</value>
+  </data>
+  <data name="LitUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="LitWednesday" xml:space="preserve">
+    <value>&amp;nbsp; Wednesday</value>
+  </data>
+  <data name="LitWeekly" xml:space="preserve">
+    <value>&amp;nbsp; Weekly &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="LitYouareabouttodeletetheprocessdetailspermanentlyDeletedprocessdetailswillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the process details permanently. Deleted process details will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletethequeuedetailspermanentlyDeletedqueuedetailswillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the queue details permanently. Deleted queue details will not be recovered.</value>
+  </data>
+  <data name="Lit1SelectBotNameandQueuetoit" xml:space="preserve">
+    <value>1. Select Bot Name and Queue to it.</value>
+  </data>
+  <data name="Lit2Afterassigningqueuetorobotgoto" xml:space="preserve">
+    <value>2. After assigning queue to robot,go to</value>
+  </data>
+  <data name="LitAccess" xml:space="preserve">
+    <value> Access</value>
+  </data>
+  <data name="LitAccessLevel" xml:space="preserve">
+    <value>Access Level</value>
+  </data>
+  <data name="LitADADDROBOT" xml:space="preserve">
+    <value>ADD ROBOT</value>
+  </data>
+  <data name="LitADBots" xml:space="preserve">
+    <value>Bots,</value>
+  </data>
+  <data name="LitADDASSET" xml:space="preserve">
+    <value> ADD ASSET</value>
+  </data>
+  <data name="LitADDCREDENTIAL" xml:space="preserve">
+    <value> ADD CREDENTIAL</value>
+  </data>
+  <data name="LitAddQueue" xml:space="preserve">
+    <value>Add Queue</value>
+  </data>
+  <data name="LitADDQUEUETOROBOT" xml:space="preserve">
+    <value>ADD QUEUE TO ROBOT</value>
+  </data>
+  <data name="LitADDUSERS" xml:space="preserve">
+    <value>ADD USERS</value>
+  </data>
+  <data name="LitADScheduleDetails" xml:space="preserve">
+    <value>Schedule Details,</value>
+  </data>
+  <data name="LitAGADDGROUP" xml:space="preserve">
+    <value>ADD GROUP</value>
+  </data>
+  <data name="LitAGBotDefaultQueue" xml:space="preserve">
+    <value>Bot Default Queue :</value>
+  </data>
+  <data name="LitAGBots" xml:space="preserve">
+    <value>Bots :</value>
+  </data>
+  <data name="LitAGConfigurationParameters" xml:space="preserve">
+    <value>Configuration Parameters :</value>
+  </data>
+  <data name="LitAGDeleteGroupPermanently" xml:space="preserve">
+    <value>Delete Group Permanently</value>
+  </data>
+  <data name="LitAGGroupId" xml:space="preserve">
+    <value>Group Id :</value>
+  </data>
+  <data name="LitAGGroupName" xml:space="preserve">
+    <value>Group Name :</value>
+  </data>
+  <data name="LitAGProcesses" xml:space="preserve">
+    <value>Processes :</value>
+  </data>
+  <data name="LitAGProcessUploads" xml:space="preserve">
+    <value>Process Uploads :</value>
+  </data>
+  <data name="LitAGRQDetails" xml:space="preserve">
+    <value>RQ Details :</value>
+  </data>
+  <data name="LitAGScheduleDetails" xml:space="preserve">
+    <value>Schedule Details :</value>
+  </data>
+  <data name="LitAGUserBotMapping" xml:space="preserve">
+    <value> User Bot Mapping :</value>
+  </data>
+  <data name="LitAGUsers" xml:space="preserve">
+    <value>Users :</value>
+  </data>
+  <data name="LitAGYouareabouttodeletethegrouppermanentlyDeletedgroupwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the group permanently.Deleted group will not be recovered.</value>
+  </data>
+  <data name="LitAQRQueueName" xml:space="preserve">
+    <value>Queue Name</value>
+  </data>
+  <data name="LitARADDROLE" xml:space="preserve">
+    <value>ADD ROLE</value>
+  </data>
+  <data name="LitAreyousureyouwanttodeleteitfrom" xml:space="preserve">
+    <value>Are you sure you want to delete it from</value>
+  </data>
+  <data name="LitARMachineName" xml:space="preserve">
+    <value>Machine Name :</value>
+  </data>
+  <data name="LitARRoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="LitARUASSIGNROBOTTOUSER" xml:space="preserve">
+    <value>ASSIGN ROBOT TO USER</value>
+  </data>
+  <data name="LitAssetName" xml:space="preserve">
+    <value> Asset Name</value>
+  </data>
+  <data name="LitASSETS" xml:space="preserve">
+    <value> ASSETS</value>
+  </data>
+  <data name="LitAssetValue" xml:space="preserve">
+    <value> Asset Value</value>
+  </data>
+  <data name="LitAssignBotToUser" xml:space="preserve">
+    <value>Assign Bot To User</value>
+  </data>
+  <data name="LitAssignQueueToBot" xml:space="preserve">
+    <value>Assign Queue To Bot</value>
+  </data>
+  <data name="LitASSIGNROBOTTOUSER" xml:space="preserve">
+    <value>ASSIGN ROBOT TO USER</value>
+  </data>
+  <data name="LitATAUDITTRAIL" xml:space="preserve">
+    <value> AUDIT TRAIL</value>
+  </data>
+  <data name="LitAUUserId" xml:space="preserve">
+    <value>User Id :</value>
+  </data>
+  <data name="LitBindingName" xml:space="preserve">
+    <value>Binding Name</value>
+  </data>
+  <data name="LitBLTimeStamp" xml:space="preserve">
+    <value> TimeStamp</value>
+  </data>
+  <data name="LitBotDashboard" xml:space="preserve">
+    <value>Bot Dashboard</value>
+  </data>
+  <data name="LitBotDefaultQueue" xml:space="preserve">
+    <value>Bot Default Queue,</value>
+  </data>
+  <data name="LitBotKey" xml:space="preserve">
+    <value>Bot Key</value>
+  </data>
+  <data name="LitBOTLOGS" xml:space="preserve">
+    <value> BOT LOGS</value>
+  </data>
+  <data name="LitBotPassword" xml:space="preserve">
+    <value>Bot Password</value>
+  </data>
+  <data name="LitBotUserId" xml:space="preserve">
+    <value>Bot User Id</value>
+  </data>
+  <data name="LitbtPurge" xml:space="preserve">
+    <value>Purge</value>
+  </data>
+  <data name="LitClear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="LitCMCONFIGURATIONMANAGEMENT" xml:space="preserve">
+    <value>CONFIGURATION MANAGEMENT</value>
+  </data>
+  <data name="LitCONFIGURATIONDETAILS" xml:space="preserve">
+    <value>CONFIGURATION DETAILS</value>
+  </data>
+  <data name="LitCounts" xml:space="preserve">
+    <value>Counts</value>
+  </data>
+  <data name="LitcParameterName" xml:space="preserve">
+    <value>Parameter Name :</value>
+  </data>
+  <data name="LitcParameterValue" xml:space="preserve">
+    <value>Parameter Value :</value>
+  </data>
+  <data name="LitCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="LitCreateDate" xml:space="preserve">
+    <value>Create Date</value>
+  </data>
+  <data name="LitCredentialName" xml:space="preserve">
+    <value> Credential Name</value>
+  </data>
+  <data name="LitCREDENTIALS" xml:space="preserve">
+    <value> CREDENTIALS</value>
+  </data>
+  <data name="LitDailyStatus" xml:space="preserve">
+    <value> Daily Status</value>
+  </data>
+  <data name="LitDate" xml:space="preserve">
+    <value> Date</value>
+  </data>
+  <data name="LitDeleteAsset" xml:space="preserve">
+    <value> Delete Asset</value>
+  </data>
+  <data name="LitDeleteConfiguration" xml:space="preserve">
+    <value>Delete Configuration</value>
+  </data>
+  <data name="LitDeleteConfigurationPermanently" xml:space="preserve">
+    <value> Delete Configuration Permanently</value>
+  </data>
+  <data name="LitDeleteCredential" xml:space="preserve">
+    <value> Delete Credential</value>
+  </data>
+  <data name="LitDeleteGroup" xml:space="preserve">
+    <value>Delete Group</value>
+  </data>
+  <data name="LitDeleteQueue" xml:space="preserve">
+    <value>Delete Queue</value>
+  </data>
+  <data name="LitDeleteQueuePermanently" xml:space="preserve">
+    <value> Delete Queue Permanently</value>
+  </data>
+  <data name="LitDeleteQueueToRobot" xml:space="preserve">
+    <value> Delete Queue To Robot</value>
+  </data>
+  <data name="LitDeleteQueueToRobotPermanently" xml:space="preserve">
+    <value>Delete Queue To Robot Permanently</value>
+  </data>
+  <data name="LitDeleteRobot" xml:space="preserve">
+    <value>Delete Robot</value>
+  </data>
+  <data name="LitDeleteRobotPermanently" xml:space="preserve">
+    <value>Delete Robot Permanently</value>
+  </data>
+  <data name="LitDeleteRobotToUser" xml:space="preserve">
+    <value> Delete Robot To User</value>
+  </data>
+  <data name="LitDeleteUserPermanently" xml:space="preserve">
+    <value>Delete User Permanently</value>
+  </data>
+  <data name="LitDeletUser" xml:space="preserve">
+    <value>Delet User</value>
+  </data>
+  <data name="LitDetailLog" xml:space="preserve">
+    <value>Detail Log</value>
+  </data>
+  <data name="LitDetails" xml:space="preserve">
+    <value> Details</value>
+  </data>
+  <data name="LitDomainName" xml:space="preserve">
+    <value>Domain Name</value>
+  </data>
+  <data name="LitDomainNameUserName" xml:space="preserve">
+    <value> Domain Name/User Name</value>
+  </data>
+  <data name="LitE2EBOTSLogin" xml:space="preserve">
+    <value>E2E BOTS - Login</value>
+  </data>
+  <data name="LitEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="LitExchangeName" xml:space="preserve">
+    <value>Exchange Name</value>
+  </data>
+  <data name="LitForgotPassword" xml:space="preserve">
+    <value> Forgot Password?</value>
+  </data>
+  <data name="LitGroupName" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+  <data name="LitGROUPS" xml:space="preserve">
+    <value>GROUPS</value>
+  </data>
+  <data name="LitLog" xml:space="preserve">
+    <value> Log</value>
+  </data>
+  <data name="LitLogin" xml:space="preserve">
+    <value> Login</value>
+  </data>
+  <data name="LitMessage" xml:space="preserve">
+    <value> Message</value>
+  </data>
+  <data name="LitMessagingDetails" xml:space="preserve">
+    <value>Messaging Details :</value>
+  </data>
+  <data name="LitMonthlyStatus" xml:space="preserve">
+    <value> Monthly Status</value>
+  </data>
+  <data name="LitNote" xml:space="preserve">
+    <value>Note :</value>
+  </data>
+  <data name="LitPageAccess" xml:space="preserve">
+    <value>Page Access</value>
+  </data>
+  <data name="LitParameterName" xml:space="preserve">
+    <value>Parameter Name</value>
+  </data>
+  <data name="LitParameterValue" xml:space="preserve">
+    <value> Parameter Value</value>
+  </data>
+  <data name="LitPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LitPromoteDemoteAutomation" xml:space="preserve">
+    <value>Promote Demote Automation</value>
+  </data>
+  <data name="LitPurge" xml:space="preserve">
+    <value>Purge?</value>
+  </data>
+  <data name="LitPurgeQueue" xml:space="preserve">
+    <value> Purge Queue</value>
+  </data>
+  <data name="LitPurgeQueuePermanently" xml:space="preserve">
+    <value>Purge Queue Permanently</value>
+  </data>
+  <data name="LitQrtzCronTriggers" xml:space="preserve">
+    <value>Qrtz Cron Triggers?</value>
+  </data>
+  <data name="LitQrtzJobDetailsand" xml:space="preserve">
+    <value>Qrtz Job Details and</value>
+  </data>
+  <data name="LitQrtzTriggers" xml:space="preserve">
+    <value>Qrtz Triggers,</value>
+  </data>
+  <data name="LitRead" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="LitRememberMe" xml:space="preserve">
+    <value> Remember Me</value>
+  </data>
+  <data name="LitRobotName" xml:space="preserve">
+    <value>Robot Name :</value>
+  </data>
+  <data name="LitROBOTS" xml:space="preserve">
+    <value> ROBOTS</value>
+  </data>
+  <data name="LitRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="LitROLES" xml:space="preserve">
+    <value> ROLES</value>
+  </data>
+  <data name="LitRoleType" xml:space="preserve">
+    <value>Role Type</value>
+  </data>
+  <data name="LitSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LitSchedule" xml:space="preserve">
+    <value>Schedule :</value>
+  </data>
+  <data name="LitTenantName" xml:space="preserve">
+    <value>Tenant Name</value>
+  </data>
+  <data name="Littoconfigureyourrobotwithuser" xml:space="preserve">
+    <value>to configure your robot with user.</value>
+  </data>
+  <data name="LitUserBotMapping" xml:space="preserve">
+    <value>User Bot Mapping,</value>
+  </data>
+  <data name="LitUserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+  <data name="LitUSERS" xml:space="preserve">
+    <value>USERS</value>
+  </data>
+  <data name="LitWeeklyStatus" xml:space="preserve">
+    <value> Weekly Status</value>
+  </data>
+  <data name="LitWelcomeBack" xml:space="preserve">
+    <value> Welcome Back!</value>
+  </data>
+  <data name="LitWhiledeletingthisrobotyouwillbealsodeletingallthemappingstothisrobot" xml:space="preserve">
+    <value>While deleting this robot,you will be also deleting all the mappings to this robot.</value>
+  </data>
+  <data name="LitYouareabouttodeletetheconfigurationpermanentlyDeletedconfigurationwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the configuration permanently.Deleted configuration will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletethegrouppermanentlyDeletedgroupwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the group permanently.Deleted group will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletetheQueuepermanentlyDeletedQueuewillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the Queue permanently.Deleted Queue will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletethequeuetorobotpermanentlyDeletedqueuetorobotwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the queue to robot permanently.Deleted queue to robot will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletetherobotpermanentlyDeletedrobotwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the robot permanently. Deleted robot will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletetherobottouserpermanentlyDeletedrobottouserwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the robot to user permanently.Deleted  robot to user will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttodeletetheuserpermanentlyDeleteduserwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the user permanently. Deleted user will not be recovered.</value>
+  </data>
+  <data name="LitYouareabouttoPurgetheQueuepermanentlyPurgeQueuewillnotberecovered" xml:space="preserve">
+    <value>You are about to Purge the Queue permanently.Purge Queue will not be recovered.</value>
+  </data>
+  <data name="Litbelowifyouarereadytoendyourcurrentsession" xml:space="preserve">
+    <value>below if you are ready to end your current session.</value>
+  </data>
+  <data name="LitChangeYourPassWord" xml:space="preserve">
+    <value> Change Your PassWord</value>
+  </data>
+  <data name="LitCreateanAccount" xml:space="preserve">
+    <value> Create an Account!</value>
+  </data>
+  <data name="LitlogChangePassword" xml:space="preserve">
+    <value> Change Password</value>
+  </data>
+  <data name="LitlogPassword" xml:space="preserve">
+    <value> Password :</value>
+  </data>
+  <data name="LitNEW" xml:space="preserve">
+    <value> NEW</value>
+  </data>
+  <data name="LitOLD" xml:space="preserve">
+    <value> OLD</value>
+  </data>
+  <data name="LitPleaseEnter" xml:space="preserve">
+    <value> Please Enter</value>
+  </data>
+  <data name="LitPopLogout" xml:space="preserve">
+    <value>"Logout"</value>
+  </data>
+  <data name="LitReadytoLeave" xml:space="preserve">
+    <value> Ready to Leave?</value>
+  </data>
+  <data name="LitReEnter" xml:space="preserve">
+    <value> Re-Enter</value>
+  </data>
+  <data name="LitSelect" xml:space="preserve">
+    <value> Select</value>
+  </data>
+  <data name="LitUserGroupId" xml:space="preserve">
+    <value> User Group Id</value>
+  </data>
+  <data name="LitUserRole" xml:space="preserve">
+    <value> User Role</value>
+  </data>
+  <data name="LitUserTenantId" xml:space="preserve">
+    <value> User Tenant Id</value>
+  </data>
+  <data name="LitUserVersion" xml:space="preserve">
+    <value> User Version</value>
+  </data>
+  <data name="LitYourCredentials" xml:space="preserve">
+    <value> Your Credentials</value>
+  </data>
+  <data name="LitAccesshasbeenUpdatedforUser" xml:space="preserve">
+    <value>Access has been Updated for User :</value>
+  </data>
+  <data name="LitACCESSUPDATEDSUCCESSFULLY" xml:space="preserve">
+    <value> ACCESS UPDATED SUCCESSFULLY</value>
+  </data>
+  <data name="LitAccessupdationFailedforUser" xml:space="preserve">
+    <value> Access updation Failed for User</value>
+  </data>
+  <data name="LitAddNewTenant" xml:space="preserve">
+    <value> Add New Tenant</value>
+  </data>
+  <data name="LitADDTENANTS" xml:space="preserve">
+    <value> ADD TENANTS</value>
+  </data>
+  <data name="Litalreadyexist" xml:space="preserve">
+    <value>already exist!</value>
+  </data>
+  <data name="LitATBotDefaultQueue" xml:space="preserve">
+    <value> Bot Default Queue :</value>
+  </data>
+  <data name="LitATBots" xml:space="preserve">
+    <value> Bots :</value>
+  </data>
+  <data name="LitATConfigurationParameters" xml:space="preserve">
+    <value> Configuration Parameters :</value>
+  </data>
+  <data name="LitATGroups" xml:space="preserve">
+    <value> Groups :</value>
+  </data>
+  <data name="LitATMessagingDetails" xml:space="preserve">
+    <value> Messaging Details :</value>
+  </data>
+  <data name="LitATProcesses" xml:space="preserve">
+    <value> Processes :</value>
+  </data>
+  <data name="LitATProcessUploads" xml:space="preserve">
+    <value> Process Uploads :</value>
+  </data>
+  <data name="LitATRQDetails" xml:space="preserve">
+    <value> RQ Details :</value>
+  </data>
+  <data name="LitATScheduleDetails" xml:space="preserve">
+    <value> Schedule Details :</value>
+  </data>
+  <data name="LitATUserBotMapping" xml:space="preserve">
+    <value> User Bot Mapping :</value>
+  </data>
+  <data name="LitATUsers" xml:space="preserve">
+    <value> Users :</value>
+  </data>
+  <data name="Litcouldnotbedeleted" xml:space="preserve">
+    <value>could not be deleted!</value>
+  </data>
+  <data name="LitDeleteTenant" xml:space="preserve">
+    <value> Delete Tenant</value>
+  </data>
+  <data name="LitFAILEDADDINGSCHEDULE" xml:space="preserve">
+    <value> FAILED ADDING SCHEDULE</value>
+  </data>
+  <data name="LitFAILEDTOADDUSER" xml:space="preserve">
+    <value> FAILED TO ADD USER</value>
+  </data>
+  <data name="LitFAILEDTODELETEPROCESS" xml:space="preserve">
+    <value> FAILED TO DELETE PROCESS</value>
+  </data>
+  <data name="LitFAILEDTODELETETENANT" xml:space="preserve">
+    <value>FAILED TO DELETE TENANT!</value>
+  </data>
+  <data name="LitFAILEDTODELETEUSER" xml:space="preserve">
+    <value> FAILED TO DELETE USER</value>
+  </data>
+  <data name="LitFAILEDTOUPDATEACCESS" xml:space="preserve">
+    <value> FAILED TO UPDATE ACCESS</value>
+  </data>
+  <data name="LitFAILEDTOUPLOADPROCESS" xml:space="preserve">
+    <value> FAILED TO UPLOAD PROCESS</value>
+  </data>
+  <data name="Lithasbeenaddedsuccessfully" xml:space="preserve">
+    <value>has been added successfully!</value>
+  </data>
+  <data name="Lithasbeendeletedsuccessfully" xml:space="preserve">
+    <value> has been deleted successfully!</value>
+  </data>
+  <data name="Lithasbeenupdatedwithitsversion" xml:space="preserve">
+    <value>has been updated with its version</value>
+  </data>
+  <data name="Lithasbeenuploadedsuccessfully" xml:space="preserve">
+    <value>has been uploaded successfully!</value>
+  </data>
+  <data name="LithasfailedtoAddSchedule" xml:space="preserve">
+    <value>has failed to Add Schedule!</value>
+  </data>
+  <data name="LithasFailedtoAddtoDataBase" xml:space="preserve">
+    <value>has Failed to Add to DataBase!</value>
+  </data>
+  <data name="LithasFailedtoDelete" xml:space="preserve">
+    <value> has Failed to Delete!</value>
+  </data>
+  <data name="Lithasnotbeenadded" xml:space="preserve">
+    <value> has not been added!</value>
+  </data>
+  <data name="Lithasnotbeenupdatedwithitsversion" xml:space="preserve">
+    <value>has not been updated with its version</value>
+  </data>
+  <data name="LitInvalid" xml:space="preserve">
+    <value> InValid Credentials</value>
+  </data>
+  <data name="LitLOGOUTSUCCESSFULLY" xml:space="preserve">
+    <value> LOGOUT SUCCESSFULLY</value>
+  </data>
+  <data name="LitNOPROCESSUPDATED" xml:space="preserve">
+    <value> NO PROCESS UPDATED</value>
+  </data>
+  <data name="LitOldPasswordIsIncorrect" xml:space="preserve">
+    <value> Old Password Is Incorrect</value>
+  </data>
+  <data name="LitOwner" xml:space="preserve">
+    <value> Owner</value>
+  </data>
+  <data name="LitPleaseEnterAppointmenttime" xml:space="preserve">
+    <value> Please Enter Appointment time</value>
+  </data>
+  <data name="LitPleaseEnterBotname" xml:space="preserve">
+    <value>Please Enter Bot name</value>
+  </data>
+  <data name="LitPleaseEnterdetails" xml:space="preserve">
+    <value>Please Enter details</value>
+  </data>
+  <data name="LitPleaseEnterMonth" xml:space="preserve">
+    <value> Please Enter Month</value>
+  </data>
+  <data name="LitPleaseEnterProcessname" xml:space="preserve">
+    <value>Please Enter Process name</value>
+  </data>
+  <data name="LitPleaseEnterQueuename" xml:space="preserve">
+    <value> Please Enter Queue name</value>
+  </data>
+  <data name="LitPleaseEnterrequiredfields" xml:space="preserve">
+    <value>Please Enter required fields</value>
+  </data>
+  <data name="LitPleaseEnterStopaftertime" xml:space="preserve">
+    <value>Please Enter Stop after time</value>
+  </data>
+  <data name="LitPleaseLoginAgain" xml:space="preserve">
+    <value> Please Login Again</value>
+  </data>
+  <data name="LitPleaseSelectatleastoneday" xml:space="preserve">
+    <value>Please Select at least one day</value>
+  </data>
+  <data name="LitPROCESSDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>PROCESS DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="LitPROCESSUPLOADEDSUCCESSFULLY" xml:space="preserve">
+    <value> PROCESS UPLOADED SUCCESSFULLY</value>
+  </data>
+  <data name="LitRSuccessfully" xml:space="preserve">
+    <value> Successfully!</value>
+  </data>
+  <data name="LitSaveAdminDetails" xml:space="preserve">
+    <value> Save Admin Details</value>
+  </data>
+  <data name="LitSCHEDULEADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>SCHEDULE ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="LitScheduleforBot" xml:space="preserve">
+    <value> Schedule for Bot</value>
+  </data>
+  <data name="LitScheduleforProcess" xml:space="preserve">
+    <value> Schedule for Process</value>
+  </data>
+  <data name="LitSESSIONEXPIRED" xml:space="preserve">
+    <value>SESSION EXPIRED!</value>
+  </data>
+  <data name="LitSwalDELETEPROCESS" xml:space="preserve">
+    <value> DELETE PROCESS</value>
+  </data>
+  <data name="LitTATenantId" xml:space="preserve">
+    <value> Tenant Id :</value>
+  </data>
+  <data name="LitTATenantName" xml:space="preserve">
+    <value> Tenant Name :</value>
+  </data>
+  <data name="LitTENANTADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>TENANT ADDED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitTENANTADDINGFAILED" xml:space="preserve">
+    <value> TENANT ADDING FAILED!</value>
+  </data>
+  <data name="Littenantand" xml:space="preserve">
+    <value> tenant and</value>
+  </data>
+  <data name="LitTENANTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value> TENANT DELETED SUCCESSFULLY!</value>
+  </data>
+  <data name="Littenantisnotactive" xml:space="preserve">
+    <value> tenant is not active</value>
+  </data>
+  <data name="LitTenantMasterAdmin" xml:space="preserve">
+    <value>with Tenant Master Admin  </value>
+  </data>
+  <data name="LitTENANTNAMEALREADYEXIST" xml:space="preserve">
+    <value>TENANT NAME ALREADY EXIST!</value>
+  </data>
+  <data name="LitTENANTS" xml:space="preserve">
+    <value> TENANTS</value>
+  </data>
+  <data name="LitTherewasanExceptionwhileUploadingaProcessPleasecontactAdmin" xml:space="preserve">
+    <value>There was an Exception while Uploading a Process. Please contact Admin.</value>
+  </data>
+  <data name="LitUser" xml:space="preserve">
+    <value> User</value>
+  </data>
+  <data name="LitUSERADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>USER ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="Lituserarenotactive" xml:space="preserve">
+    <value> user is not active</value>
+  </data>
+  <data name="LitUSERDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value> USER DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="Lituserisnotactive" xml:space="preserve">
+    <value> user is not active</value>
+  </data>
+  <data name="LitWelcomeEnd" xml:space="preserve">
+    <value>"&lt;/strong&gt; You have been signed in successfully! &lt;button type ='button' class='close' data-dismiss='alert' aria-label='Close'&gt; &lt;span aria-hidden='true'&gt;&amp;times; &lt;/span&gt; &lt;/button&gt; &lt;/div&gt;"</value>
+  </data>
+  <data name="LitWelcomeStart" xml:space="preserve">
+    <value>&lt;div class='alert alert1 alert-success alert - dismissible' role='alert'&gt;Welcome  &lt;strong&gt;"</value>
+  </data>
+  <data name="LitwithBotName" xml:space="preserve">
+    <value> with Bot Name</value>
+  </data>
+  <data name="LitwithChron" xml:space="preserve">
+    <value> with Chron</value>
+  </data>
+  <data name="LitwithID" xml:space="preserve">
+    <value> with ID :</value>
+  </data>
+  <data name="LitwithVersion" xml:space="preserve">
+    <value> with Version :</value>
+  </data>
+  <data name="LitYouareabouttodeletethetenantpermanentlyDeletedtenantwillnotberecovered" xml:space="preserve">
+    <value>You are about to delete the tenant permanently.Deleted tenant will not be recovered.</value>
+  </data>
+  <data name="LitYouareredirectedtoDashBoardPage" xml:space="preserve">
+    <value> You are redirected to DashBoard Page</value>
+  </data>
+  <data name="LitYouareredirectedtoLoginPage" xml:space="preserve">
+    <value> You are redirected to Login Page</value>
+  </data>
+  <data name="LitYoudonothaveaccesstothisPageYouaremakinganUnauthorizedAccess" xml:space="preserve">
+    <value>You do not have access to this Page. You are making an Unauthorized Access.</value>
+  </data>
+  <data name="LitYourpasswordhasbeenchangedsuccessfully" xml:space="preserve">
+    <value>Your password has been changed successfully!</value>
+  </data>
+  <data name="LitE2EBOTS" xml:space="preserve">
+    <value>E2E BOTS</value>
+  </data>
+  <data name="LitAccesshasbeenupdatedsuccessfully" xml:space="preserve">
+    <value>Access has been updated successfully!</value>
+  </data>
+  <data name="LitAccesshasnotbeenUpdatedsuccessfully" xml:space="preserve">
+    <value>Access has not been Updated successfully!</value>
+  </data>
+  <data name="LitassignedtoBot" xml:space="preserve">
+    <value>assigned to Bot :</value>
+  </data>
+  <data name="LitENTERREQUIREDFIELDS" xml:space="preserve">
+    <value>ENTER REQUIRED FIELDS!</value>
+  </data>
+  <data name="LitEXCEPTIONWHILEDELETINGROBOT" xml:space="preserve">
+    <value>EXCEPTION WHILE DELETING ROBOT</value>
+  </data>
+  <data name="LitFAILEDDELETONOFUSERMAPPINGWITHROBOT" xml:space="preserve">
+    <value>FAILED DELETON OF USER MAPPING WITH ROBOT!</value>
+  </data>
+  <data name="LitFAILEDGROUPADDITION" xml:space="preserve">
+    <value>FAILED GROUP ADDITION!</value>
+  </data>
+  <data name="LitFAILEDROLEADDITION" xml:space="preserve">
+    <value>FAILED ROLE ADDITION!</value>
+  </data>
+  <data name="LitFAILEDTOASSIGNROBOT" xml:space="preserve">
+    <value>FAILED TO ASSIGN ROBOT!</value>
+  </data>
+  <data name="LitGROUPADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>GROUP ADDED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitGROUPENABLEDISABLEFAILED" xml:space="preserve">
+    <value>GROUP ENABLE/DISABLE FAILED</value>
+  </data>
+  <data name="LitGROUPNAMEDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>GROUP NAME DELETED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitGROUPNAMENOTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>GROUP NAME NOT DELETED SUCCESSFULLY!</value>
+  </data>
+  <data name="Lithasbeenmappedsuccessfully" xml:space="preserve">
+    <value>has been mapped successfully!</value>
+  </data>
+  <data name="Lithasbeennotupdatedsuccessfully" xml:space="preserve">
+    <value>has been not updated successfully!</value>
+  </data>
+  <data name="Lithasbeenupdatedsuccessfully" xml:space="preserve">
+    <value>has been updated successfully!</value>
+  </data>
+  <data name="Lithasbeenupdatesuccessfully" xml:space="preserve">
+    <value> has been update successfully !</value>
+  </data>
+  <data name="Lithasnotbeenenabledisablesuccessfully" xml:space="preserve">
+    <value>has not been enable/disable successfully!</value>
+  </data>
+  <data name="Lithasnotbeenmappedsuccessfully" xml:space="preserve">
+    <value>has not been mapped successfully!</value>
+  </data>
+  <data name="Lithasnotupdatesuccessfully" xml:space="preserve">
+    <value> has not update successfully</value>
+  </data>
+  <data name="Litissuccessfully" xml:space="preserve">
+    <value>is successfully!</value>
+  </data>
+  <data name="LitMandatoryFieldsarenotselected" xml:space="preserve">
+    <value>Mandatory Fields are not selected</value>
+  </data>
+  <data name="LitPleasecontactAdminforDeletionException" xml:space="preserve">
+    <value>Please contact Admin for Deletion Exception</value>
+  </data>
+  <data name="LitPleaseEnterbotdetails" xml:space="preserve">
+    <value>Please Enter bot details</value>
+  </data>
+  <data name="LitPleaseselectanotherqueuename" xml:space="preserve">
+    <value>Please select another queue name</value>
+  </data>
+  <data name="LitPLEASESELECTREQUIREDFIELDS" xml:space="preserve">
+    <value>PLEASE SELECT REQUIRED FIELDS!</value>
+  </data>
+  <data name="LitQUEUEALREADYASSIGNE" xml:space="preserve">
+    <value>QUEUE ALREADY ASSIGNE!</value>
+  </data>
+  <data name="LitQUEUEASSIGNEDSUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE ASSIGNED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitQUEUEMAPPINGWITHROBOTDELETEDFALED" xml:space="preserve">
+    <value>QUEUE MAPPING WITH ROBOT DELETED FALED!</value>
+  </data>
+  <data name="LitQUEUEMAPPINGWITHROBOTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE MAPPING WITH ROBOT DELETED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitQUEUENOTUPDATESUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE NOT UPDATE SUCCESSFULLY!</value>
+  </data>
+  <data name="LitQUEUEUPDATESUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE UPDATE SUCCESSFULLY!</value>
+  </data>
+  <data name="LitROBOTADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>ROBOT ADDED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitROBOTASSIGNEDTOUSERSUCCESSFULLY" xml:space="preserve">
+    <value>ROBOT ASSIGNED TO USER SUCCESSFULLY!</value>
+  </data>
+  <data name="LitROBOTDELETEDFALED" xml:space="preserve">
+    <value> ROBOT DELETED FALED !</value>
+  </data>
+  <data name="LitROBOTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value> ROBOT DELETED SUCCESSFULLY !</value>
+  </data>
+  <data name="LitROBOTFAILEDTOADDED" xml:space="preserve">
+    <value>ROBOT FAILED TO ADDED !</value>
+  </data>
+  <data name="LitRobotrName" xml:space="preserve">
+    <value> Robot Name</value>
+  </data>
+  <data name="LitROLEADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>ROLE ADDED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitROLENOTUPDATEDSUCCESSFULLY" xml:space="preserve">
+    <value> ROLE NOT UPDATED SUCCESSFULLY</value>
+  </data>
+  <data name="LitROLEUPDATEDSUCCESSFULLY" xml:space="preserve">
+    <value> ROLE UPDATED SUCCESSFULLY</value>
+  </data>
+  <data name="LitScheduleforQueue" xml:space="preserve">
+    <value>Schedule for Queue</value>
+  </data>
+  <data name="LitSuccess" xml:space="preserve">
+    <value>&lt;div class='alert alert-success alert - dismissible fade show' role='alert'&gt;  &lt;strong&gt;Queue has been assigned to robot successfully,go to &lt;/strong&gt;&lt;a href='./AssignRobotToUser.aspx' class='alert-link'&gt; ASSIGNROBOTTOUSER &lt;/a&gt;&lt;strong&gt; to configure robot with user.&lt;/strong&gt; &lt;button type ='button' class='close' data-dismiss='alert' aria-label='Close'&gt; &lt;span aria-hidden='true'&gt;&amp;times; &lt;/span&gt; &lt;/button&gt; &lt;/div&gt;</value>
+  </data>
+  <data name="LitUserAName" xml:space="preserve">
+    <value> User Name</value>
+  </data>
+  <data name="LitUSERMAPPINGWITHROBOTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>USER MAPPING WITH ROBOT DELETED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitwithMachineName" xml:space="preserve">
+    <value>with Machine Name :</value>
+  </data>
+  <data name="LitwithQueueName" xml:space="preserve">
+    <value>with Queue Name :</value>
+  </data>
+  <data name="LitwithRole" xml:space="preserve">
+    <value> with Role :</value>
+  </data>
+  <data name="LitwithUserName" xml:space="preserve">
+    <value>with User Name :</value>
+  </data>
+  <data name="LitYoudonthaveaccesstoDELETEthisRobotUserMapping" xml:space="preserve">
+    <value>You dont have access to DELETE this Robot User Mapping.</value>
+  </data>
+  <data name="LitAsset" xml:space="preserve">
+    <value> Asset</value>
+  </data>
+  <data name="LitASSETDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>ASSET DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="LitASSETDETAILSADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>ASSET DETAILS ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="LitASSETNAMEMAYALREADYPRESENT" xml:space="preserve">
+    <value>ASSET NAME MAY ALREADY PRESENT</value>
+  </data>
+  <data name="LitCONFIGURATIONADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>CONFIGURATION ADDED SUCCESSFULLY!</value>
+  </data>
+  <data name="LitConfigurationName" xml:space="preserve">
+    <value> Configuration Name</value>
+  </data>
+  <data name="LitCREDENTIAL" xml:space="preserve">
+    <value> CREDENTIAL</value>
+  </data>
+  <data name="LitCredentialDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>Credential DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="LitCREDENTIALDETAILSADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>CREDENTIAL DETAILS ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="LitFAILEDTOADDASSETDETAILS" xml:space="preserve">
+    <value> FAILED TO ADD ASSET DETAILS</value>
+  </data>
+  <data name="LitFAILEDTOADDCONFIGURATION" xml:space="preserve">
+    <value>FAILED TO ADD CONFIGURATION</value>
+  </data>
+  <data name="LitFAILEDTOADDCREDENTIALDETAILS" xml:space="preserve">
+    <value>FAILED TO ADD CREDENTIAL DETAILS</value>
+  </data>
+  <data name="LitFAILEDTODELETEASSET" xml:space="preserve">
+    <value> FAILED TO DELETE ASSET</value>
+  </data>
+  <data name="LitFAILEDTODELETECONFIGURATION" xml:space="preserve">
+    <value> FAILED TO DELETE CONFIGURATION</value>
+  </data>
+  <data name="LitFAILEDTODELETECREDENTIAL" xml:space="preserve">
+    <value>FAILED TO DELETE CREDENTIAL</value>
+  </data>
+  <data name="LitnotaddedSuccessfully" xml:space="preserve">
+    <value> not added Successfully</value>
+  </data>
+  <data name="LitnotpurgeSuccessfully" xml:space="preserve">
+    <value>not purge Successfully!</value>
+  </data>
+  <data name="LitPURGESuccessfully" xml:space="preserve">
+    <value> PURGE Successfully!</value>
+  </data>
+  <data name="LitQUEUEADDEDSUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE  ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="LitQUEUEDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="LitQUEUENOTADDEDSUCCESSFULLY" xml:space="preserve">
+    <value> QUEUE NOT ADDED SUCCESSFULLY</value>
+  </data>
+  <data name="LitQUEUENOTDELETEDSUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE NOT DELETED SUCCESSFULLY</value>
+  </data>
+  <data name="LitQUEUENOTPURGESUCCESSFULLY" xml:space="preserve">
+    <value>QUEUE NOT PURGE SUCCESSFULLY</value>
+  </data>
+  <data name="LitQUEUEPURGESUCCESSFULLY" xml:space="preserve">
+    <value> QUEUE PURGE SUCCESSFULLY</value>
+  </data>
+  <data name="LitUSERNAMEMAYALREADYPRESENT" xml:space="preserve">
+    <value>USER NAME MAY ALREADY PRESENT</value>
+  </data>
+</root>

@@ -1,0 +1,78 @@
+﻿#accordionSidebar {
+    background-position: center;
+    background-color: #0275d8;
+   
+}
+.txt {
+    background-position: center;
+    color: #007bff;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #4e5165;
+}
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+        color: #b7b9cc;
+    }
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+        color: #858796;
+    }
+.table-hover tbody tr:hover {
+    color: blue;
+}
+
+.ddlstyle {
+    background-color: #f8f9fa;
+    backface-visibility: hidden;
+    border: none;
+    color: rgb(33,33,00);
+    font-size: 14px;
+    vertical-align: middle;
+}
+.footerD {
+    background-color: #0275d8;
+}
+
+.copyright {
+    color: rgba(255,255,255,.8);
+}
+.sidebar-dark .sidebar-heading {
+    color: rgba(255,255,255,.8);
+}
+
+.poptxt {
+    color: #0275d8;
+    
+}
+
+.ddltext {
+    background-color: #0275d8;
+    color: white;
+}
+.txtFont {
+    font-size:14px;
+}
+.TableHeaderFont {
+    font-size: 16px;
+}
+a.active {
+    background: border-box;
+    background-color: #311B92;
+    opacity: 0.6;
+    padding: 4px;
+}
+.sidebar .nav-item.active .nav-link {
+    font-weight: 700;
+    background: border-box;
+    background-color: white;
+    color: #0275d8;
+    
+    padding: 10px;
+}
+.sidebar .nav-item.active .nav-link .fas {
+    color: #0275d8;
+ }
+.poptxtdata {
+    color: #0275d8;
+}

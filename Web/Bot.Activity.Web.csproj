@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F8B9D30-7F3B-42EC-A8BE-C98A2484978C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Bot.Activity.Web</RootNamespace>
+    <AssemblyName>Web Activities</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Activities.Build" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>E:\Work\Live\InternetExplorerPlugin\bin\Debug\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityDesigner2.xaml.cs">
+      <DependentUpon>ActivityDesigner2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AttachFrameActivity.cs" />
+    <Compile Include="AttachFrameDesigner.xaml.cs">
+      <DependentUpon>AttachFrameDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragAndDrop.cs" />
+    <Compile Include="DragAndDrop_ActivityDesigner.xaml.cs">
+      <DependentUpon>DragAndDrop_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExecuteJavaScript.cs" />
+    <Compile Include="GetTable.cs" />
+    <Compile Include="GetXPath.cs" />
+    <Compile Include="LinkClickByTextActivityDesigner.xaml.cs">
+      <DependentUpon>LinkClickByTextActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenWebapplicationActivityDesigner.xaml.cs">
+      <DependentUpon>OpenWebapplicationActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LinkClickByText.cs" />
+    <Compile Include="SeleniumEventHandler.cs" />
+    <Compile Include="WebControlProperties.cs" />
+    <Compile Include="WebControlProperties1.xaml.cs">
+      <DependentUpon>WebControlProperties1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebElementExistActivityDesigner.xaml.cs">
+      <DependentUpon>WebElementExistActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebHelper.cs" />
+    <Compile Include="WebSlider.cs" />
+    <Compile Include="WebSlider_ActivityDesigner.xaml.cs">
+      <DependentUpon>WebSlider_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_ElementExists.cs" />
+    <Compile Include="Web_ElementExists_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_ElementExists_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_ExecuteJavaScript_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_ExecuteJavaScript_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_GetElement.cs" />
+    <Compile Include="Web_GetElement_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_GetElement_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_GetTable_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_GetTable_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_GoTo.cs" />
+    <Compile Include="Web_GoTo_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_GoTo_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web_ScrollPage.cs" />
+    <Compile Include="Web_ScrollPage_ActivityDesigner.xaml.cs">
+      <DependentUpon>Web_ScrollPage_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XPathWebWindow.xaml.cs">
+      <DependentUpon>XPathWebWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ActivityDesigner2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AttachFrameDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DragAndDrop_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LinkClickByTextActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpenWebApplication1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="BaseNativeActivity.cs" />
+    <Compile Include="Web.cs" />
+    <Compile Include="CommonWebBrowser.cs" />
+    <Compile Include="OpenWebApplication.cs" />
+    <Compile Include="OpenWebApplication1.xaml.cs">
+      <DependentUpon>OpenWebApplication1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="OpenWebapplicationActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WebControlProperties1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WebElementExistActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WebSlider_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_ElementExists_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_ExecuteJavaScript_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_GetElement_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_GetTable_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_GoTo_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web_ScrollPage_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XPathWebWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b2b0bd5b-2f01-49f5-8848-c426b91e33d7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{03ce7420-f2b5-4ad2-ab80-317de1d6d59b}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MouseKeyHook\MouseKeyHook.csproj">
+      <Project>{f52aa97e-180a-40ed-8f2b-09080171d6c7}</Project>
+      <Name>MouseKeyHook</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AttachFrame2.png" />
+    <Resource Include="Resources\WebControlProperties2.png" />
+    <Resource Include="Resources\WebElementExists2.png" />
+    <Resource Include="Resources\WebExecuteJavaScript2.png" />
+    <Resource Include="Resources\WebGetElement2.png" />
+    <Resource Include="Resources\WebGetTable2.png" />
+    <Resource Include="Resources\WebGoTo2.png" />
+    <Resource Include="Resources\WebLinkByText2.png" />
+    <Resource Include="Resources\WebOpenApplication2.png" />
+    <Resource Include="Resources\WebScrollPage2.png" />
+    <Resource Include="Resources\WebSlider2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AttachFrame.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebControlProperties.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebElementExists.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebExecuteJavaScript.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebGetElement.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebGetTable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebGoTo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebLinkByText.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebOpenApplication.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebScrollPage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebSlider.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.85.0.0\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.85.0.0\build\Selenium.Chrome.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.85.0.0\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.85.0.0\build\Selenium.Chrome.WebDriver.targets'))" />
+  </Target>
+</Project>

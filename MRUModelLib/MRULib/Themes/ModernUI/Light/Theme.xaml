@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:pinlvw="clr-namespace:MRULib.Views"
+    >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MRULib;component/Themes/ModernUI/Light/CheckPinBrushes.xaml" />
+        <ResourceDictionary Source="/MRULib;component/Themes/ModernUI/CheckPin.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

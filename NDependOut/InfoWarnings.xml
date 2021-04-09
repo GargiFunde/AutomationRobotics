@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<InfoWarnings>
+  <Info>Begin full analysis with NDepend v2019.2.7</Info>
+  <Info>.NET Assemblies resolved from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln} [ 0 , 19 ]
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.ActivityLibrary.dll
+   C:\Work\BotDesignerMaster\Build\CommonLibrary.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.InternetExplorer.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.CSV.dll
+   C:\Work\BotDesignerMaster\Build\WatiN.Core.dll
+   C:\Work\BotDesignerMaster\Build\BOTDesigner.exe
+   C:\Work\BotDesignerMaster\AdminPortal\AutomationService\bin\AutomationService.dll
+   C:\Work\Build\RobotLocalController.exe
+   C:\Work\BotDesignerMaster\Build\Logger.dll
+   C:\Work\BotDesignerMaster\Build\AutomationAgent.exe
+   C:\Work\BotDesignerMaster\Build\TCP.Server.dll
+   C:\Work\BotDesignerMaster\Build\TCP.Client.dll
+   C:\Work\BotDesignerMaster\Build\TCP.Shared.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Excel.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Files.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Outlook.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Cognitive.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.MicrosoftOCR.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.GoogleOCR.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.SAP.dll</Info>
+  <Info>.NET Assemblies resolved from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln} [ 20 , 39 ]
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Mainframe.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Windows.dll
+   C:\Work\BotDesignerMaster\MouseKeyboardActivityMonitor\bin\Debug\MouseKeyboardActivityMonitor.dll
+   C:\Work\BotDesignerMaster\Build\IQueryString.dll
+   C:\Work\BotDesignerMaster\Build\UIAComWrapper.dll
+   C:\Work\BotDesignerMaster\Build\VisualUIAVerify.dll
+   C:\Work\BotDesignerMaster\Build\UIALogging.dll
+   C:\Work\BotDesignerMaster\Build\Gma.System.MouseKeyHook.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.InputSimulator.dll
+   C:\Work\BotDesignerMaster\Build\RobotConsoleLocal.exe
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.PowerShell.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Linux.dll
+   C:\Work\BotDesignerMaster\LicenseManager\bin\Debug\WPF-License-Manager.exe
+   C:\Work\BotDesignerMaster\RequestValidator\bin\Debug\Validator.dll
+   C:\Work\BotDesignerMaster\Build\WpfFormLibrary.dll
+   C:\Work\BotDesignerMaster\Build\BackOfficeBot.exe
+   C:\Work\BotDesignerMaster\Build\RobotLibrary.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.CredentialManager.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.UserInputs.dll
+   C:\Work\BotDesignerMaster\Build\RabbitMQListenerRobot.dll</Info>
+  <Info>.NET Assemblies resolved from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln} [ 40 , 48 ]
+   C:\Work\BotDesignerMaster\Build\Activities.Data.DbActivities.dll
+   C:\Work\BotDesignerMaster\Build\MRUModelLib.dll
+   C:\Work\BotDesignerMaster\Build\MRULib.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.PDF.dll
+   C:\Work\BotDesignerMaster\Build\BotDesignCommon.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.CyberArk.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Microsoft_Cognitive.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.Intelligent.dll
+   C:\Work\BotDesignerMaster\Build\Bot.Activity.RabbitMQ.dll</Info>
+  <Info>No .NET Assembly filtered out from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln}.</Info>
+  <Warning>Can't load the assembly {EncryptionDecryption}:
+The file {C:\Work\BotDesignerMaster\Build\EncryptionDecryption.dll} doesn't exist.
+Failed attempt to resolve this assembly from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln}.</Warning>
+  <Warning>Can't load the assembly {PDFExtractor}:
+The file {C:\Work\BotDesignerMaster\PDF\bin\Release\PDFExtractor.dll} doesn't exist.
+Failed attempt to resolve this assembly from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln}.</Warning>
+  <Warning>Can't load the assembly {DataConnectorToGenerateRequest}:
+The file {C:\Work\BotDesignerMaster\Build\DataConnectorToGenerateRequest.dll} doesn't exist.
+Failed attempt to resolve this assembly from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln}.</Warning>
+  <Warning>Can't load the assembly {AddCopyright}:
+The file {C:\Work\BotDesignerMaster\Build\AddCopyright.dll} doesn't exist.
+Failed attempt to resolve this assembly from the Visual Studio solution file {C:\Work\BotDesignerMaster\BOTDesignerMaster.sln}.</Warning>
+  <Info>Concurrent mode</Info>
+  <Warning>Source code info won't be available for the assembly {Bot.Activity.MicrosoftOCR}: Corresponding PDB file not found in any of the folder specified.
+PDB file production can be enabled in Visual Studio:  Project -&gt; Properties -&gt; Build -&gt; Advanced... -&gt; Debug Info = 'full' or 'pdb-only'</Warning>
+  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319} 
+   System.Transactions.dll   v4.0.0.0
+   Accessibility.dll   v4.0.0.0
+   System.Net.Http.dll   v4.0.0.0
+   System.ServiceProcess.dll   v4.0.0.0
+   System.Configuration.Install.dll   v4.0.0.0
+   System.IO.Compression.FileSystem.dll   v4.0.0.0
+   System.Management.dll   v4.0.0.0
+   System.Design.dll   v4.0.0.0
+   Microsoft.VisualBasic.dll   v10.0.0.0
+   System.Configuration.dll   v4.0.0.0
+   System.Core.dll   v4.0.0.0
+   System.Windows.Forms.dll   v4.0.0.0
+   mscorlib.dll   v4.0.0.0</Info>
+  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF} 
+   System.Speech.dll   v4.0.0.0
+   WindowsFormsIntegration.dll   v4.0.0.0</Info>
+  <Warning>The source file {C:\Work\BotDesignerMaster\Documents\ReadCSV.cs} (last modified 19-09-2019 11:27:54) and the PDB file of the assembly {Bot.Activity.CSV} (last modified 19-09-2019 01:33:24) are not in-sync.</Warning>
+  <Warning>The source file {C:\Work\BotDesignerMaster\Documents\WriteCSV.cs} (last modified 19-09-2019 13:06:39) and the PDB file of the assembly {Bot.Activity.CSV} (last modified 19-09-2019 01:33:24) are not in-sync.</Warning>
+  <Info>970 source files parsed ; all source files found ; 2 source files not in-sync with PDB</Info>
+  <Info>0 code rule has been extracted from code.</Info>
+  <Info>No dependency cycle detected in assemblies referencement graph.</Info>
+  <Info>Do merge code generated by compiler into application code.</Info>
+  <Info>No SuppressMessageAttribute found in the analyzed code base. Since NDepend v2018.2 SuppressMessageAttribute can be used to suppress NDepend issues. Don't forget to set in your projects the compilation symbol CODE_ANALYSIS to use this attribute to suppress NDepend issues.</Info>
+  <Info>NDepend analysis done. Duration: 00:03</Info>
+</InfoWarnings>

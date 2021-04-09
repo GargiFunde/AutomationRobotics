@@ -1,0 +1,34 @@
+﻿<sap:ActivityDesigner x:Class="Bot.Activity.PDF.ActivityDesignerForPDF_ToText"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                      xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation" Height="71.364" Width="261.184">
+
+    <sap:ActivityDesigner.Icon>
+        <DrawingBrush>
+            <DrawingBrush.Drawing>
+                <ImageDrawing>
+                    <ImageDrawing.Rect>
+                        <Rect Location="0,0" Size="16,16" ></Rect>
+                    </ImageDrawing.Rect>
+                    <ImageDrawing.ImageSource>
+                        <BitmapImage UriSource="Resources/PDFToText2.png" ></BitmapImage>
+                    </ImageDrawing.ImageSource>
+                </ImageDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </sap:ActivityDesigner.Icon>
+
+    <sap:ActivityDesigner.Resources>
+
+        <ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+
+        </ResourceDictionary>
+    </sap:ActivityDesigner.Resources>
+    <Grid Margin="0,0,-4,-28">
+        <Label Content="PDF File Path" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="81"/>
+        <sapv:ExpressionTextBox HintText="PDF File Path" Grid.Row="0" Expression="{Binding ModelItem.PDFFilePath,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}"   HorizontalAlignment="Right" Width="161" Margin="0,6,3,0" Height="25" VerticalAlignment="Top" />
+    </Grid>
+</sap:ActivityDesigner>

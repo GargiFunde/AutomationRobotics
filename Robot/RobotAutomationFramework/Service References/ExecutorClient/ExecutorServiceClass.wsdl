@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExecutorServiceClass" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary" />
+      <xsd:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/ProcessViewModel.Common" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExecutor_FetchSignInData_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchSignInData" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_FetchSignInData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchSignInDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_LoadAllDataAtLaunch_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllDataAtLaunch" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_LoadAllDataAtLaunch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAllDataAtLaunchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchMasterTypeData_InputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchMasterTypeData" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchMasterTypeData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchMasterTypeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAutomationGroupTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAutomationGroupTree" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAutomationGroupTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAutomationGroupTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAllApplicationDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAllApplicationDetails" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAllApplicationDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAllApplicationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAllMapperProcessFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAllMapperProcessFlows" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_P_FetchAllMapperProcessFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:P_FetchAllMapperProcessFlowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_FetchDiagramByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDiagramByName" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_FetchDiagramByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchDiagramByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_SaveSignInDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSignInDetails" />
+  </wsdl:message>
+  <wsdl:message name="IExecutor_SaveSignInDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSignInDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExecutor">
+    <wsdl:operation name="FetchSignInData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/FetchSignInData" message="tns:IExecutor_FetchSignInData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/FetchSignInDataResponse" message="tns:IExecutor_FetchSignInData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllDataAtLaunch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/LoadAllDataAtLaunch" message="tns:IExecutor_LoadAllDataAtLaunch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/LoadAllDataAtLaunchResponse" message="tns:IExecutor_LoadAllDataAtLaunch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchMasterTypeData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/P_FetchMasterTypeData" message="tns:IExecutor_P_FetchMasterTypeData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/P_FetchMasterTypeDataResponse" message="tns:IExecutor_P_FetchMasterTypeData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAutomationGroupTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/P_FetchAutomationGroupTree" message="tns:IExecutor_P_FetchAutomationGroupTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/P_FetchAutomationGroupTreeResponse" message="tns:IExecutor_P_FetchAutomationGroupTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAllApplicationDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/P_FetchAllApplicationDetails" message="tns:IExecutor_P_FetchAllApplicationDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/P_FetchAllApplicationDetailsResponse" message="tns:IExecutor_P_FetchAllApplicationDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAllMapperProcessFlows">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/P_FetchAllMapperProcessFlows" message="tns:IExecutor_P_FetchAllMapperProcessFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/P_FetchAllMapperProcessFlowsResponse" message="tns:IExecutor_P_FetchAllMapperProcessFlows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchDiagramByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/FetchDiagramByName" message="tns:IExecutor_FetchDiagramByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/FetchDiagramByNameResponse" message="tns:IExecutor_FetchDiagramByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSignInDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutor/SaveSignInDetails" message="tns:IExecutor_SaveSignInDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutor/SaveSignInDetailsResponse" message="tns:IExecutor_SaveSignInDetails_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExecutor" type="tns:IExecutor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FetchSignInData">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/FetchSignInData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllDataAtLaunch">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/LoadAllDataAtLaunch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchMasterTypeData">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/P_FetchMasterTypeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAutomationGroupTree">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/P_FetchAutomationGroupTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAllApplicationDetails">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/P_FetchAllApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="P_FetchAllMapperProcessFlows">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/P_FetchAllMapperProcessFlows" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchDiagramByName">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/FetchDiagramByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSignInDetails">
+      <soap:operation soapAction="http://tempuri.org/IExecutor/SaveSignInDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExecutorServiceClass">
+    <wsdl:port name="BasicHttpBinding_IExecutor" binding="tns:BasicHttpBinding_IExecutor">
+      <soap:address location="http://localhost/ExecutorService/ExecutorServiceClass.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

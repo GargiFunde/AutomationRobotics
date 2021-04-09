@@ -1,0 +1,152 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:localns="clr-namespace:MRULib.Views"
+    >
+    <SolidColorBrush x:Key="Pin_LineStroke1" Color="Black" />
+    <SolidColorBrush x:Key="Pin_LineStroke2" Color="#FFCCCCCC" />
+
+    <SolidColorBrush x:Key="EllipsesFill" Color="#FF000000" />
+
+    <RadialGradientBrush GradientOrigin="0.15,0" x:Key="EllipsesGradiantBrish" >
+        <!-- Source: http://www.codeproject.com/Articles/32257/A-Style-for-Round-Glassy-WPF-Buttons -->
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <RotateTransform Angle="0.45" CenterX="50" CenterY="20"/>
+                <ScaleTransform CenterX="0.5" 
+		                        CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                <TranslateTransform X="0.02" Y="0.3"/>
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop Offset="1" Color="#FF000000"/>
+        <GradientStop Offset="0.4" Color="#FFFFFFFF"/>
+    </RadialGradientBrush>
+
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        Checkbox style for pin visual
+        Original source of animation (is replaced with own XAML image)
+        http://stackoverflow.com/questions/7459642/how-do-i-create-a-wpf-checkbox-control-template-in-xaml-with-the-following-requi
+      -->
+    <Style TargetType="{x:Type localns:CheckPin}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type localns:CheckPin}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <BulletDecorator Background="Transparent"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch">
+                            <BulletDecorator.Bullet>
+                                <Viewbox Stretch="Fill">
+                                    <Grid>
+                                        <Canvas Width="100" Height="100" x:Name="NoCheckMark" Opacity="0" Visibility="Visible">
+                                            <Canvas.LayoutTransform>
+                                                <ScaleTransform ScaleX="0.15" ScaleY="0.15" />
+                                            </Canvas.LayoutTransform>
+                                            <!-- Needle Pin in unpined mode (Opacity is set to different value on MouseOver) -->
+                                            <Path VerticalAlignment="Center" Fill="Transparent">
+                                                <Path.Data>
+                                                    <PathGeometry>
+                                                        <PathGeometry.Figures>
+                                                            <PathFigureCollection>
+                                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                                    <PathFigure.Segments>
+                                                                        <PathSegmentCollection>
+                                                                            <LineSegment Point="75,65" />
+                                                                            <LineSegment Point="75,85" />
+                                                                        </PathSegmentCollection>
+                                                                    </PathFigure.Segments>
+                                                                </PathFigure>
+                                                            </PathFigureCollection>
+                                                        </PathGeometry.Figures>
+                                                    </PathGeometry>
+                                                </Path.Data>
+                                            </Path>
+
+                                            <Line X1="0" Y1="0" X2="75" Y2="65" Stroke="{StaticResource Pin_LineStroke1}" />
+                                            <Line X1="0" Y1="0" X2="75" Y2="85" Stroke="{StaticResource Pin_LineStroke2}" />
+
+                                            <Ellipse Canvas.Left="50" Canvas.Top="50" Width="50" Height="50" Fill="{StaticResource EllipsesFill}" />
+                                            <Ellipse Canvas.Left="50" Canvas.Top="50" Width="50" Height="50" Fill="{StaticResource EllipsesGradiantBrish}"/>
+
+                                        </Canvas>
+
+                                        <Canvas Width="100" Height="100" x:Name="CheckMark">
+                                            <Canvas.LayoutTransform>
+                                                <ScaleTransform ScaleX="0.15" ScaleY="0.15" />
+                                            </Canvas.LayoutTransform>
+                                            <!-- Needle Pin in pined mode XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+                                            <!-- Canvas.LayoutTransform>
+  		                                      <ScaleTransform CenterX="50" CenterY="50" ScaleX=".15" ScaleY=".15" />
+  	                                          </Canvas.LayoutTransform -->
+                                            <!-- Border BorderBrush="Black" BorderThickness="1" Width ="100" Height="100" / -->
+
+                                            <Path VerticalAlignment="Center" Fill="Transparent">
+                                                <Path.Data>
+                                                    <PathGeometry>
+                                                        <PathGeometry.Figures>
+                                                            <PathFigureCollection>
+                                                                <PathFigure IsClosed="True" StartPoint="50,90">
+                                                                    <PathFigure.Segments>
+                                                                        <PathSegmentCollection>
+                                                                            <LineSegment Point="40,25" />
+                                                                            <LineSegment Point="60,25" />
+                                                                        </PathSegmentCollection>
+                                                                    </PathFigure.Segments>
+                                                                </PathFigure>
+                                                            </PathFigureCollection>
+                                                        </PathGeometry.Figures>
+                                                    </PathGeometry>
+                                                </Path.Data>
+                                            </Path>
+
+                                            <Line X1="50" Y1="90" X2="40" Y2="25" Stroke="{StaticResource Pin_LineStroke1}" />
+                                            <Line X1="50" Y1="90" X2="60" Y2="25" Stroke="{StaticResource Pin_LineStroke2}" />
+
+                                            <Ellipse Canvas.Left="25" Canvas.Top="5" Width="50" Height="50" Fill="{StaticResource EllipsesFill}" />
+                                            <Ellipse Canvas.Left="25" Canvas.Top="5" Width="50" Height="50" Fill="{StaticResource EllipsesGradiantBrish}"/>
+                                        </Canvas>
+                                    </Grid>
+                                </Viewbox>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"/>
+                            </MultiTrigger.Conditions>
+
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="NoCheckMark" To="0.45" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="NoCheckMark" To="0" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckMark" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="CheckMark" Property="Opacity" Value="0"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

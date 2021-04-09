@@ -1,0 +1,56 @@
+﻿<sap:ActivityDesigner x:Class="Bot.Activity.InternetExplorer.IE_OpenWebApplicationActivityDesigner"
+                      
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:s="clr-namespace:System;assembly=mscorlib"
+   
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                      xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation" Height="173.958" Width="419.666">
+
+
+    <sap:ActivityDesigner.Icon>
+        <DrawingBrush>
+            <DrawingBrush.Drawing>
+                <ImageDrawing>
+                    <ImageDrawing.Rect>
+                        <Rect Location="0,0" Size="16,16" ></Rect>
+                    </ImageDrawing.Rect>
+                    <ImageDrawing.ImageSource>
+                        <BitmapImage UriSource="Resources/IE_OpenApplication2.png" ></BitmapImage>
+                    </ImageDrawing.ImageSource>
+                </ImageDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </sap:ActivityDesigner.Icon>
+
+    <sap:ActivityDesigner.Resources>
+        <ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+        </ResourceDictionary>
+    </sap:ActivityDesigner.Resources>
+
+    <Grid Margin="0,0,0,-77" HorizontalAlignment="Right" Width="406">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <sapv:ExpressionTextBox HintText="Set URL" Grid.Row="0" Expression="{Binding ModelItem.Url,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" ExpressionType="{Binding ModelItem.Properties[Url].PropertyType.GenericTypeArguments[0]}" Margin="0,64,23,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top"/>
+
+        <sapv:ExpressionTextBox HintText="Set ApplicationID" Grid.Row="0" Expression="{Binding ModelItem.ApplicationID,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" ExpressionType="{Binding ModelItem.Properties[ApplicationID].PropertyType.GenericTypeArguments[0]}" Margin="0,25,23,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top"/>
+
+        <!--<sapv:ExpressionTextBox HintText="SetClear Contents Only " Grid.Row="0" Expression="{Binding ModelItem.ClearContentsOnly,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter},ConverterParameter=In}" ExpressionType="s:Boolean" OwnerActivity="{Binding Path=ModelItem}" Margin="0,64,10,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top"/>-->
+
+
+        <sapv:ExpressionTextBox HintText="Set TimeOut In Seconds" Grid.Row="0" Expression="{Binding ModelItem.TimeOutInSecond,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" ExpressionType="{Binding ModelItem.Properties[TimeOutInSecond].PropertyType.GenericTypeArguments[0]}" Margin="0,106,23,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top" Grid.RowSpan="2">
+
+        </sapv:ExpressionTextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Url" VerticalAlignment="Top" RenderTransformOrigin="0.567,8.5" Height="25" Width="20"/>
+        <!--<TextBlock HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Clear Contents Only" VerticalAlignment="Top" RenderTransformOrigin="0.411,0.585" Height="26"/>-->
+        <TextBlock HorizontalAlignment="Left" Margin="10,106,0,0" TextWrapping="Wrap" Text="TimeOut" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.525" Height="22" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="7,25,0,0" TextWrapping="Wrap" Text="ApplicationIdToAttach" VerticalAlignment="Top"/>
+
+    </Grid>
+</sap:ActivityDesigner>
+
+

@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary" />
+  <xs:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/AutomationService" />
+  <xs:element name="AddSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strQueueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBotName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strChronExp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stopAfter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddScheduleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddQueueDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="queueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="iTenantID" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddQueueDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddQueueDetailsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strQueueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBotName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strChronExp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteScheduleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSchedulesResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutomationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonLibrary" minOccurs="0" name="_requestInput" nillable="true" type="q1:RequestInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutomationRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AutomationRequestResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="strUserRole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTenant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TenantName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="iTenantId" type="xs:int" />
+        <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTenantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTenantResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTenant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="TenantId" type="xs:int" />
+        <xs:element minOccurs="0" name="CurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTenantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTenantResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="TenantName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteGroupResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDefaultVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iTenantId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="ProcessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="updatedVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isLatest" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDefaultVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDefaultVersionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EnvironmentName" type="xs:int" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="ProcessVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="latestVersion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProcessResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcessWithZip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="TenantId" type="xs:int" />
+        <xs:element minOccurs="0" name="ProcessVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LatestVersion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZipDataFile" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProcessWithZipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProcessWithZipResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strBotName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="botkey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMachineName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddBotResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddConfigParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strParameterName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strParameterValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAccessLevelProcessId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddConfigParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddConfigParametersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteConfigParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iParameterId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteConfigParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteConfigParametersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteBotResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteProcessResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcessVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strProcessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strProcessVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProcessVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteProcessVersionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteQueueToBotMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strBotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteQueueToBotMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteQueueToBotMappingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserToBotMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserToBotMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserToBotMappingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomRoleBasedAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QDetailsDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="QDetailsProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="QDetailsTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddSchedDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddSchedProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddSchedTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddUserDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddUserProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddUserTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddRobotDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddRobotProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddRobotTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddGroupDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddGroupProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddGroupTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQueToBotDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQueToBotProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddQueToBotTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddBotToUserDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddBotToUserProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddBotToUserTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="BotLogDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="BotLogProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="BotLogTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AuditTrailDevVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AuditTrailProdVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AuditTrailTestVal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomRoleBasedAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCustomRoleBasedAccessResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomRoleBasedAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="iTenantId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomRoleBasedAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCustomRoleBasedAccessResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginUserResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignBotToUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strBotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignBotToUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignBotToUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignQueueToBot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strBotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="queuename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdby" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignQueueToBotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignQueueToBotResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBotsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetConfigParametersResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueuesResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardBots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardBotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDashboardBotsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueToBotMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueToBotMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueueToBotMappingResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserToBotMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="TenantId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserToBotMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserToBotMappingResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBotStartDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="botname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MachineName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBotStartDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBotStartDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBotStartDetailsFromDesktop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="machinename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBotStartDetailsFromDesktopResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBotStartDetailsFromDesktopResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStompDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="botid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStompDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStompDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRQDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="botid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRQDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRQDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogsForDashboardBots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strbotid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strmachinename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogsForDashboardBotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLogsForDashboardBotsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUsersResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTenants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTenantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllTenantsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertIntoLogger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MachineName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RobotName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateUtc" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Logger" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertIntoLoggerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertIntoLoggerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLogResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditTrail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditTrailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAuditTrailResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AutomationService" minOccurs="0" name="composite" nillable="true" type="q2:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AutomationService" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q3:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogDataToDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogData" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogDataToDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProcessDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadAutomationZipBinary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProcessVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AutomationGroupName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TenantName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadAutomationZipBinaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadAutomationZipBinaryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessDataWitoutZipFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessDataWitoutZipFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProcessDataWitoutZipFileResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadProcessVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupid" type="xs:int" />
+        <xs:element minOccurs="0" name="tenantid" type="xs:int" />
+        <xs:element minOccurs="0" name="ProcessId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadProcessVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoadProcessVersionResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,18 @@
+Name,Value,Description
+InputList,C:\Work\Projects\Demo1\Data\Input\Input.xlsx,
+MaxRetryNumber,0,"Must be 0 if working with Orchestrator queues. If > 0, the robot will retry the same transaction which failed with application exception. Must be integer"
+TimeoutShort,5000,"Timeout short value in milliseconds, for activities which are likely to fail. Must be integer"
+TimeoutMedium,30000,Timeout medium value in milliseconds. Must be integer
+TimeoutLong,120000,"Timeout short value in milliseconds, for slow apps. Must be integer"
+ExScreenshotsFolderPath,Exceptions_Screenshots,Where to save exceptions screenshots - can be a full or a relative path.
+DelayShort,1000,"Delay short value in milliseconds, for activities where it is necessary to wait a little. Must be integer"
+DelayMedium,15000,"Delay medium value in milliseconds, for activities where it is necessary to wait a moderate amount of time. Must be integer"
+DelayLong,60000,"Delay long value in milliseconds, for activities where it is necessary to wait a long time. Must be integer"
+AccuracyLow,0.6,"Image accuracy low value, for images that have high contrast. Must be double"
+AccuracyMedium,0.8,"Image accuracy medium value, for images that have normal contrast. Must be double"
+AccuracyHigh,0.9,"Image accuracy high value, for images that have low contrast. Must be double"
+LogMessage_GetTransactionData,Processing Transaction Number: ,Static part of logging message. Calling Get Transaction Data
+LogMessage_GetTransactionDataError,Error getting transaction data for Transaction Number: ,Static part of logging message. Error retrieving Transaction Data.
+LogMessage_Success,Transaction Successful.,Static part of logging message. Processed Transaction succesful
+LogMessage_BusinessRuleException,Business rule exception.,Static part of logging message. Processed Transaction failed with business exception
+LogMessage_ApplicationException,System exception.,Static part of logging message. Processed Transaction failed with application exception

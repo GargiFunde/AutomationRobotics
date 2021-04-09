@@ -1,0 +1,73 @@
+﻿<Window x:Class="Bot.Activity.ActivityLibrary.ScrapingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bot.Activity.ActivityLibrary"
+        
+         xmlns:ucCommon="clr-namespace:CommonLibrary;assembly=CommonLibrary"
+        xmlns:xav1="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="ScrapingWindow" Height="600" Width="400" Topmost="True" ShowInTaskbar="False" Loaded="Window_Loaded" Closed="Window_Closed" Closing="Window_Closing" ResizeMode="NoResize"  >
+    <Window.Resources>
+        <ObjectDataProvider x:Key="FindCriteria" ObjectType="{x:Type local:TestOptions}" />
+        <local:EnumMatchToBooleanConverter x:Key="enumConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="109*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="40" />-->
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="80*"/>
+
+        </Grid.RowDefinitions>
+        <Button Content="Save" Name="btnSave" Grid.Row="0"  Margin="0,0,0,0" Click="btnSave_Click" Grid.ColumnSpan="3"/>
+        <Button Content="Start Simulation" Name="btnSimulation" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Width="100" Height="30" Click="Button_Click"/>
+        <!--<Button Content="Button" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,6,0,0" Width="50" Height="30"/>-->
+        <DockPanel LastChildFill="True" Grid.Row="2" Grid.ColumnSpan="2" >
+            <TabControl  >
+                <TabItem Header="Captured Fields" Name="TabFields" >
+                    <GroupBox  x:Name="AutomationConfiguration" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,0" Margin="0,0,0,0">
+                        <DockPanel LastChildFill="True">
+                            <ListBox  x:Name="lstScrapFields" BorderThickness="0"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Arial">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <local:SaveFields Margin="0" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Header="Field Properties" Name="TabProperties">
+                    <DockPanel LastChildFill="True">
+                        <ucCommon:WpfPropertyGrid x:Name="PropertyGrid1" 
+                                      Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                      HelpVisible="{Binding ElementName=ShowDescrip, Path=IsChecked}" 
+                                      ToolbarVisible="{Binding ElementName=ShowToolbar, Path=IsChecked}"
+                                      PropertySort="{Binding ElementName=ComboSort, Path=SelectedItem}" />
+                        <!--<xav1:PropertyGrid Name="PropertyGrid1"  
+                                      Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />-->
+                    </DockPanel>
+                </TabItem>
+                <TabItem Header="Windows Field Properties" Name="TabWindowsProperties">
+                    <Grid x:Name="wfGrid">
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+
+        <!--<RadioButton Content="Windows" Name="WindowsRadioButton" HorizontalAlignment="Left" Margin="147,16,0,0" VerticalAlignment="Top" GroupName="Simulation" IsChecked="{Binding EnumProperty, Converter={StaticResource enumConverter}, ConverterParameter={x:Static ucCommon:ScrapMode.Windows}}" Checked="WindowsRadioButton_Click" Grid.ColumnSpan="2"/>
+        <RadioButton Content="Web" Name="WebRadioButton" HorizontalAlignment="Left" Margin="50,16,0,0" VerticalAlignment="Top" GroupName="Simulation"  IsChecked="{Binding EnumProperty, Converter={StaticResource enumConverter}, ConverterParameter={x:Static ucCommon:ScrapMode.Web}}"   Checked="WebRadioButton_Click" Grid.Column="1"/>-->
+
+        <RadioButton Content="Windows" Name="WindowsRadioButton" HorizontalAlignment="Left" Margin="147,16,0,0" VerticalAlignment="Top" GroupName="Simulation"  Checked="WindowsRadioButton_Click" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <RadioButton Content="Web" Name="WebRadioButton" HorizontalAlignment="Left" Margin="50,16,0,0" VerticalAlignment="Top" GroupName="Simulation"   Checked="WebRadioButton_Click" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Window>

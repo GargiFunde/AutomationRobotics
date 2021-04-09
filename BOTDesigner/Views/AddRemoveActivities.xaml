@@ -1,0 +1,271 @@
+﻿<Window x:Class="BOTDesigner.Views.AddRemoveActivities"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTDesigner.Views"
+        mc:Ignorable="d"
+        Title="Add Remove Activities Selection" FontFamily="Verdana" FontWeight="Heavy"  Height="502" Width="507"  Icon="/BOTDesigner;component/Images/addremove.png">
+
+    <Window.Resources>
+        <Style x:Key="btn" TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border Name="border" CornerRadius="8" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <Grid>
+                                <Border Name="dropShadowBorder" CornerRadius="4" BorderBrush="Transparent" BorderThickness="0" Visibility="Hidden">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.16">
+                                            <GradientStop Color="#22000000" Offset="0"/>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <ContentPresenter Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!--default button highlight-->
+                            <Trigger Property="Button.IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <!--inner drop shadow when pressed / checked-->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Visibility" TargetName="dropShadowBorder" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Visibility" TargetName="dropShadowBorder" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" TargetName="border" Value="0.60"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="btn-default" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#333"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#ccc"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#e6e6e6"/>
+                    <Setter Property="BorderBrush" Value="#adadad"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#e6e6e6"/>
+                    <Setter Property="BorderBrush" Value="#adadad"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#e6e6e6"/>
+                    <Setter Property="BorderBrush" Value="#adadad"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btn-primary" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#428bca"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#357ebd"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3071a9"/>
+                    <Setter Property="BorderBrush" Value="#285e8e"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#3071a9"/>
+                    <Setter Property="BorderBrush" Value="#285e8e"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#3071a9"/>
+                    <Setter Property="BorderBrush" Value="#285e8e"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btn-success" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#5cb85c"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#4cae4c"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#449d44"/>
+                    <Setter Property="BorderBrush" Value="#398439"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#449d44"/>
+                    <Setter Property="BorderBrush" Value="#398439"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#449d44"/>
+                    <Setter Property="BorderBrush" Value="#398439"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btn-info" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#5bc0de"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#46b8da"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#31b0d5"/>
+                    <Setter Property="BorderBrush" Value="#269abc"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#31b0d5"/>
+                    <Setter Property="BorderBrush" Value="#269abc"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#31b0d5"/>
+                    <Setter Property="BorderBrush" Value="#269abc"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btn-warning" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#f0ad4e"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#eea236"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ec971f"/>
+                    <Setter Property="BorderBrush" Value="#d58512"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#ec971f"/>
+                    <Setter Property="BorderBrush" Value="#d58512"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#ec971f"/>
+                    <Setter Property="BorderBrush" Value="#d58512"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="btn-danger" TargetType="Button" BasedOn="{StaticResource btn}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#fff"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#d9534f"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <SolidColorBrush Color="#d43f3a"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#c9302c"/>
+                    <Setter Property="BorderBrush" Value="#ac2925"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#c9302c"/>
+                    <Setter Property="BorderBrush" Value="#ac2925"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" Value="#c9302c"/>
+                    <Setter Property="BorderBrush" Value="#ac2925"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,-52">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="325*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Location:" FontFamily="Verdana" FontWeight="Medium" HorizontalAlignment="Left" Margin="31,31,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtLocation" Height="26" Margin="94,29,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnDirectoryExplorer" Content="..." HorizontalAlignment="Right" Margin="0,29,10,0" VerticalAlignment="Top" Width="28" Click="btnDirectoryExplorer_Click" Height="26" Grid.Column="1"/>
+        <DataGrid x:Name="dgActivities" Margin="10,84,10,106" FontFamily="Verdana" AutoGenerateColumns="False" BorderThickness="0.5px" CanUserAddRows="False" BorderBrush="Gray" HorizontalGridLinesBrush="#FFEFEFF2" VerticalGridLinesBrush="#FFEFEFF2" HeadersVisibility="Column" SelectionMode="Single" SelectionChanged="DgActivities_SelectionChanged" Grid.ColumnSpan="2" FontWeight="Normal" >
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn  Header="Select" Width="50" Binding="{Binding Select}"   ></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Dll Name" Width="100*"  Binding="{Binding DllName}" ></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Delete" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="OnDelete" Tag="{Binding DllName}" Width="20" Height="20" ToolTip="Delete" BorderThickness="0" VerticalAlignment="Top" >
+                                <StackPanel >
+                                    <Image Source="/BOTDesigner;component/Images/deleteactivity.png" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="163,0,0,64" Style="{StaticResource btn-primary}" VerticalAlignment="Bottom" Width="75" Click="Button_Click_1" Grid.ColumnSpan="2" />
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="84.572,0,0,64" Style="{StaticResource btn-danger}" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Grid.Column="1" />
+
+    </Grid>
+</Window>

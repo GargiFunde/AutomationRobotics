@@ -1,0 +1,49 @@
+﻿<sap:ActivityDesigner x:Class="Bot.Activity.Files.ActivityDesignerforreadfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:local="clr-namespace:ReadText"
+                       xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                      xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation" Width="323.303" Height="129.056">
+    <sap:ActivityDesigner.Resources>
+
+        <ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+            <ObjectDataProvider MethodName="GetValues"
+                    ObjectType="{x:Type sys:Enum}"
+                    x:Key="FileTypeEnumDataProvider">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="local:FileTypeEnum" />
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+        </ResourceDictionary>
+
+
+
+
+    </sap:ActivityDesigner.Resources>
+
+
+
+    <Grid Margin="0,0,0,-48">
+
+        <sapv:ExpressionTextBox HintText="File Path" Grid.Row="0" Expression="{Binding ModelItem.FilePath,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" Margin="0,13,10,52" HorizontalAlignment="Right" Width="219" RenderTransformOrigin="0.137,0.053"/>
+
+        <Label Content="File Path" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Height="23"/>
+        <ComboBox  ItemsSource="{Binding Source={StaticResource FileTypeEnumDataProvider}}"
+         SelectedValue="{Binding Path=ModelItem.FileType, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="79,47,0,0" VerticalAlignment="Top" Width="223" Height="20" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.302"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.227"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="15,43,0,0" VerticalAlignment="Top" Width="40" Height="26"/>
+
+    </Grid>
+</sap:ActivityDesigner>

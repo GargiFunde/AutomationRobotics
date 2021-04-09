@@ -1,0 +1,1283 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="Control_Tower_MasterPageSkin, App_Web_0cc1ov10" enabletheming="true" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,user-scalable = no">
+    <meta name="description" content="">
+    <meta name="author" content="Piyush Bhiwapurkar">
+
+    <title>E2E BOTS</title>
+        <link href="css/datatable.min.css" rel="stylesheet" />       
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">     
+        <link href="css/bootstrap.min.css" rel="stylesheet" />        
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">  
+     <!-- Custom fonts for this template-->
+        <script src="js/jquery.min.js"></script>       
+        <script src="js/sweetalert.min.js"></script>       
+        <script src="js/sweetalert208.js"></script>               
+        <script src="js/jquery.datatables.min.js"></script>       
+        <script src="js/datatables.min.js"></script>    
+        <script src="js/datatables1.min.js"></script>
+    <script>
+        $(function () {
+            $("#sidebarToggle").click(function () {
+                const element = document.querySelector("#accordionSidebar");
+
+                var status = element.classList.contains("toggled");
+                var boolstatus = new Boolean(status);
+                
+                if (boolstatus == true) {                    
+                    sessionStorage.setItem("toggledClass", "toggled");
+                }
+                else {                   
+                    sessionStorage.removeItem("toggledClass", "toggled");
+                }
+            });
+        });
+               
+        window.onload = function () {
+           
+            const element = document.querySelector("#accordionSidebar");
+            var toggleclass = sessionStorage.getItem("toggledClass");
+            if (toggleclass !== '') {                
+                element.classList.add(toggleclass);
+            }
+            else {
+                element.classList.remove(toggleclass);
+            }     
+        };
+
+        $(document).ready(function () {
+            $("#wrapper ul li").click(function () {
+                $("a.active").removeClass("active");
+                $(this).addClass("active");
+            });
+            var str = location.href.toLowerCase();
+            // alert("Piyush : "+str);
+            $("#wrapper ul li a").each(function () {
+
+                if (str.indexOf($(this).attr("href").toLowerCase()) > -1) {
+                    $("li.current-menu-item").removeClass("active");
+                    $(this).parent().addClass("active");
+                    //alert("Piyush INside");
+                }
+            });
+            $("li.current-menu-item").parents().each(function () {
+                if ($(this).is("li")) {
+                    $(this).addClass("active");
+                }
+            });
+        });
+        
+        $(document).ready(function () {                     
+            $('div[id$=cover-spin]').hide();
+        });
+                    
+    </script>
+  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+              padding-right: 0 !important
+             } 
+    </style>
+
+</head>
+    
+
+<body id="page-top" class="txtFont">
+    <form id="form1" runat="server" style="width: 100%; font-family: Roboto, sans-serif, Arial, sans-serif">
+        
+        <div id="cover-spin"></div>        
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" >
+                <br />
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="BotDashBoard.aspx">
+                    <div class="sidebar-brand-icon">
+                        <%--<img src="../Images/E2EFace.png" width="60%">--%>
+                        <img src="../Images/E2ELogo01.PNG" width="60%">
+                    </div>
+                </a>
+                 
+                <%--🄴🄽🅃🄴🅁🄿🅁🄸🅂🄴
+                <span class="font-weight-bolder text-light text-center" style="font-size:xx-large;background: linear-gradient(to right, #8e2de2, #4a00e0);;">E͙N͙T͙E͙R͙P͙R͙I͙S͙E͙</span> 
+                --%> <%--<span align="center">Control Tower Enterprise</span>--%>
+                <br />
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0" />
+
+                <!-- Nav Item - Dashboard -->
+                <li id="BotDashBoard" class="nav-item" runat="server">
+                    <a class="nav-link "  href="BotDashBoard.aspx" >
+                       
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span class="dashspan" >Bot Dashboard</span></a>
+                     <hr class="sidebar-divider" />
+                </li>
+
+                <!-- Divider -->
+               <%-- <hr class="sidebar-divider" />--%>
+
+                <!-- Heading -->
+                <div id="processesHeadingNav" class="sidebar-heading navDiv" runat="server">
+                    Processes
+                </div>
+
+                <!-- Nav Item - Process Management -->
+                <li id="ProcessManagement" class="nav-item" runat="server">
+                    <a class="nav-link" href="ProcessManagement.aspx">
+                        <i class="fas fa-fw fa-microchip"></i>
+                        <span >Process Management</span></a>
+                </li>
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item" id="liqueue" runat="server">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-crown"></i>
+                        <span >Queue Listener</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Queing Components:</h6>
+                            <a id="aQueueDetails" class="collapse-item" href="QueueDetails.aspx" runat="server"><i class="fas fa-fw fa-chess-queen"></i>&nbsp;Queue Details</a>
+                            <a  id="aAddSchedule" class="collapse-item" href="AddSchedule.aspx" runat="server"><i class="fas fa-fw fa-calendar-day" ></i>&nbsp;Add Schedule</a>
+                            <a id="aScheduleDetails" class="collapse-item" href="ScheduleDetails.aspx" runat="server"><i class="fas fa-fw fa-clock"></i>&nbsp;Schedule Details</a>
+                        </div>
+                    </div>
+                </li>
+               
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item" id="linUserMan" runat="server">
+                    <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-user-cog"></i>
+                        <span >User Management</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Manage Users</h6>
+                            <% if ((string)Session["Role"] == "SuperAdmin")
+                                { %>
+                                     <a id="aAddTenant" class="collapse-item" href="AddTenant.aspx" ><i class="fas fa-fw fa-user"></i>&nbsp;Add Tenant</a>
+                            <% } %>
+                            <a id="aAddUsers" class="collapse-item" href="AddUsers.aspx" runat="server"><i class="fas  fa-fw fa-user-graduate"></i>&nbsp;Add User</a>
+                            <a  id="aAddRobot" class="collapse-item" href="AddRobot.aspx" runat="server"><i class="fas  fa-fw fa-robot"></i>&nbsp;Add Robot</a>
+                             <% if ((string)Session["Role"] == "SuperAdmin" || (string)Session["Role"] == "Admin")
+                                 { %>
+                                        <a id="aAddGroup" class="collapse-item" href="AddGroup.aspx" ><i class="fas  fa-fw fa-users"></i>&nbsp;Add Group</a>
+                                        <a id="addRole" class="collapse-item" href="AddRole.aspx" ><i class="fas  fa-fw fa-users"></i>&nbsp;Add Role</a>
+
+                            <% } %>
+                            <a id="aAssignQueueToRobot" class="collapse-item" href="AssignQueueToRobot.aspx" runat="server"><i class="fas  fa-fw fa-ellipsis-h"></i>&nbsp;Assign Queue <br>&nbsp;&nbsp;&nbsp; To Robot</a>
+                            <a id="aAssignRobotToUser" class="collapse-item" href="AssignRobotToUser.aspx" runat="server"><i class="fas fa-fw fa-user-astronaut"></i>&nbsp;Assign Robot <br>&nbsp;&nbsp;&nbsp;To User</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="queueManagement" class="nav-item" runat="server">
+                    <a class="nav-link" href="QueueManagement.aspx">  <%--href="http://localhost:15672/#/queues"--%>
+                        <i class="fas fa-fw fa-ellipsis-v"></i>
+                        <span >Queue Management</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading navDiv">
+                    Addons
+                </div>
+
+                <li id="configurationManagement" class="nav-item" runat="server">
+                    <a class="nav-link" href="Configurations.aspx">
+                        <i class="fas fa-fw fa-cogs"></i>
+                        <span >Configuration Management</span></a>
+                </li>
+               <%-- <li id="promoteDemoteAutomation" class="nav-item"  runat="server">
+                    <a class="nav-link" href="PromoteDemoteAutomation.aspx">
+                        <i class="fas fa-fw fa-truck-monster"></i>
+                        <span >Promote/Demote Automation</span></a>
+                </li>--%>
+
+                 <li id="promoteDemoteAutomation" class="nav-item"  runat="server">
+                    <a class="nav-link" href="CredentialManager.aspx">
+                        <i class="fas fa-fw fa-truck-monster"></i>
+                        <span >Credential Manager</span></a>
+                </li>
+
+                 <li id="Li1" class="nav-item"  runat="server">
+                    <a class="nav-link" href="AssetManagement.aspx">
+                        <i class="fas fa-fw fa-truck-monster"></i>
+                        <span >Asset Management</span></a>
+                </li>
+
+                  <!-- Nav Item - TroubleShoot Collapse Menu -->
+                <li class="nav-item" id="litrouble" runat="server">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-tools"></i>
+                        <span >TroubleShoot</span>
+                    </a>
+                    <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Manage Users</h6>
+                            <a id="aBotLogs" class="collapse-item" href="BotLogs.aspx" runat="server" ><i class="fas fa-fw fa-clipboard-check"></i>&nbsp;Bot Log</a>
+                            <a id="aAuditTrail" class="collapse-item" href="AuditTrail.aspx"  runat="server"><i class="fas fa-fw fa-clipboard-list"></i>&nbsp;Audit Trail</a>
+                            <a id="aCompleteLogs" class="collapse-item" href="CompleteLogs.aspx"  runat="server" ><i class="fas fa-fw fa-clipboard-list"></i>&nbsp;Detail Logs</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="reports" class="nav-item"  runat="server">
+                    <a class="nav-link" href="Reports.aspx">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span >Reports</span></a>
+                </li>
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+
+                    <button class="rounded-circle border-0" type="button" id="sidebarToggle"></button>
+                </div>
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                 
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav id="TopNav" class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <ul class="navbar-nav ml-auto">
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                                    <i class="full-screen feather icon-maximize"></i>
+                                </a>
+                                <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+                                    <i class="feather icon-toggle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
+
+                        <div class="row">
+                        <!-- Topbar Search -->
+                        <div class="col-md-3" style="position:absolute;top:0px;left:0px;padding-top:1.3%">
+                        <span class="text-center font-weight-bolder txt" style="font-size:x-large; ">BOT GOVERNOR</span>
+                       </div>
+                            <div class="col-md-9">
+                       
+                       </div>
+                            </div>
+                         <div class="row">
+                        
+                        <%--<div class="col-md-3" style="position:absolute;bottom:0px;left:8%">
+                            <span class="font-weight-bolder text-center txt" style="font-size:xx-large;">🄴🄽🅃🄴🅁🄿🅁🄸🅂🄴</span>
+                            </div>--%>
+                              <div class="col-md-9" >
+                       
+                       </div>
+
+                             </div>
+
+                        
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto txtFont">
+                            
+                             <asp:DropDownList  ID="DropDownList1" runat="server" CssClass="ddlstyle" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"  >
+                                                <asp:ListItem Enabled="true">Themes</asp:ListItem>
+                                                <asp:ListItem>Default</asp:ListItem>
+                                                <asp:ListItem>Dark</asp:ListItem>
+                                                  <asp:ListItem>Green</asp:ListItem>
+                                                <asp:ListItem>Light</asp:ListItem>
+                                                 <asp:ListItem>Blue</asp:ListItem>
+                                                </asp:DropDownList>
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
+
+                            <!-- Nav Item - Alerts -->
+                           <li id="Idbell" class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#idbelldiv" aria-expanded="true">
+
+                                    <i class="fas fa-bell fa-fw"></i>
+                                    <!-- Counter - Alerts -->
+                                    <span class="badge badge-danger badge-counter">3+</span>
+                                </a>
+                                <!-- Dropdown - Alerts for Log -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" id="idbelldiv" aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header txtFont"  style="text-align:center;">Log Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center text-truncate" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mr-3">
+                                            <div class="small text-gray-500">
+                                                <asp:Label ID="LogDate1" runat="server" Text="" />
+                                            </div>
+                                            <span class="font-weight-bold">
+                                                <asp:Label ID="LogMsg1" runat="server" Text="" /></span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center text-truncate" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div >
+                                            <div class="small text-gray-500">
+                                                <asp:Label ID="LogDate2" runat="server" Text="" />
+                                            </div>
+                                            <span class="font-weight-bold">
+                                                <asp:Label ID="LogMsg2" runat="server" Text="" /></span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center text-truncate" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div >
+                                            <div class="small text-gray-500">
+                                                <asp:Label ID="LogDate3" runat="server" Text="" />
+                                            </div>
+                                            <span class="font-weight-bold">
+                                                <asp:Label ID="LogMsg3" runat="server" Text="" /></span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="BotLogs.aspx">Show All Logs</a>
+                                </div>
+                            </li>
+
+                            <!-- Nav Item - Messages -->
+                           <li id="IdEnvolope" class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#idEnvolopediv" aria-expanded="true">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                    <!-- Counter - Messages -->
+                                    <span class="badge badge-danger badge-counter">7</span>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div id="idEnvolopediv" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown"  style="color:red">
+                                    <h6 class="dropdown-header txtFont" style="text-align:center">Audit Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-robot text-white"></i>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">&nbsp;<asp:Label ID="Audit1" runat="server" Text="" /></div>
+                                            <div class="small text-gray-500">
+                                                &nbsp;<asp:Label ID="AuditUser1" runat="server" Text="" />
+                                                ·
+                                                <asp:Label ID="AuditDate1" runat="server" Text="" />
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-robot text-white"></i>
+                                        </div>
+                                        <div class="font-weight-bold">
+
+                                            <div class="text-truncate">&nbsp;<asp:Label ID="Audit2" runat="server" Text="" /></div>
+                                            <div class="small text-gray-500">
+                                                &nbsp;<asp:Label ID="AuditUser2" runat="server" Text="" />
+                                                ·
+                                                <asp:Label ID="AuditDate2" runat="server" Text="" />
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <%--<div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="Images/roboimg.jpg" alt="">
+                                            <div class="status-indicator bg-success"></div>--%>
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-robot text-white"></i>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate" >&nbsp;<asp:Label ID="Audit3" runat="server" Text="" /></div>
+                                            <div class="small text-gray-500">
+                                                &nbsp;<asp:Label ID="AuditUser3" runat="server" Text="" />
+                                                ·
+                                                <asp:Label ID="AuditDate3" runat="server" Text="" />
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <%--<div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="Images/roboimg.jpg" alt="">
+                                            <div class="status-indicator bg-success"></div>--%>
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-robot text-white"></i>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">&nbsp;<asp:Label ID="Audit4" runat="server" Text="" /></div>
+                                            <div class="small text-gray-500">
+                                                &nbsp;<asp:Label ID="AuditUser4" runat="server" Text="" />
+                                                ·
+                                                <asp:Label ID="AuditDate4" runat="server" Text="" />
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="AuditTrail.aspx">Get More Audit Trails..</a>
+                                </div>
+                            </li>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+
+                            <!-- Nav Item - User Information -->
+                            <li id="IdUser" class="nav-item dropdown no-arrow">
+                                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#idUserdiv" aria-expanded="true">
+                                    <span class="mr-2 d-none d-lg-inline   UserIcon font-weight-bold" ><%=Session["UserName"] %></span>
+                                    <span class=" img-profile"><i class="fas fa-user-tie fa-2x text-primary"></i></span>
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div id="idUserdiv" class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item text-secondary " href="#" data-toggle="modal" style="font-size:medium" data-target="#profileModal">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400 text-primary"></i>
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item text-secondary " href="#" data-toggle="modal" style="font-size:medium" data-target="#changePassword">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400 text-success"></i>
+                                        Change Password
+                                    </a>
+                                    <a class="dropdown-item text-secondary " style="font-size:medium" href="ActivityLogs.aspx">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 text-warning"></i>
+                                        Activity Log
+                                    </a>
+                                     
+                                   
+                                 
+
+<%--                                     <a href="#" class="dropdown-toggle dropdown-item text-secondary font-weight-bold" data-toggle="dropdown"> 
+                                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 text-warning"></i>Themes</a>
+                                        <ul class="dropdown-menu  fa-pull-left" role="menu">
+                                            <li>
+                                                 <a runat="server" href="?ThemeType=Default" class="dropdown-item text-secondary font-weight-bold"  style="font-size:medium" >
+                                                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400 text-primary"></i>
+                                                     Default
+                                                    </a>
+                                                <a runat="server" href="BotDashboard?ThemeType=Dark" class="dropdown-item text-secondary font-weight-bold"   style="font-size:medium" >
+                                                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400 text-success"></i>
+                                                     Dark
+                                                 </a>
+                                                 <a runat="server" href="?ThemeType=Light" class="dropdown-item text-secondary font-weight-bold" style="font-size:medium">
+                                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 text-warning"></i>
+                                                 Light
+                                                  </a>
+
+
+                                               
+
+                                            </li>
+                                            </ul>--%>
+                         
+                            
+
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal" style="font-size:medium" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400 text-danger"></i>
+                                        Logout
+                                    </a>
+
+
+                                </div>
+                            </li>
+
+                        </ul>
+                        
+                        
+     
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div id="ContainerId" class="container-fluid">
+                        <!-- Breadcrum -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="BotDashBoard.aspx"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active txtFont" aria-current="page">
+                                    <asp:Label ID="lblCurrentPage" runat="server" Text="Label"></asp:Label></li>
+                            </ol>
+                        </nav>
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4"> <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <div id="ContentId"> </div>
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select <span class="font-weight-bold text-danger">"Logout"</span> below if you are ready to end your current session.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                                <asp:LinkButton ID="LinkButton1" class="btn btn-danger" runat="server" OnClick="LogOut_OnClick" OnClientClick="LoggingOut()">Logout</asp:LinkButton>
+                                <%-- <a class="btn btn-danger" href="LogIn.aspx">Logout</a>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Logout Modal-->
+
+                <!-- Change Password Modal-->
+                <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleProfileLabel1">Change Your PassWord</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="card-body">
+                                    <label for="pwd">Please Enter <b>OLD</b> Password:</label>
+
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtOldPassword" class="form-control input-sm" runat="server" TextMode="Password"></asp:TextBox>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <span class="fa fa-eye-slash icon" id="show_OldPassword" style="max-height: inherit"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div id="validateOldPassword" class="text-danger">
+                                    </div>
+
+                                    <label for="pwd">Enter <b>NEW</b> Password</label>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtNewPassword" class="form-control input-sm" runat="server" TextMode="Password"></asp:TextBox>
+
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <span class="fa fa-eye-slash icon" id="show_NewPassword" style="max-height: inherit"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div id="validateNewPassword" class="text-danger">
+                                    </div>
+
+
+
+                                    <label for="pwd">Re-Enter <b>NEW</b> Password</label>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtConfirmPassword" class="form-control input-sm" runat="server" TextMode="Password"></asp:TextBox>
+
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <span class="fa fa-eye-slash icon" id="show_ConfirmPassword" style="max-height: inherit"></span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <div id="validateConfirmPassword" class="text-danger">
+                                    </div>
+                                    <div id="validate-status" class="text-danger">
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="form-group">
+                                        <asp:Button ID="Button5" runat="server" class="btn btn-primary colorSidebar" Text="Change Password" OnClientClick="return validate();" OnClick="ChangePassword" Width="150px" />
+                                        <asp:Button ID="btnClose" runat="server" class="btn btn-danger" Text="Cancel" Width="150px" OnClientClick="return closeModal();" />
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <!--End  Change Password Modal-->
+
+
+            <!-- Profile Modal-->
+            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title h4 text-primary font-weight-bold" id="exampleProfileLabel">Your Credentials</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <%-- <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Your Details</h6>
+            </div>--%>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%">
+                                        <thead align="center">
+                                            <tr>
+                                                <th>User Name</th>
+                                                <th>User Role</th>
+                                                <th>User Tenant Id</th>
+                                                <th>User Group Id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody align="center">
+                                            <tr>
+                                                <td><%=Session["UserName"] %></td>
+                                                <td><%=Session["Role"] %></td>
+                                                <td><%=Session["TenantId"] %></td>
+                                                <td><%=Session["GroupId"] %></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Footer -->
+
+                    <!-- Bootstrap core JavaScript-->
+                    <%--<script src="vendor/jquery/jquery.min.js"></script>--%>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Core plugin JavaScript-->
+                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                    <!-- Custom scripts for all pages-->
+                    <script src="js/sb-admin-2.min.js"></script>
+
+                </div>
+            </div>
+            <!-- End of Footer -->
+
+        </div>
+         
+
+
+
+
+
+        <script>
+                    
+
+
+            var TRange = null;
+
+            function findString() {
+                str = $("#searchText").val();
+                if (parseInt(navigator.appVersion) < 4) return;
+                var strFound;
+                if (window.find) {
+
+                    // CODE FOR BROWSERS THAT SUPPORT window.find
+
+                    strFound = self.find(str);
+                    if (!strFound) {
+                        strFound = self.find(str, 0, 1);
+                        while (self.find(str, 0, 1)) continue;
+                    }
+                }
+                else if (navigator.appName.indexOf("Microsoft") != -1) {
+
+                    // EXPLORER-SPECIFIC CODE
+
+                    if (TRange != null) {
+                        TRange.collapse(false);
+                        strFound = TRange.findText(str);
+                        if (strFound) TRange.select();
+                    }
+                    if (TRange == null || strFound == 0) {
+                        TRange = self.document.body.createTextRange();
+                        strFound = TRange.findText(str);
+                        if (strFound) TRange.select();
+                    }
+                }
+                else if (navigator.appName == "Opera") {
+                    alert("Opera browsers not supported, sorry...")
+                    return;
+                }
+                if (!strFound) alert("String '" + str + "' not found!")
+                return;
+            }
+        </script>
+
+
+
+
+    </form>
+
+
+    <script>
+
+
+        function validate() {
+            var oldPassword = $("#txtOldPassword").val();
+            var newPassword = $("#txtNewPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+            var errormsg = "";
+
+
+            var regexExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+
+            var Regex = new RegExp("^(?=.{8,})");
+
+            if (Regex.test(newPassword)) {
+
+
+                //Separate
+                if ((/^(?=.*[A-Z])[A-Z]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 LowerCase Alphabet,1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*[a-z])[a-z]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 UpperCase Alphabet,1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*\d)[\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast  1 UpperCase Alphabet,1 LowerCase Alphabet and 1 Special Character";
+                }
+                if ((/^(?=.*[$@$!%*?&])[$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast  1 UpperCase,1 LowerCase Alphabet and 1 Number";
+                }
+
+                //with UpperCase
+                if ((/^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)[A-Z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 LowerCase and 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 LowerCase Alphabet and 1 Number";
+                }
+
+                //with lowerCase
+                if ((/^(?=.*[a-z])(?=.*\d)[a-z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 UpperCase Alphabet and 1 Special Character";
+                }
+                if ((/^(?=.*[a-z])(?=.*[$@$!%*?&])[a-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 UpperCase Alphabet and 1 Number";
+                }
+                //with number
+                if ((/^(?=.*\d)(?=.*[$@$!%*?&])[\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain: atleast 1 UpperCase Alphabet and 1 LowerCase Alphabet";
+                }
+
+
+                //with Special character
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 Number";
+                }
+                if ((/^(?=.*\d)(?=.*[a-z])(?=.*[$@$!%*?&])[\da-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleas 1 UpperCase Alphabet";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 LowerCase Alphabet";
+                }
+
+
+
+
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 Number";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 LowerCase Alphabet";
+                }
+                if ((/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[a-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:atleast 1 UpperCase Alphabet";
+                }
+
+
+                if ((/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[a-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "";
+                }
+
+            }
+            else {
+
+
+                //Separate
+                if ((/^(?=.*[A-Z])[A-Z]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 LowerCase Alphabet,1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*[a-z])[a-z]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase Alphabet,1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*\d)[\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase Alphabet,1 LowerCase Alphabet and 1 Special Character";
+                }
+                if ((/^(?=.*[$@$!%*?&])[$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase,1 LowerCase Alphabet and 1 Number";
+                }
+
+                //with UpperCase
+                if ((/^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 Number and 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)[A-Z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 LowerCase and 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 LowerCase Alphabet and 1 Number";
+                }
+
+                //with lowerCase
+                if ((/^(?=.*[a-z])(?=.*\d)[a-z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase Alphabet and 1 Special Character";
+                }
+                if ((/^(?=.*[a-z])(?=.*[$@$!%*?&])[a-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase Alphabet and 1 Number";
+                }
+                //with number
+                if ((/^(?=.*\d)(?=.*[$@$!%*?&])[\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 UpperCase Alphabet and 1 LowerCase Alphabet";
+                }
+
+
+                //with Special character
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 Number";
+                }
+                if ((/^(?=.*\d)(?=.*[a-z])(?=.*[$@$!%*?&])[\da-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleas 1 UpperCase Alphabet";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters atleast 1 LowerCase Alphabet";
+                }
+
+
+
+
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters 1 Special Character";
+                }
+                if ((/^(?=.*[A-Z])(?=.*[a-z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters 1 Number";
+                }
+                if ((/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters 1 LowerCase Alphabet";
+                }
+                if ((/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[a-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters 1 UpperCase Alphabet";
+                }
+
+
+
+
+                if ((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]/).test(newPassword)) {
+                    errormsg = "Password must contain:Minimum 8 characters";
+                }
+            }
+            if (oldPassword == "") {
+                $("#validateOldPassword").text("Old password is required!");
+
+                if (newPassword == "") {
+                    $("#validateNewPassword").text("New password is required!");
+
+                    if (confirmPassword == "") {
+
+                        $("#validateConfirmPassword").text("Re-Enter password is required!");
+                        return false;
+                    }
+                    if (confirmPassword != "") {
+                        $("#validateConfirmPassword").text("");
+                        return false;
+                    }
+                }
+                if (newPassword != "") {
+                    if (regexExp.test(newPassword)) { $("#validateNewPassword").text(""); }
+                    else {
+                        $("#validateNewPassword").text(errormsg);
+                    }
+
+                    if (confirmPassword == "") {
+                        $("#validateConfirmPassword").text("Re-Enter password is required!");
+                        return false;
+                    }
+                    if ((newPassword != confirmPassword) && (confirmPassword != "")) {
+                        $("#validateConfirmPassword").text("Re-enter password did not match with the new password!");
+                        return false;
+                    }
+                    if ((newPassword == confirmPassword) && (confirmPassword != "")) {
+
+                        if ((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/).test(newPassword)) {
+                            if (newPassword == confirmPassword) {
+                                $("#validateNewPassword").text("");
+                                $("#validateConfirmPassword").text("");
+                                return false;
+                            }
+                        } else {
+                            $("#validateConfirmPassword").text("");
+                            //  $("#validateNewPassword").text("Password must contain:Minimum 8 characters");
+                            $("#validateNewPassword").text(errormsg);
+                            return false;
+                        }
+                    }
+
+                }
+
+            }
+            else if (oldPassword != "") {
+                $("#validateOldPassword").text("");
+
+                if (newPassword == "") {
+                    $("#validateNewPassword").text("New password is required!");
+
+                    if (confirmPassword == "") {
+                        $("#validateConfirmPassword").text("Re-Enter password is required!");
+                        return false;
+                    }
+                    if (confirmPassword != "") {
+                        $("#validateConfirmPassword").text("");
+                        return false;
+                    }
+                }
+                if (newPassword != "") {
+
+
+                    if (regexExp.test(newPassword)) { $("#validateNewPassword").text(""); }
+                    else {
+                        $("#validateNewPassword").text(errormsg);
+                    }
+
+                    if (confirmPassword == "") {
+                        $("#validateConfirmPassword").text("Re-Enter password is required!");
+                        return false;
+                    }
+                    if ((newPassword != confirmPassword) && (confirmPassword != "")) {
+                        $("#validateConfirmPassword").text("Re-enter password did not match with the new password!");
+                        //$("#validate-status").text("Re-enter password did not match with the new password!");
+                        return false;
+                    }
+
+                    if (confirmPassword != "") {
+
+                        if ((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/).test(newPassword)) {
+                            if (newPassword == confirmPassword) {
+                                $("#validateNewPassword").text("");
+                                $("#validateConfirmPassword").text("");
+                                return true;
+                            }
+                        } else {
+                            // $("#validateNewPassword").text("Password must contain:Minimum 8 characters");
+                            $("#validateNewPassword").text(errormsg);
+                            return false;
+                        }
+
+                    }
+                    else {
+                        $("#validateNewPassword").text(errormsg);
+                        return false;
+                    }
+
+                }
+
+            }
+            else {
+                return false;
+            }
+
+            return false
+
+        }
+
+        function closeModal() {
+
+            $('#Regex').ErrorMessage.text("");
+            //   $('#changePassword').removeData('modal');
+
+            $('#changePassword').modal('hide');
+
+
+        }
+        $(document).ready(function () {
+            $('#show_OldPassword').hover(function show() {
+                //Change the attribute to text  
+                $('#txtOldPassword').attr('type', 'text');
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            },
+                function () {
+                    //Change the attribute back to password  
+                    $('#txtOldPassword').attr('type', 'password');
+                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                });
+        });
+
+        $(document).ready(function () {
+            $('#show_NewPassword').hover(function show() {
+                //Change the attribute to text  
+                $('#txtNewPassword').attr('type', 'text');
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            },
+                function () {
+                    //Change the attribute back to password  
+                    $('#txtNewPassword').attr('type', 'password');
+                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                });
+        });
+
+        $(document).ready(function () {
+            $('#show_ConfirmPassword').hover(function show() {
+                //Change the attribute to text  
+                $('#txtConfirmPassword').attr('type', 'text');
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            },
+                function () {
+                    //Change the attribute back to password  
+                    $('#txtConfirmPassword').attr('type', 'password');
+                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                });
+        });
+
+
+
+        $(function () {
+            $("#liqueue").click(function () {
+                $("#collapseTwo").toggle();
+                $("#collapseUtilities").hide();
+                $("#collapseUtilities1").hide();
+                $(".nav-item").removeClass("active");
+                $(this).addClass('active');
+
+
+
+
+            });
+        });
+        $(function () {
+            $("#linUserMan").click(function () {
+                $("#collapseUtilities").toggle();
+                $("#collapseTwo").hide();
+                $("#collapseUtilities1").hide();
+                $(".nav-item").removeClass("active");
+                $(this).addClass('active');
+
+
+            });
+        });
+        $(function () {
+            $("#litrouble").click(function () {
+                $("#collapseUtilities1").toggle();
+                $("#collapseTwo").hide();
+                $("#collapseUtilities").hide();
+                $(".nav-item").removeClass("active");
+                $(this).addClass('active');
+            });
+
+        });
+
+       
+
+        $(document).ready(function () {
+            var sPath = window.location.pathname;
+            //var sPage = sPath.substring(sPath.lastIndexOf('\\') + 1);
+            var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+            //alert(sPage);
+            if (sPage === "QueueDetails.aspx" || sPage === "AddSchedule.aspx" || sPage === "ScheduleDetails.aspx") {
+                //alert("QueueDetails.aspx");
+                $("#collapseTwo").toggle();
+                if (sPage === "QueueDetails.aspx") {
+                    var aQueueDetails = document.getElementById('aQueueDetails');
+                    aQueueDetails.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AddSchedule.aspx") {
+                    var aAddSchedule = document.getElementById('aAddSchedule');
+                    aAddSchedule.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "ScheduleDetails.aspx") {
+                    var aScheduleDetails = document.getElementById('aScheduleDetails');
+                    $(".nav-item").removeClass("active");
+                    aScheduleDetails.style.backgroundColor = '#9e9e9e';
+
+                }
+
+            }
+
+            else if (sPage === "AddTenant.aspx" || sPage === "AddUsers.aspx" || sPage === "AddRobot.aspx" || sPage === "AddGroup.aspx" || sPage === "AssignQueueToRobot.aspx" || sPage === "AssignQueueToRobot.aspx" || sPage === "AssignRobotToUser.aspx") {
+                //alert("QueueDetails.aspx");
+                $("#collapseUtilities").toggle();
+                if (sPage === "AddTenant.aspx") {
+                    var aAddTenant = document.getElementById('aAddTenant');
+                    aAddTenant.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AddUsers.aspx") {
+                    var aAddUsers = document.getElementById('aAddUsers');
+                    aAddUsers.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AddRobot.aspx") {
+                    var aAddRobot = document.getElementById('aAddRobot');
+                    aAddRobot.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AddGroup.aspx") {
+                    var aAddGroup = document.getElementById('aAddGroup');
+                    aAddGroup.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AssignQueueToRobot.aspx") {
+                    var aAssignQueueToRobot = document.getElementById('aAssignQueueToRobot');
+                    aAssignQueueToRobot.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AssignRobotToUser.aspx") {
+                    var aAssignRobotToUser = document.getElementById('aAssignRobotToUser');
+                    aAssignRobotToUser.style.backgroundColor = '#9e9e9e';
+                }
+
+            }
+
+            else if (sPage === "BotLogs.aspx" || sPage === "AuditTrail.aspx" || sPage === "CompleteLogs.aspx") {
+                $("#collapseUtilities1").toggle();
+                if (sPage === "BotLogs.aspx") {
+                    var aBotLogs = document.getElementById('aBotLogs');
+                    aBotLogs.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "AuditTrail.aspx") {
+                    var aAuditTrail = document.getElementById('aAuditTrail');
+                    aAuditTrail.style.backgroundColor = '#9e9e9e';
+                }
+                else if (sPage === "CompleteLogs.aspx") {
+                    var aCompleteLogs = document.getElementById('aCompleteLogs');
+                    aCompleteLogs.style.backgroundColor = '#9e9e9e';
+                }
+
+            }
+
+            $(function () {
+                $("#Idbell").click(function () {
+
+                    $("#idbelldiv").toggle();
+                    $("#idEnvolopediv").hide();
+                    $("#idUserdiv").hide();
+                    $(".nav-item").removeClass("active");
+                    $(this).addClass('active');
+                });
+
+            });
+
+            $(function () {
+                $("#IdEnvolope").click(function () {
+                    $("#idEnvolopediv").toggle();
+                    $("#idbelldiv").hide();
+                    $("#idUserdiv").hide();
+                    $(".nav-item").removeClass("active");
+                    $(this).addClass('active');
+                });
+            });
+
+            $(function () {
+                $("#IdUser").click(function () {
+                    $("#idUserdiv").toggle();
+                    $("#idEnvolopediv").hide();
+                    $("#idbelldiv").hide();
+                    $(".nav-item").removeClass("active");
+                    $(this).addClass('active');
+                });
+
+            });
+
+        });
+
+    </script>
+    
+
+    <%--<script src="js/datatables.min.js"></script>
+    
+    <script src="js/datatables1.min.js"></script>--%>
+   
+    
+
+     <!-- Footer -->
+    <footer class="sticky-footer footerD">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight:bolder">Copyright &copy; E2E BOTS 2019</span>
+            </div>
+        </div>
+    </footer>
+    <!--End of Footer -->
+</body>
+</html>

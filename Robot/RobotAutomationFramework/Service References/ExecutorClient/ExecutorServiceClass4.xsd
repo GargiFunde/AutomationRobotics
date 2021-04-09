@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/ProcessViewModel.Common" />
+  <xs:element name="FetchSignInData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iGroupId" type="xs:int" />
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchSignInDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FetchSignInDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadAllDataAtLaunch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadAllDataAtLaunchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" minOccurs="0" name="LoadAllDataAtLaunchResult" nillable="true" type="q1:RootAutomationDataClass" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchMasterTypeData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchMasterTypeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="P_FetchMasterTypeDataResult" nillable="true" type="q2:ArrayOfApplicationTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAutomationGroupTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAutomationGroupTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="P_FetchAutomationGroupTreeResult" nillable="true" type="q3:AutomationGroupTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAllApplicationDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAllApplicationDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="P_FetchAllApplicationDetailsResult" nillable="true" type="q4:ArrayOfKeyValueOfintEntityDetailsMIK_P8A7e" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAllMapperProcessFlows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P_FetchAllMapperProcessFlowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Entities" minOccurs="0" name="P_FetchAllMapperProcessFlowsResult" nillable="true" type="q5:GroupProcesses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDiagramByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="diagramName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchDiagramByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ProcessViewModel.Common" minOccurs="0" name="FetchDiagramByNameResult" nillable="true" type="q6:DiagramItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSignInDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iGroupId" type="xs:int" />
+        <xs:element minOccurs="0" name="signInGroupUserData" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurrentUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSignInDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveSignInDetailsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

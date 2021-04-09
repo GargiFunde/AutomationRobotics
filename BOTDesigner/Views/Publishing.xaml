@@ -1,0 +1,19 @@
+﻿<Window x:Class="BOTDesigner.Views.Publishing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTDesigner.Views"
+        mc:Ignorable="d"
+         WindowStyle="None" WindowStartupLocation="CenterScreen" Closed="Window_Closed"
+	ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True"
+        Title="" Height="300" Width="600">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" FontSize="30" FontWeight="Bold" Foreground="DarkBlue">PUBLISHING...</TextBlock>
+        <Grid Margin="0,212,0,53">
+            <ProgressBar x:Name="progressBar"/>
+           
+        </Grid>       
+    </Grid>
+    
+</Window>

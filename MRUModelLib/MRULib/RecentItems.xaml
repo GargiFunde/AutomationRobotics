@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="MRULib.RecentItems"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:localns="clr-namespace:MRULib"
+             xmlns:pinlvw="clr-namespace:MRULib.Views"
+             xmlns:ellipsiedTxtBlock="clr-namespace:MRULib.Views.PathTrimmingTextBlock"
+             xmlns:cmdLabel="clr-namespace:MRULib.Localiz"
+             >
+    <Grid xmlns:behav="clr-namespace:MRULib.Behaviours">
+        <pinlvw:PinableListBox ItemsSource="{Binding ListOfMRUEntries}"
+                               HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Stretch"
+                               Background="Transparent"
+                              Margin="0,0,0,0" BorderThickness="0" >
+            <pinlvw:PinableListBox.Resources>
+                <behav:BindingProxy x:Key="DataContextProxy" Data="{Binding}" />
+                
+                <!-- SelectedItem with focus -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                <!-- SelectedItem without focus -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                <!-- SelectedItem text foreground -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Transparent" />
+
+                <!-- Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Margin" Value="1" />
+                </Style -->
+            </pinlvw:PinableListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!-- Binding to HYPERLINK_TEXT textblock ensures that we can scale the needle 'image' with the fontsize -->
+                        <!-- Binding to IsChecked is one way since viewmodel checks and changes state while display is to display state only :) -->
+                        <pinlvw:CheckPin Grid.Column="0" Margin="6,6,6,6"
+                                         Width="{Binding ElementName=HYPERLINK_TEXT,Path=ActualHeight}"
+                                         Height="{Binding ElementName=HYPERLINK_TEXT,Path=ActualHeight}"
+                                         IsChecked="{Binding IsPinned, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Command="{Binding Data.PinUnpinEntryCommand, Source={StaticResource DataContextProxy}}"
+                                         CommandParameter="{Binding}"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                        >
+                            <pinlvw:CheckPin.Visibility>
+                                <!-- Determine if mouse if over listbox item and display halve visible needle if so -->
+                                <MultiBinding Converter="{pinlvw:BoolOrToVisibilityConverter}">
+                                    <Binding Path="IsMouseOverListBoxItem" RelativeSource="{RelativeSource AncestorType={x:Type pinlvw:PinableListBoxItem}}" />
+                                    <Binding Path="IsChecked" RelativeSource="{RelativeSource Self}" />
+                                </MultiBinding>
+                            </pinlvw:CheckPin.Visibility>
+                        </pinlvw:CheckPin>
+                        <Image Grid.Column="2" Margin="2,2,2,2">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/Menu/icon_app.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                        <!-- This border is important for the measurements of the PathTrimmingTextBlock to work -->
+                        <Border Grid.Column="4"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                BorderThickness="0"
+                                Margin="0">
+                            <TextBlock HorizontalAlignment="Stretch" Name="HYPERLINK_TEXT">
+                                <Hyperlink Command="{Binding Data.LoadFileCommand, Source={StaticResource DataContextProxy}}"
+                                           CommandParameter="{Binding}"
+                                    >
+                                    <Hyperlink.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="{Binding Data.LoadFileCommandHeader, Source={StaticResource DataContextProxy}}"
+                                                      ToolTip="{Binding Data.LoadFileCommandHeaderDescription, Source={StaticResource DataContextProxy}}" 
+                                                      Command="{Binding Data.LoadFileCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3"
+                                                      />
+                                            <MenuItem Header="{x:Static cmdLabel:Strings.STR_MRU_MENUITEM_COPYURL}"
+                                                      Command="{Binding Data.CopyUriCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3"
+                                                      ToolTip="{x:Static cmdLabel:Strings.STR_AppCommand_CopyFileURLToClipboard}"
+                                                      />
+                                            <MenuItem Header="{x:Static cmdLabel:Strings.STR_MRU_MENUITEM_OpenWithWindowsApp}"
+                                                      Command="{Binding Data.OpenWithWindowsAppCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3" />
+
+                                            <MenuItem Header="{x:Static cmdLabel:Strings.STR_MRU_MENUITEM_OpenInContainingFolder}"
+                                                      Command="{Binding Data.OpenInContainingFolderCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3" />
+                                            <Separator />
+                                            <MenuItem Header="{x:Static cmdLabel:Strings.STR_MRU_MENUITEM_Remove}"
+                                                      Command="{Binding Data.RemoveItemCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3"
+                                                      ToolTip="{x:Static cmdLabel:Strings.CMD_MRU_RemoveEntry_Description}"
+                                                      />
+                                            <MenuItem Header="{x:Static cmdLabel:Strings.STR_REMOVE_ALL_ITEMS}"
+                                                      Command="{Binding Data.ClearItemsCommand, Source={StaticResource DataContextProxy}}"
+                                                      CommandParameter="{Binding}"
+                                                      Margin="3"
+                                                      ToolTip="{x:Static cmdLabel:Strings.STR_REMOVE_ALL_ITEMS_TT}"
+                                                      />
+                                        </ContextMenu>
+                                    </Hyperlink.ContextMenu>
+                                    
+                                    <ellipsiedTxtBlock:PathTrimmingTextBlock Path="{Binding PathFileName}"
+                                                                             ToolTip="{Binding PathFileName}"
+                                                                             HorizontalAlignment="Stretch"/>
+                                </Hyperlink>
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </pinlvw:PinableListBox>
+    </Grid>
+</UserControl>

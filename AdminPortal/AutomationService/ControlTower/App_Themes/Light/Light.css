@@ -1,0 +1,155 @@
+﻿
+#accordionSidebar {
+    background-position: center;
+    background-color: #D3D3D3;
+}
+
+#TopNav {
+    background-position: center;
+    background-color: #D3D3D3;
+}
+
+#content {
+    background-position: center;
+    background-color: white;
+}
+
+.card, .shadow {
+    background-position: center;
+    background-color: white;
+}
+
+.modal-content {
+    background-position: center;
+    background-color: ;
+}
+
+/*.card-body,*/ .table, .text-truncate {
+    background-position: center;
+    color: black;
+}
+
+tr:hover {
+    color: #808080;
+}
+
+.text-truncate:hover {
+    color: black;
+}
+
+#dataTables-schedules {
+    background-position: center;
+    color: gray;
+}
+
+.txt{
+    background-position: center;
+    color: black;
+}
+.sidebar-dark .nav-item .nav-link {
+    color: #212529;
+}
+
+.sidebar-dark .nav-item .nav-link i {
+  color: #212529;
+    }
+
+.sidebar-dark #sidebarToggle {
+    background-color: #282828;
+    
+}
+
+    .sidebar-dark #sidebarToggle::after {
+        color: #b59c9c;
+    }
+
+sidebar-dark #sidebarToggle:hover {
+    background-color: #756c6c;
+}
+
+.sidebar-dark.toggled #sidebarToggle::after {
+    color: #756c6c;
+}
+.sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:hover {
+    color: #756c6c;
+}
+
+    .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover i {
+        color: #787675;
+    }
+
+.sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
+    color: #756c6c;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #4e5165;
+}
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+        color: #4e5165
+    }
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+        color: #4e5165
+    }
+
+.ddlstyle {
+    background-color: #D3D3D3;
+    backface-visibility: hidden;
+    border: none;
+    color: rgb(33,33,00);
+    vertical-align: middle;
+}
+.footerD {
+    background-color: #D3D3D3;
+}
+
+.copyright {
+    color: black;
+}
+.sidebar-dark .sidebar-heading {
+  color: black;
+}
+
+.poptxt {
+    color: black;
+}
+
+.ddltext {
+    background-color: #D3D3D3;
+    color: white;
+}
+.txtFont {
+    font-size: 14px;
+}
+
+.TableHeaderFont {
+    font-size: 16px;
+}
+.UserIcon {
+    Color: black;
+}
+.sidebar .nav-item.active .nav-link {
+    font-weight: 700;
+    background: border-box;
+    background-color: white;
+    color: #212121;
+    padding: 10px;
+}
+
+    .sidebar .nav-item.active .nav-link .fas {
+        color: #212121;
+    }
+.poptxtdata {
+    color: black;
+}
+
+.topbar .dropdown-list .dropdown-header {
+    background-color: #D3D3D3;
+    border: 1px solid rgba(255,255,255,.8);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    color: #212121;
+    font-size: 14px;
+}

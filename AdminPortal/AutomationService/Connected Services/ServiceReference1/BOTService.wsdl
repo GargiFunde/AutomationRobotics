@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BOTService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary" />
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/AutomationService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBOTService_AddSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSchedule" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddQueueDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddQueueDetails" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddQueueDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddQueueDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSchedule" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetSchedules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedules" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetSchedules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AutomationRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutomationRequest" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AutomationRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutomationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddTenant_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTenant" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddTenant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTenantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteTenant_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTenant" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteTenant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTenantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetTenantId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantId" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetTenantId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_UpdateDefaultVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDefaultVersion" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_UpdateDefaultVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDefaultVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcess" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddProcessWithZip_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcessWithZip" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddProcessWithZip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcessWithZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBot" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddConfigParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddConfigParameters" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AddConfigParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddConfigParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteConfigParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteConfigParameters" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteConfigParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteConfigParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBot" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcess" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteProcessVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcessVersion" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteProcessVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcessVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteQueueToBotMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQueueToBotMapping" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteQueueToBotMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQueueToBotMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteUserToBotMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserToBotMapping" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DeleteUserToBotMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserToBotMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_UpdateCustomRoleBasedAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomRoleBasedAccess" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_UpdateCustomRoleBasedAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomRoleBasedAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetCustomRoleBasedAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomRoleBasedAccess" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetCustomRoleBasedAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomRoleBasedAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AssignBotToUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignBotToUser" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AssignBotToUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignBotToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AssignQueueToBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignQueueToBot" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_AssignQueueToBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignQueueToBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBots" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetConfigParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigParameters" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetConfigParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetQueues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueues" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetQueues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetDashboardBots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDashboardBots" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetDashboardBots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDashboardBotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetQueueToBotMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueToBotMapping" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetQueueToBotMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueToBotMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetUserToBotMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserToBotMapping" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetUserToBotMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserToBotMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBotStartDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBotStartDetails" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBotStartDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBotStartDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBotStartDetailsFromDesktop_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBotStartDetailsFromDesktop" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetBotStartDetailsFromDesktop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBotStartDetailsFromDesktopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetStompDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStompDetails" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetStompDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStompDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetRQDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRQDetails" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetRQDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRQDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetLogsForDashboardBots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogsForDashboardBots" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetLogsForDashboardBots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogsForDashboardBotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetAllTenants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTenants" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetAllTenants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTenantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_InsertIntoLogger_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertIntoLogger" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_InsertIntoLogger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertIntoLoggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetAuditTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrail" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetAuditTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LogDataToDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogDataToDB" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LogDataToDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogDataToDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetProcessDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessDetails" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetProcessDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DownloadAutomationZipBinary_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadAutomationZipBinary" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_DownloadAutomationZipBinary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadAutomationZipBinaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetProcessDataWitoutZipFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessDataWitoutZipFile" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_GetProcessDataWitoutZipFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessDataWitoutZipFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LoadProcessVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadProcessVersion" />
+  </wsdl:message>
+  <wsdl:message name="IBOTService_LoadProcessVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadProcessVersionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBOTService">
+    <wsdl:operation name="AddSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddSchedule" message="tns:IBOTService_AddSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddScheduleResponse" message="tns:IBOTService_AddSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddQueueDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddQueueDetails" message="tns:IBOTService_AddQueueDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddQueueDetailsResponse" message="tns:IBOTService_AddQueueDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteSchedule" message="tns:IBOTService_DeleteSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteScheduleResponse" message="tns:IBOTService_DeleteSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetSchedules" message="tns:IBOTService_GetSchedules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetSchedulesResponse" message="tns:IBOTService_GetSchedules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutomationRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AutomationRequest" message="tns:IBOTService_AutomationRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AutomationRequestResponse" message="tns:IBOTService_AutomationRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddUser" message="tns:IBOTService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddUserResponse" message="tns:IBOTService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTenant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddTenant" message="tns:IBOTService_AddTenant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddTenantResponse" message="tns:IBOTService_AddTenant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTenant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteTenant" message="tns:IBOTService_DeleteTenant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteTenantResponse" message="tns:IBOTService_DeleteTenant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetTenantId" message="tns:IBOTService_GetTenantId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetTenantIdResponse" message="tns:IBOTService_GetTenantId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddGroup" message="tns:IBOTService_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddGroupResponse" message="tns:IBOTService_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteGroup" message="tns:IBOTService_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteGroupResponse" message="tns:IBOTService_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDefaultVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/UpdateDefaultVersion" message="tns:IBOTService_UpdateDefaultVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/UpdateDefaultVersionResponse" message="tns:IBOTService_UpdateDefaultVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddProcess" message="tns:IBOTService_AddProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddProcessResponse" message="tns:IBOTService_AddProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProcessWithZip">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddProcessWithZip" message="tns:IBOTService_AddProcessWithZip_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddProcessWithZipResponse" message="tns:IBOTService_AddProcessWithZip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddBot" message="tns:IBOTService_AddBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddBotResponse" message="tns:IBOTService_AddBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddConfigParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AddConfigParameters" message="tns:IBOTService_AddConfigParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AddConfigParametersResponse" message="tns:IBOTService_AddConfigParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConfigParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteConfigParameters" message="tns:IBOTService_DeleteConfigParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteConfigParametersResponse" message="tns:IBOTService_DeleteConfigParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteBot" message="tns:IBOTService_DeleteBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteBotResponse" message="tns:IBOTService_DeleteBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteUser" message="tns:IBOTService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteUserResponse" message="tns:IBOTService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteProcess" message="tns:IBOTService_DeleteProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteProcessResponse" message="tns:IBOTService_DeleteProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcessVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteProcessVersion" message="tns:IBOTService_DeleteProcessVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteProcessVersionResponse" message="tns:IBOTService_DeleteProcessVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQueueToBotMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteQueueToBotMapping" message="tns:IBOTService_DeleteQueueToBotMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteQueueToBotMappingResponse" message="tns:IBOTService_DeleteQueueToBotMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserToBotMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DeleteUserToBotMapping" message="tns:IBOTService_DeleteUserToBotMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DeleteUserToBotMappingResponse" message="tns:IBOTService_DeleteUserToBotMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomRoleBasedAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/UpdateCustomRoleBasedAccess" message="tns:IBOTService_UpdateCustomRoleBasedAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/UpdateCustomRoleBasedAccessResponse" message="tns:IBOTService_UpdateCustomRoleBasedAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomRoleBasedAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetCustomRoleBasedAccess" message="tns:IBOTService_GetCustomRoleBasedAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetCustomRoleBasedAccessResponse" message="tns:IBOTService_GetCustomRoleBasedAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/LoginUser" message="tns:IBOTService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/LoginUserResponse" message="tns:IBOTService_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignBotToUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AssignBotToUser" message="tns:IBOTService_AssignBotToUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AssignBotToUserResponse" message="tns:IBOTService_AssignBotToUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignQueueToBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/AssignQueueToBot" message="tns:IBOTService_AssignQueueToBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/AssignQueueToBotResponse" message="tns:IBOTService_AssignQueueToBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetBots" message="tns:IBOTService_GetBots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetBotsResponse" message="tns:IBOTService_GetBots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetGroups" message="tns:IBOTService_GetGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetGroupsResponse" message="tns:IBOTService_GetGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetConfigParameters" message="tns:IBOTService_GetConfigParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetConfigParametersResponse" message="tns:IBOTService_GetConfigParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetQueues" message="tns:IBOTService_GetQueues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetQueuesResponse" message="tns:IBOTService_GetQueues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardBots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetDashboardBots" message="tns:IBOTService_GetDashboardBots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetDashboardBotsResponse" message="tns:IBOTService_GetDashboardBots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueToBotMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetQueueToBotMapping" message="tns:IBOTService_GetQueueToBotMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetQueueToBotMappingResponse" message="tns:IBOTService_GetQueueToBotMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserToBotMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetUserToBotMapping" message="tns:IBOTService_GetUserToBotMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetUserToBotMappingResponse" message="tns:IBOTService_GetUserToBotMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBotStartDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetBotStartDetails" message="tns:IBOTService_GetBotStartDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetBotStartDetailsResponse" message="tns:IBOTService_GetBotStartDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBotStartDetailsFromDesktop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetBotStartDetailsFromDesktop" message="tns:IBOTService_GetBotStartDetailsFromDesktop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetBotStartDetailsFromDesktopResponse" message="tns:IBOTService_GetBotStartDetailsFromDesktop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStompDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetStompDetails" message="tns:IBOTService_GetStompDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetStompDetailsResponse" message="tns:IBOTService_GetStompDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRQDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetRQDetails" message="tns:IBOTService_GetRQDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetRQDetailsResponse" message="tns:IBOTService_GetRQDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogsForDashboardBots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetLogsForDashboardBots" message="tns:IBOTService_GetLogsForDashboardBots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetLogsForDashboardBotsResponse" message="tns:IBOTService_GetLogsForDashboardBots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetUsers" message="tns:IBOTService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetUsersResponse" message="tns:IBOTService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTenants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetAllTenants" message="tns:IBOTService_GetAllTenants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetAllTenantsResponse" message="tns:IBOTService_GetAllTenants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoLogger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/InsertIntoLogger" message="tns:IBOTService_InsertIntoLogger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/InsertIntoLoggerResponse" message="tns:IBOTService_InsertIntoLogger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetLog" message="tns:IBOTService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetLogResponse" message="tns:IBOTService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetAuditTrail" message="tns:IBOTService_GetAuditTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetAuditTrailResponse" message="tns:IBOTService_GetAuditTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetData" message="tns:IBOTService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetDataResponse" message="tns:IBOTService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetDataUsingDataContract" message="tns:IBOTService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetDataUsingDataContractResponse" message="tns:IBOTService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogDataToDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/LogDataToDB" message="tns:IBOTService_LogDataToDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/LogDataToDBResponse" message="tns:IBOTService_LogDataToDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetProcessDetails" message="tns:IBOTService_GetProcessDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetProcessDetailsResponse" message="tns:IBOTService_GetProcessDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAutomationZipBinary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/DownloadAutomationZipBinary" message="tns:IBOTService_DownloadAutomationZipBinary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/DownloadAutomationZipBinaryResponse" message="tns:IBOTService_DownloadAutomationZipBinary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessDataWitoutZipFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/GetProcessDataWitoutZipFile" message="tns:IBOTService_GetProcessDataWitoutZipFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/GetProcessDataWitoutZipFileResponse" message="tns:IBOTService_GetProcessDataWitoutZipFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadProcessVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBOTService/LoadProcessVersion" message="tns:IBOTService_LoadProcessVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBOTService/LoadProcessVersionResponse" message="tns:IBOTService_LoadProcessVersion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBOTService" type="tns:IBOTService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSchedule">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddQueueDetails">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddQueueDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedule">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedules">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetSchedules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutomationRequest">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AutomationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTenant">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddTenant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTenant">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteTenant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantId">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetTenantId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDefaultVersion">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/UpdateDefaultVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProcess">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProcessWithZip">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddProcessWithZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBot">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddBot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddConfigParameters">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AddConfigParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConfigParameters">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteConfigParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBot">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteBot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcess">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcessVersion">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteProcessVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQueueToBotMapping">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteQueueToBotMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserToBotMapping">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DeleteUserToBotMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomRoleBasedAccess">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/UpdateCustomRoleBasedAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomRoleBasedAccess">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetCustomRoleBasedAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignBotToUser">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AssignBotToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignQueueToBot">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/AssignQueueToBot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBots">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetBots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigParameters">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetConfigParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueues">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetQueues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardBots">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetDashboardBots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueToBotMapping">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetQueueToBotMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserToBotMapping">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetUserToBotMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBotStartDetails">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetBotStartDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBotStartDetailsFromDesktop">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetBotStartDetailsFromDesktop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStompDetails">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetStompDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRQDetails">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetRQDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogsForDashboardBots">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetLogsForDashboardBots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTenants">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetAllTenants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoLogger">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/InsertIntoLogger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrail">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetAuditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogDataToDB">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/LogDataToDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessDetails">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetProcessDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAutomationZipBinary">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/DownloadAutomationZipBinary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessDataWitoutZipFile">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/GetProcessDataWitoutZipFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadProcessVersion">
+      <soap:operation soapAction="http://tempuri.org/IBOTService/LoadProcessVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOTService">
+    <wsdl:port name="BasicHttpBinding_IBOTService" binding="tns:BasicHttpBinding_IBOTService">
+      <soap:address location="http://localhost:8090/AutomationService/BOTService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

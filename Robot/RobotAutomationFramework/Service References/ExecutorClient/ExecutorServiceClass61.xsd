@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ProcessViewModel.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ProcessViewModel.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DiagramItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutomationGroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="Connections" nillable="true" type="tns:ArrayOfConnection" />
+      <xs:element minOccurs="0" name="DesignerItems" nillable="true" type="tns:ArrayOfDesignerItemBase" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiagramItem" nillable="true" type="tns:DiagramItem" />
+  <xs:complexType name="ArrayOfConnection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Connection" nillable="true" type="tns:Connection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConnection" nillable="true" type="tns:ArrayOfConnection" />
+  <xs:complexType name="Connection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="SinkId" type="xs:int" />
+      <xs:element minOccurs="0" name="SinkOrientation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SinkType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceId" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceOrientation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Connection" nillable="true" type="tns:Connection" />
+  <xs:complexType name="ArrayOfDesignerItemBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DesignerItemBase" nillable="true" type="tns:DesignerItemBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDesignerItemBase" nillable="true" type="tns:ArrayOfDesignerItemBase" />
+  <xs:complexType name="DesignerItemBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Left" type="xs:double" />
+      <xs:element minOccurs="0" name="SourceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Top" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DesignerItemBase" nillable="true" type="tns:DesignerItemBase" />
+</xs:schema>

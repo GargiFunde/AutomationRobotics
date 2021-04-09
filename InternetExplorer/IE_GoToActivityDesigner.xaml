@@ -1,0 +1,39 @@
+﻿<sap:ActivityDesigner x:Class="Bot.Activity.InternetExplorer.IE_GoToActivityDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                        xmlns:sad="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+                       xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation" Height="173.834" Width="419.666">
+
+
+    <sap:ActivityDesigner.Icon>
+        <DrawingBrush>
+            <DrawingBrush.Drawing>
+                <ImageDrawing>
+                    <ImageDrawing.Rect>
+                        <Rect Location="0,0" Size="16,16" ></Rect>
+                    </ImageDrawing.Rect>
+                    <ImageDrawing.ImageSource>
+                        <BitmapImage UriSource="Resources/IE_GoTo2.png" ></BitmapImage>
+                    </ImageDrawing.ImageSource>
+                </ImageDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </sap:ActivityDesigner.Icon>
+
+    <sap:ActivityDesigner.Resources>
+        <ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+            
+        </ResourceDictionary>
+    </sap:ActivityDesigner.Resources>
+    <Grid Margin="0,0,0,-69">
+        <sapv:ExpressionTextBox HintText="Set ApplicationIDToAttach" Grid.Row="0" Expression="{Binding ModelItem.ApplicationIDToAttach,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" Margin="0,25,23,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top"/>
+        <sapv:ExpressionTextBox HintText="Set Url" Grid.Row="0" Expression="{Binding ModelItem.Url,Mode=TwoWay,Converter={StaticResource ArgumentToExpressionConverter}}" OwnerActivity="{Binding Path=ModelItem}" Margin="0,84,23,0" HorizontalAlignment="Right" Width="254" RenderTransformOrigin="0.137,0.053" Height="25" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,84,0,0" TextWrapping="Wrap" Text="Url" VerticalAlignment="Top" RenderTransformOrigin="0.567,8.5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="6,25,0,0" TextWrapping="Wrap" Text="ApplicationIDToAttach" VerticalAlignment="Top"/>
+        
+    </Grid>
+</sap:ActivityDesigner>

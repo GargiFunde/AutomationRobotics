@@ -1,0 +1,82 @@
+﻿<sap:ActivityDesigner x:Class="Bot.RabbitMQ.ActivityDesigner1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"  
+                     xmlns:local="clr-namespace:Bot.RabbitMQ" BorderThickness="0" ClipToBounds="False" BorderBrush="White" AllowDrop="False" Padding="0" Margin="0" MinWidth="300">
+
+
+    <sap:ActivityDesigner.Icon>
+        <DrawingBrush>
+            <DrawingBrush.Drawing>
+                <ImageDrawing>
+                    <ImageDrawing.Rect>
+                        <Rect Location="0,0" Size="16,16" ></Rect>
+                    </ImageDrawing.Rect>
+                    <ImageDrawing.ImageSource>
+                        <BitmapImage UriSource="Resources/InsertQueueItems2.png" ></BitmapImage>
+                    </ImageDrawing.ImageSource>
+                </ImageDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </sap:ActivityDesigner.Icon>
+
+
+
+    <sap:ActivityDesigner.Resources>
+        <ResourceDictionary>
+            <!--<local:StringToFilenameConverter x:Key="StringToFilenameConverter" />-->
+            <Style x:Key="ControlLabel">
+                <Setter Property="Control.HorizontalAlignment" Value="Right" />
+                <Setter Property="Control.VerticalAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="ControlValue">
+                <Setter Property="Control.Foreground" Value="Gray" />
+                <Setter Property="Control.Margin" Value="5" />
+            </Style>
+            <Style x:Key="FlatButton">
+                <Setter Property="Control.FontStyle" Value="Italic" />
+                <Setter Property="Control.Foreground" Value="Gray" />
+                <Setter Property="Control.Margin" Value="5" />
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate x:Name="FlatButtonTemplate"  TargetType="{x:Type Button}">
+                            <Border x:Name="FlatButtonBorder" CornerRadius="2" Padding="5">
+                                <ContentPresenter x:Name="FlatButtonContent"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="FlatButtonBorder" Property="Padding" Value="4"></Setter>
+                                    <Setter TargetName="FlatButtonBorder" Property="BorderThickness" Value="1"></Setter>
+                                    <Setter TargetName="FlatButtonBorder" Property="BorderBrush" Value="Gray"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="FlatButtonBorder" Property="Background" Value="#FFE8A6"></Setter>
+                                    <Setter Property="Foreground" Value="black"></Setter>
+                                    <Setter TargetName="FlatButtonBorder" Property="Padding" Value="4"></Setter>
+                                    <Setter TargetName="FlatButtonBorder" Property="BorderThickness" Value="1"></Setter>
+                                    <Setter TargetName="FlatButtonBorder" Property="BorderBrush" Value="Gray"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </sap:ActivityDesigner.Resources>
+    <Grid Name="LayoutGrid" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<TextBlock Grid.Column="0" Text="{x:Static properties:Resources.WorkflowArgumentsTextBlockText}" Style="{StaticResource ControlLabel}" Grid.ColumnSpan="2" Margin="0,10,75,10"/>-->
+        <TextBlock Grid.Column="0" Text="Add Queue Items" Style="{StaticResource ControlLabel}" Grid.ColumnSpan="2" Margin="0,10,75,10"/>
+        <Button Grid.Column="1" Click="Button_Click" Style="{StaticResource FlatButton}" Content="Items" Margin="104,5,4,5"/>
+        <!--<Button Grid.Column="2" Click="DefineArgsButton_Click" Style="{StaticResource FlatButton}" Content="Import ..." Margin="10,5,22,5"/>-->
+    </Grid>
+</sap:ActivityDesigner>

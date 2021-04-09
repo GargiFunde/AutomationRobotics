@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
+  <xs:import schemaLocation="http://localhost/ExecutorService/ExecutorServiceClass.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" />
+  <xs:complexType name="ArrayOfApplicationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationTypes" nillable="true" type="tns:ApplicationTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationTypes" nillable="true" type="tns:ArrayOfApplicationTypes" />
+  <xs:complexType name="ApplicationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationTypeName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ApplicationTypeProperties" nillable="true" type="q1:ArrayOfKeyValueOfintstring" />
+      <xs:element minOccurs="0" name="ReadOnly" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationTypes" nillable="true" type="tns:ApplicationTypes" />
+  <xs:complexType name="AutomationGroupTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllGroupDetails" nillable="true" type="tns:ArrayOfGroupDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutomationGroupTree" nillable="true" type="tns:AutomationGroupTree" />
+  <xs:complexType name="ArrayOfGroupDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupDetails" nillable="true" type="tns:GroupDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupDetails" nillable="true" type="tns:ArrayOfGroupDetails" />
+  <xs:complexType name="GroupDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutomationFlowsMapper" nillable="true" type="tns:ArrayOfGroupAutomationFlowMapper" />
+      <xs:element minOccurs="0" name="GroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GroupsApplicationMapper" nillable="true" type="q2:ArrayOfint" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GroupsProcessMapper" nillable="true" type="q3:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupDetails" nillable="true" type="tns:GroupDetails" />
+  <xs:complexType name="ArrayOfGroupAutomationFlowMapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupAutomationFlowMapper" nillable="true" type="tns:GroupAutomationFlowMapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupAutomationFlowMapper" nillable="true" type="tns:ArrayOfGroupAutomationFlowMapper" />
+  <xs:complexType name="GroupAutomationFlowMapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlowId" type="xs:int" />
+      <xs:element minOccurs="0" name="FlowName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupAutomationFlowMapper" nillable="true" type="tns:GroupAutomationFlowMapper" />
+  <xs:complexType name="EntityDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppAfterSignInScrapingProperties" nillable="true" type="tns:ArrayOfApplicationScrapingProperties" />
+      <xs:element minOccurs="0" name="AppResetProperties" nillable="true" type="tns:ArrayOfResetProperties" />
+      <xs:element minOccurs="0" name="AppScrapingProperties" nillable="true" type="tns:ArrayOfApplicationScrapingProperties" />
+      <xs:element minOccurs="0" name="AppSignInScrapingProperties" nillable="true" type="tns:ArrayOfApplicationSignInScrapingProperties" />
+      <xs:element minOccurs="0" name="ApplicationCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationIdOrg" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ListApplicationPrperties" nillable="true" type="tns:ArrayOfApplicationPropertiesDB" />
+      <xs:element minOccurs="0" name="ProcessId" type="xs:int" />
+      <xs:element minOccurs="0" name="StartScraping" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StopScraping" type="xs:boolean" />
+      <xs:element minOccurs="0" name="XmlExecutionMap" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityDetails" nillable="true" type="tns:EntityDetails" />
+  <xs:complexType name="ArrayOfApplicationScrapingProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationScrapingProperties" nillable="true" type="tns:ApplicationScrapingProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationScrapingProperties" nillable="true" type="tns:ArrayOfApplicationScrapingProperties" />
+  <xs:complexType name="ApplicationScrapingProperties">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApplicationBaseScrapingProperties">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="IsDeleteNonVisible" type="q4:Visibility" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationScrapingProperties" nillable="true" type="tns:ApplicationScrapingProperties" />
+  <xs:complexType name="ApplicationBaseScrapingProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppDetailTaskRepeaterProperties" nillable="true" type="tns:ArrayOfApplicationScrapingProperties" />
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="FeatureID" type="xs:long" />
+      <xs:element minOccurs="0" name="FieldIOType" type="tns:OfIOType" />
+      <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldRunTimeValue" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="FieldSystemTypeOf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="IsEventField" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Windows" minOccurs="0" name="IsTaskItemsNonVisible" type="q5:Visibility" />
+      <xs:element minOccurs="0" name="ScrapingFieldBaseProperties" nillable="true" type="tns:ArrayOfScrapingFieldProperties" />
+      <xs:element minOccurs="0" name="Type" type="tns:OfType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationBaseScrapingProperties" nillable="true" type="tns:ApplicationBaseScrapingProperties" />
+  <xs:simpleType name="OfIOType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Input" />
+      <xs:enumeration value="Output" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OfIOType" nillable="true" type="tns:OfIOType" />
+  <xs:complexType name="ArrayOfScrapingFieldProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScrapingFieldProperties" nillable="true" type="tns:ScrapingFieldProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScrapingFieldProperties" nillable="true" type="tns:ArrayOfScrapingFieldProperties" />
+  <xs:complexType name="ScrapingFieldProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Delayinseconds" type="xs:int" />
+      <xs:element minOccurs="0" name="PropertyDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScrapingFieldProperties" nillable="true" type="tns:ScrapingFieldProperties" />
+  <xs:simpleType name="OfType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Config" />
+      <xs:enumeration value="Custom" />
+      <xs:enumeration value="Event" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="Repeater" />
+      <xs:enumeration value="Feature" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OfType" nillable="true" type="tns:OfType" />
+  <xs:complexType name="ArrayOfResetProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResetProperties" nillable="true" type="tns:ResetProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResetProperties" nillable="true" type="tns:ArrayOfResetProperties" />
+  <xs:complexType name="ResetProperties">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApplicationBaseScrapingProperties">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResetProperties" nillable="true" type="tns:ResetProperties" />
+  <xs:complexType name="ArrayOfApplicationSignInScrapingProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationSignInScrapingProperties" nillable="true" type="tns:ApplicationSignInScrapingProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationSignInScrapingProperties" nillable="true" type="tns:ArrayOfApplicationSignInScrapingProperties" />
+  <xs:complexType name="ApplicationSignInScrapingProperties">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApplicationBaseScrapingProperties">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LoginFieldProperties" nillable="true" type="tns:LogInConfigFields" />
+          <xs:element minOccurs="0" name="LoginFieldRunTimeValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LoginFieldsList" nillable="true" type="tns:ArrayOfLogInConfigFields" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationSignInScrapingProperties" nillable="true" type="tns:ApplicationSignInScrapingProperties" />
+  <xs:complexType name="LogInConfigFields">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DropDownValues" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignInMgrDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogInConfigFields" nillable="true" type="tns:LogInConfigFields" />
+  <xs:complexType name="ArrayOfLogInConfigFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogInConfigFields" nillable="true" type="tns:LogInConfigFields" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLogInConfigFields" nillable="true" type="tns:ArrayOfLogInConfigFields" />
+  <xs:complexType name="ArrayOfApplicationPropertiesDB">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationPropertiesDB" nillable="true" type="tns:ApplicationPropertiesDB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationPropertiesDB" nillable="true" type="tns:ArrayOfApplicationPropertiesDB" />
+  <xs:complexType name="ApplicationPropertiesDB">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayPropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReadOnly" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationPropertiesDB" nillable="true" type="tns:ApplicationPropertiesDB" />
+  <xs:complexType name="GroupProcesses">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ListGroupProcesses" nillable="true" type="tns:ArrayOfProcessMapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupProcesses" nillable="true" type="tns:GroupProcesses" />
+  <xs:complexType name="ArrayOfProcessMapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessMapper" nillable="true" type="tns:ProcessMapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessMapper" nillable="true" type="tns:ArrayOfProcessMapper" />
+  <xs:complexType name="ProcessMapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppDetailsProcessAppList" nillable="true" type="tns:ArrayOfEntityDetails" />
+      <xs:element minOccurs="0" name="DiagramId" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessExecutionMapper" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lstAppSrcMapperProp" nillable="true" type="tns:ArrayOfProcessAplication" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CommonLibrary.Entities" minOccurs="0" name="lstConditionApplications" nillable="true" type="q7:ArrayOfConditionApplicationCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessMapper" nillable="true" type="tns:ProcessMapper" />
+  <xs:complexType name="ArrayOfEntityDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityDetails" nillable="true" type="tns:EntityDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntityDetails" nillable="true" type="tns:ArrayOfEntityDetails" />
+  <xs:complexType name="ArrayOfProcessAplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessAplication" nillable="true" type="tns:ProcessAplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessAplication" nillable="true" type="tns:ArrayOfProcessAplication" />
+  <xs:complexType name="ProcessAplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="Mappings" nillable="true" type="tns:ArrayOfProcessMapperProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessAplication" nillable="true" type="tns:ProcessAplication" />
+  <xs:complexType name="ArrayOfProcessMapperProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessMapperProperties" nillable="true" type="tns:ProcessMapperProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessMapperProperties" nillable="true" type="tns:ArrayOfProcessMapperProperties" />
+  <xs:complexType name="ProcessMapperProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FromField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="IsCView" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SourceAppId" type="xs:int" />
+      <xs:element minOccurs="0" name="SourcePropertyId" type="xs:long" />
+      <xs:element minOccurs="0" name="ToField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessMapperProperties" nillable="true" type="tns:ProcessMapperProperties" />
+</xs:schema>

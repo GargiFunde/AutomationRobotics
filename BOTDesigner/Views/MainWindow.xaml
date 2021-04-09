@@ -1,0 +1,408 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+         xmlns:xavalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:mw="clr-namespace:BOTDesigner.Helpers" 
+        xmlns:mwa="clr-namespace:BotDesignCommon.Helpers;assembly=BotDesignCommon" 
+        xmlns:local="clr-namespace:BOTDesigner.Views" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BOTDesigner.Views.MainWindow"
+        Title="E2E Bot Builder"  WindowState="Maximized" FontFamily="Calibri"    Closing="Window_Closed"  Icon="/Resources/E2Elogo2.png"  ResizeMode="CanResizeWithGrip" SizeChanged="Window_SizeChanged" MinWidth="930" StateChanged="Window_StateChanged" >
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="0" CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Color x:Key="Color5">#FF092DAB</Color>
+        <Color x:Key="Color1">#FFFBFBFB</Color>
+
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid >
+                            <ContentPresenter HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.InputBindings>
+
+        <KeyBinding Command="ApplicationCommands.New" Modifiers="Ctrl" CommandParameter="Sequence" Key="N"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfNewFlowChart" Modifiers="Ctrl" CommandParameter="FlowChart" Key="F"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfNewStateMachine" Modifiers="Ctrl" CommandParameter="StateMachine" Key="M"/>
+
+        <KeyBinding Command="ApplicationCommands.Save" Modifiers="Ctrl" CommandParameter="Save" Key="S"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfSaveAll" Modifiers="Ctrl+Shift" CommandParameter="SaveAll" Key="S"/>
+
+        <KeyBinding Command="mw:CustomCommands.CmdWfRun" CommandParameter="Run" Gesture="F5"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfStop" CommandParameter="Stop" Gesture="Shift+F5"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfDebug" CommandParameter="Debug" Gesture="F6"/>
+        <KeyBinding Command="mw:CustomCommands.CmdWfShowLog" CommandParameter="ShowLog" Gesture="F12" />
+        <KeyBinding Command="mw:CustomCommands.CmdWfClearLog" CommandParameter="ClearLog" Gesture="Shift+F12" />
+
+        <KeyBinding Command="mw:CustomCommands.CmdWfImport" Gesture="Ctrl+I" />
+        <KeyBinding Command="mw:CustomCommands.CmdWfExport" Gesture="Ctrl+E" />
+
+        <KeyBinding Command="mw:CustomCommands.CmdWfMax" Gesture="Ctrl+Alt+M" />
+        <KeyBinding Command="mw:CustomCommands.CmdWfMin" Gesture="Ctrl+Alt+N" />
+
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="CmdWorkflowNew"/>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="CmdWorkflowSave"/>
+        <CommandBinding Command="mw:CustomCommands.CmdWfSaveAll" Executed="CmdWorkflowSaveAll"/>
+
+        <CommandBinding Command="mw:CustomCommands.CmdWfNewFlowChart" Executed="CmdNewFlowChart"/>
+        <CommandBinding Command="mw:CustomCommands.CmdWfNewStateMachine" Executed="CmdNewStateMachine"/>
+
+        <CommandBinding Command="mw:CustomCommands.CmdWfRun" Executed="CmdWorkflowRun" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfStop" Executed="CmdWorkflowStop" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfDebug" Executed="CmdWorkflowDebug" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfShowLog" Executed="CmdWorkflowShowLog" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfClearLog" Executed="CmdWorkflowClearLog" />
+
+        <CommandBinding Command="mw:CustomCommands.CmdWfMax" Executed="CmdWorkflowMax" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfMin" Executed="CmdWorkflowMin" />
+
+        <CommandBinding Command="mw:CustomCommands.CmdWfPublish" Executed="CmdWorkflowPublish" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfImport" Executed="CmdWorkflowImport" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfExport" Executed="CmdWorkflowExport" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfSettings" Executed="CmdWorkflowSettigs" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfResumeBreakPoint" Executed="CmdWorkflowResumeBreakPoint" />
+
+        <CommandBinding Command="mw:CustomCommands.CmdWfXPathWin" Executed="CmdWorkflowXPathWin" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfXPathWeb" Executed="CmdWorkflowXPathWeb" />
+
+        <CommandBinding Command="mwa:CustomCommands.CmdLoadInvokedWf" Executed="CmdOpenInvokedWorkflow"  />
+
+        <!--Debug-->
+        <CommandBinding Command="mw:CustomCommands.CmdWfStepInto" Executed="CmdWorkflowStepInto" />
+        <CommandBinding Command="mw:CustomCommands.CmdWfStepOver" Executed="CmdWorkflowStepOver" />
+
+
+    </Window.CommandBindings>
+
+    <Grid x:Name="wfGrid" MouseDown="title_MouseLeftButtonDown" Background="#0D47A1">
+        <Grid.ColumnDefinitions>
+            <!--<ColumnDefinition Width="386*"/>
+            <ColumnDefinition Width="265*"/>
+            <ColumnDefinition Width="109"/>-->
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="339*"/>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="95" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+
+        <!--MENUBAR ribbon Menus start from here-->
+        <Ribbon x:Name="Ribbon"  Grid.ColumnSpan="5"   SelectedIndex="0" TextBlock.TextAlignment="Center" IsMinimized="False" MouseDoubleClick="Ribbon_MouseDoubleClick" SelectionChanged="Ribbon_SelectionChanged_1" FontFamily="Calibri Light" Foreground="White"  Height="217" Margin="0,-23,0,-12" VerticalAlignment="Top"  FontWeight="ExtraLight" FocusedBackground="Green" MouseOverBackground="#E3F2FD" PressedBackground="#EDE7F6" Background="#FF1976D2" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Collapsed" >
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab   >
+                <RibbonTab.Header>
+                    <RibbonTabHeader x:Name="HomeTabHeader" Content="HOME" Height="35" FontSize="14"/>
+                </RibbonTab.Header>
+                <RibbonGroup  HorizontalAlignment="Stretch" >
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab x:Name="WorkflowTab"    RenderTransformOrigin="0.55,0.5" BorderBrush="Black" Foreground="Black">
+                <!--Margin="-8,0,-2,0"-->
+                <RibbonTab.Header>
+                    <RibbonTabHeader x:Name="WorkflowTabHeader" Content="WORKFLOW"  Background="White"  Foreground="White" Height="35" FontSize="14"/>
+                </RibbonTab.Header>
+
+                <RibbonGroup x:Name="GroupWorkflowFile" Header="File" Background="White">
+                    <RibbonMenuButton x:Name="ButtonWorkflowNew" FontSize="12" FontFamily="Calibri" FontWeight="Medium" Label="New Process" LargeImageSource="/Resources/NewProcess.png" Width="62" >
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri"  x:Name="ButtonWorkflowNewSeq" Command="ApplicationCommands.New" Header="Sequence(Ctrl+N)" IsEnabled="False" ImageSource="/Resources/SequenceDiagram.png"  />
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri"  x:Name="ButtonWorkflowNewFC" Command="mw:CustomCommands.CmdWfNewFlowChart" Header="FlowChart(Ctrl+F)" IsEnabled="False" ImageSource="/Resources/Flowchart.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri"  x:Name="ButtonWorkflowNewSM" Command="mw:CustomCommands.CmdWfNewStateMachine" Header="State Machine(Ctrl+M)" IsEnabled="False" ImageSource="/Resources/StateMachineDropDown.png"/>
+                    </RibbonMenuButton>
+
+                    <RibbonMenuButton x:Name="ButtonWorkflowSave"  Label="Save" LargeImageSource="/Resources/Save.png" FontSize="12" FontFamily="Calibri" FontWeight="Medium" >
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri"  x:Name="ButtonWorkflowSaveMe" Command="ApplicationCommands.Save" Header="Save(Ctrl+S)" IsEnabled="False" ImageSource="/Resources/SaveDropDown.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri" x:Name="ButtonWorkflowSaveAll" Command="mw:CustomCommands.CmdWfSaveAll" Header="Save All(Ctrl+Shift+S)" IsEnabled="False" ImageSource="/Resources/SaveAll.png"/>
+                    </RibbonMenuButton>
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="GroupWorkflowRuntime" Header="Runtime" Background="White">
+                    <RibbonButton RibbonTwoLineText.HasTwoLines="True" TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowRun" Command="mw:CustomCommands.CmdWfRun" Label="Run (F5)" LargeImageSource="/Resources/Run.png" />
+                    <RibbonButton TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStop" Command="mw:CustomCommands.CmdWfStop" Label="Stop (Shift+F5)" LargeImageSource="/Resources/stop.png" />
+                    <!--<RibbonMenuButton x:Name="ButtonDebug" Label="Debug" LargeImageSource="/BOTDesigner;component/Resources/Menu/ladybird.png">
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri"  x:Name="ButtonWorkflowDebug" Command="mw:CustomCommands.CmdWfDebug" Header="Start Debug (F6)" IsEnabled="True" ImageSource="/BOTDesigner;component/Resources/Menu/startdebug6.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" FontFamily="Calibri" x:Name="ButtonWorkflowResume" Command="mw:CustomCommands.CmdWfResumeBreakPoint" Header="Resume Breakpoint (F8)" IsEnabled="true" ImageSource="/BOTDesigner;component/Resources/Menu/stopdebug6.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStepInto" Command="mw:CustomCommands.CmdWfStepInto" Header="Step Into (F11)" IsEnabled="true" />
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStepOver" Command="mw:CustomCommands.CmdWfStepOver" Header="Step Over (F7)" IsEnabled="true" />
+                    </RibbonMenuButton>-->
+                    <!--<RibbonButton TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowDebug" Command="mw:CustomCommands.CmdWfDebug" Label="Debug (F6)" LargeImageSource="/BOTDesigner;component/Resources/Menu/debug.png" />-->
+                </RibbonGroup>
+                <RibbonGroup x:Name="GroupWorkflowSupport" Header="Troubleshoot" Background="White">
+                    <RibbonMenuButton x:Name="ButtonLog" Label="Log" LargeImageSource="/Resources/Logs.png" Margin="12,0,-44,0" >
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowLog" Command="mw:CustomCommands.CmdWfShowLog" Header="Show Log Files(F12)" IsEnabled="True"  ImageSource="/Resources/ShowLogFiles.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowClearLog" Command="mw:CustomCommands.CmdWfClearLog" Header="Clear Log History(Shift+F12)" IsEnabled="True" ImageSource="/Resources/ClearLog.png"/>
+                        <!--<RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowSendLog" Command="mw:CustomCommands.CmdWfDev" Header="Send Current Log File" IsEnabled="False" ImageSource="/BOTDesigner;component/Resources/Menu/sendlog.png"/>-->
+                    </RibbonMenuButton>
+
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="GroupWorkflowSettings" Header="Settings" Background="White">
+                    <!--<RibbonButton x:Name="ButtonWorkflowSettings" IsEnabled="False" Command="mw:CustomCommands.CmdWfSettings" Label="Settings" LargeImageSource="/BOTDesigner;component/Resources/Menu/Settings.png" />-->
+                    <RibbonMenuButton x:Name="ButtonWorkflowSettings" Label="Settings" LargeImageSource="/Resources/Settings.png">
+                        <RibbonMenuItem  RibbonTwoLineText.HasTwoLines="True" TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowMaxMin" Command="mw:CustomCommands.CmdWfMax" Header="Maximize/Normal (Ctrl+Alt+M)" IsEnabled="True"  ImageSource="/Resources/MinimiseMaximise.png"/>
+                    </RibbonMenuButton>
+                </RibbonGroup>
+                <RibbonGroup x:Name="GroupWorkflowImpExp" Header="Import/Export" Background="White">
+                    <RibbonMenuButton x:Name="ButtonWorkflowImportExport" Label="Import/Export" LargeImageSource="/Resources/ImportExport.png" >
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowImport" Command="mw:CustomCommands.CmdWfImport" Header="Import(Ctrl+I)" IsEnabled="True" ImageSource="/Resources/Import.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowExport" Command="mw:CustomCommands.CmdWfExport" Header="Export(Ctrl+E)" IsEnabled="False" ImageSource="/Resources/Export.png"/>
+                    </RibbonMenuButton>
+                </RibbonGroup>
+                <RibbonGroup x:Name="GroupWorkflowPublish" Header="Publish" Background="White">
+                    <RibbonButton x:Name="ButtonWorkflowPublish" Command="mw:CustomCommands.CmdWfPublish" Label="Publish"  LargeImageSource="/Resources/Publish.png" />
+
+                </RibbonGroup>
+                <RibbonGroup x:Name="GroupXPathCombined" Header="Get XPath" Background="White">
+                    <RibbonMenuButton x:Name="ButtonWorkflowGetXPath" Label="Get XPath" LargeImageSource="/Resources/Xpath.png" >
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowXPathWindows" Command="mw:CustomCommands.CmdWfXPathWin" Header="Get XPath for Windows" IsEnabled="True" ImageSource="/Resources/WindowXpath.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowXPathWeb" Command="mw:CustomCommands.CmdWfXPathWeb" Header="Get XPath for Web" IsEnabled="True" ImageSource="/Resources/WebXpath.png"/>
+                    </RibbonMenuButton>
+                </RibbonGroup>
+                <RibbonGroup x:Name="workflowfalseribbon" Width="650" Background="White">
+                </RibbonGroup>
+            </RibbonTab>
+
+            <!--<RibbonGroup x:Name="workflowfalseribbon" Width="795" Background="White">
+
+            </RibbonGroup>-->
+
+            <!--Ribbon Tab #3 Debug:-->
+            <RibbonTab x:Name="DebugTab" Foreground="Black" >
+                <RibbonTab.Header>
+                    <RibbonTabHeader x:Name="DebugTabHeader" Content="DEBUG"  Background="White" Foreground="White" Height="35" FontSize="14" />
+                </RibbonTab.Header>
+                <RibbonGroup x:Name="GroupWorkflowDebug" Header="Debug" Background="#FFFCFCFC">
+                    <RibbonButton TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStop2" Command="mw:CustomCommands.CmdWfStop" Label="Stop (Shift+F5)" LargeImageSource="/Resources/stop.png" />
+                    <RibbonMenuButton x:Name="ButtonDebug" Label="Debug" LargeImageSource="/Resources/Debug.png">
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"   x:Name="ButtonWorkflowDebug" Command="mw:CustomCommands.CmdWfDebug" Header="Start Debug (F6)" IsEnabled="True" ImageSource="/Resources/StartDebug.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left"  x:Name="ButtonWorkflowResume" Command="mw:CustomCommands.CmdWfResumeBreakPoint" Header="Resume Breakpoint (F8)" IsEnabled="true" ImageSource="/Resources/ResumeDebug.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStepInto" Command="mw:CustomCommands.CmdWfStepInto" Header="Step Into (F11)" IsEnabled="true" ImageSource="/Resources/Stepinto.png"/>
+                        <RibbonMenuItem  TextBlock.TextAlignment="Left" x:Name="ButtonWorkflowStepOver" Command="mw:CustomCommands.CmdWfStepOver" Header="Step Over (F7)" IsEnabled="true" ImageSource="/Resources/Stepover.png" />
+                    </RibbonMenuButton>
+                </RibbonGroup>
+                <RibbonGroup x:Name="debugfalseribbon" Width="1260" Background="White">
+                </RibbonGroup>
+            </RibbonTab>
+            <!--<RibbonTab   >
+                <RibbonTab.Header>
+                    <RibbonTabHeader x:Name="HomeTabHeader2" Content="HOME"  Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"    />
+                </RibbonTab.Header>
+                <RibbonGroup  HorizontalAlignment="Stretch" Background="White" Width="1300">
+                </RibbonGroup>
+            </RibbonTab>-->
+            <Ribbon.HelpPaneContent>
+                <StackPanel  Height="Auto" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Label x:Name="lbl_Title" Content="E2E Bot Builder" Margin="0,0.5,495,0" Foreground="White" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    <Button Click="RibbonWindowMinimize_Click" Width="21" Height="30" Margin="0,5,10,1" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" ToolTip="Minimize">
+                        <Image Source="/Resources/MinimizeWhite.png"/>
+                    </Button>
+                    <Button x:Name="btnmaxrestore" Click="RibbonWindowMaximize_Click" Width="21" Height="30" Margin="10,5,10,1" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" ToolTip="Restore">
+                        <Image x:Name="maxrestoreimg" Source="/Resources/RestoreWhite.png"/>
+                    </Button>
+                    <Button x:Name="btnclosewin" Click="RibbonWindowClose_Click" Width="21" Height="30" Margin="10,5,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" ToolTip="Close" >
+                        <Image x:Name="closeimg" Source="/Resources/CloseWhite.png" />
+                    </Button>
+                </StackPanel>
+            </Ribbon.HelpPaneContent>
+
+        </Ribbon>
+        <!--MENUBAR ribbon buttons for menus end here-->
+
+        <GridSplitter Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Top" ResizeDirection="Rows" Margin="0" Padding="0" Background = "#FFB5B5B7" />
+
+        <avalonDock:DockingManager x:Name="dockManager" ActiveContent="{Binding DocumentManager.ActiveDocument, Mode=TwoWay}"  AllowMixedOrientation="True" Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" Margin="0,7,0,0" Grid.ColumnSpan="4" Grid.Row="2">
+            <avalonDock:DockingManager.Theme>
+                <avalonDock:MetroTheme/>
+            </avalonDock:DockingManager.Theme>
+
+            <avalonDock:DockingManager.Resources>
+                <DataTemplate x:Key="DockingWindowTitleDataTemplate" DataType="{x:Type avalonDock:LayoutAnchorableItem}">
+                    <Label HorizontalContentAlignment="Center" Background="#E1F5FE">
+                        <TextBlock Text="{Binding Title}" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12" FontWeight="Medium"  Background="#E1F5FE"/>
+                    </Label>
+                </DataTemplate>
+            </avalonDock:DockingManager.Resources>
+
+            <avalonDock:DockingManager.AnchorableTitleTemplate>
+                <StaticResource ResourceKey="DockingWindowTitleDataTemplate"  />
+            </avalonDock:DockingManager.AnchorableTitleTemplate>
+
+            <avalonDock:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding IconSource}" Margin="0,0,0,0" />
+                        <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" FontSize="12" FontFamily="Calibri" />
+                        <!--Change fontsize of DashBoard Print-->
+                    </StackPanel>
+                </DataTemplate>
+            </avalonDock:DockingManager.DocumentHeaderTemplate>
+
+            <avalonDock:LayoutRoot x:Name="layoutroot" >
+                <avalonDock:LayoutRoot.LeftSide>
+                    <avalonDock:LayoutAnchorSide>
+                        <avalonDock:LayoutAnchorGroup>
+                            <avalonDock:LayoutAnchorable x:Name="AutomationToolBox" Title="Automation Toolbox (Alt X)" ContentId="5000" CanClose="False" CanHide="False" IconSource="/Resources/AddRemove.png" >
+                                <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Transparent" VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ListViewScrollViewer_PreviewMouseWheel" >
+                                    <StackPanel>
+                                        <StackPanel >
+                                            <ToolBar DockPanel.Dock="Top"
+                                                 ToolBarTray.IsLocked="True" >
+                                                <!-- <Button Name="btnAddEvent1" Margin="0,0,0,0"  Content="+ Event" BorderThickness="1" Command="{Binding AddEventCommand}"/>-->
+                                                <Button Click="btnImportActivity_Click" ToolTip="Import Activity" Width="25" Height="22"  BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" Margin="90,0,0,0">
+                                                    <Button.Foreground>
+                                                        <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                    </Button.Foreground>
+                                                    <StackPanel >
+                                                        <Image Source="/Resources/importactivity.png" Margin="0,0,0,0" />
+                                                    </StackPanel>
+                                                </Button>
+                                            </ToolBar>
+                                        </StackPanel>
+                                        <!--<TreeView>
+                                            <TreeView Name="viewTree">
+                                                <TreeViewItem Header="USA" />
+                                                <TreeViewItem Header="Canada" />
+                                                <TreeViewItem Header="Mexico" />
+                                            </TreeView>
+                                        </TreeView>-->
+                                        
+                                        <StackPanel  TextBlock.FontSize="12" TextBlock.FontFamily="Calibri"   TextBlock.LineHeight="20" TextBlock.LineStackingStrategy="BlockLineHeight"  >
+                                            <Border  x:Name="WfToolboxBorder" />
+                                            <ContentControl Content="{Binding WFToolboxControl}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorGroup>
+                    </avalonDock:LayoutAnchorSide>
+                </avalonDock:LayoutRoot.LeftSide>
+                <avalonDock:LayoutRoot.RightSide>
+                    <avalonDock:LayoutAnchorSide>
+                        <avalonDock:LayoutAnchorGroup>
+                            <avalonDock:LayoutAnchorable x:Name="LibraryLayoutAnchorable"   Title="Library (Alt L)" ContentId="4000" CanClose="False" CanFloat="True" CanHide="False"  >
+                                <!--<local:CommonTreeView x:Name="LibraryTreeView"/>-->
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable x:Name="Project"  Title="Project (Alt P)" ContentId="6000" IsMaximized="True" CanClose="False" CanHide="False">
+                                <!--<local:CommonTreeView x:Name="ProjectTreeView"/>-->
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable x:Name="PropertiesOfApplicationOnCanvas" Title="Entity Properties (F4)" ContentId="5"  CanClose="False" CanHide="False" >
+                                <DockPanel LastChildFill="True">
+                                    <Border x:Name="WfPropertyBorder"/>
+                                </DockPanel>
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable x:Name="OutlineOfApplicationOnCanvas" Title="Outline View" ContentId="6030"  CanClose="False" CanHide="False" >
+                                <DockPanel LastChildFill="True">
+                                    <Border x:Name="WfOutlineBorder"/>
+                                </DockPanel>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorGroup>
+                    </avalonDock:LayoutAnchorSide>
+
+                </avalonDock:LayoutRoot.RightSide>
+
+                <avalonDock:LayoutRoot.BottomSide>
+                    <avalonDock:LayoutAnchorSide>
+                        <avalonDock:LayoutAnchorGroup>
+                            <avalonDock:LayoutAnchorable Title="Execution Log" ContentId="100" CanClose="False">
+                                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel Orientation="Vertical" Margin="0,0,0,0" >
+                                        <TextBox Text="{Binding ExecutionLog, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" x:Name="consoleExecutionLog" BorderThickness="0"  IsReadOnly="True" Margin="0,0,0,0" />
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable  Title="Output" ContentId="200" CanClose="False" AutoHideMinHeight="50" AutoHideMinWidth="50">
+                                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel Margin="0,0,0,0" VerticalAlignment="Top">
+                                        <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22">
+                                            <Button Click="btnError_Click" ToolTip="Error" Width="20" Height="20"  BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" >
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Foreground>
+                                                <Button.Background>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Background>
+                                                <StackPanel >
+                                                    <Image Source="/Resources/ErrorAlert.png" Margin="0,0,0,0" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Click="btnWarning_Click" ToolTip="Warning" Width="20" Height="20"  BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Foreground>
+                                                <Button.Background>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Background>
+                                                <StackPanel >
+                                                    <Image Source="/Resources/WarningAlert.png" Margin="0,0,0,0" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Click="btnInformation_Click" ToolTip="Messages"  Width="20" Height="20"  BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Foreground>
+                                                <Button.Background>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Background>
+                                                <StackPanel >
+                                                    <Image Source="/Resources/Messages.png" Margin="0,0,0,0" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Click="btnClear_Click" ToolTip="Clear log"  Width="20" Height="20" BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Foreground>
+                                                <Button.Background>
+                                                    <SolidColorBrush Color="{DynamicResource Color1}"/>
+                                                </Button.Background>
+                                                <StackPanel >
+                                                    <Image Source="/Resources/ClearLogs.png" Margin="0,0,0,0" />
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                        <StackPanel ScrollViewer.VerticalScrollBarVisibility="Visible"  VerticalAlignment="Top" >
+                                            <DataGrid x:Name="dgInfoErrorWarnings" ItemsSource="{Binding DatatableLog}"  Margin="0,0,0,0" IsReadOnly="True"  AutoGenerateColumns="False" BorderThickness="0.5px" BorderBrush="Gray" HorizontalGridLinesBrush="#FFEFEFF2" VerticalGridLinesBrush="#FFEFEFF2">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Type" MinWidth="60" Width="60" Binding="{Binding LogLevel}"  />
+                                                    <DataGridTextColumn Header="TimeStamp" MinWidth="140" Width="140" Binding="{Binding TimeStampValue}" />
+                                                    <DataGridTextColumn Header="Message" MinWidth="500" Width="500*" Binding="{Binding MessageValue}"/>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorGroup>
+                    </avalonDock:LayoutAnchorSide>
+                </avalonDock:LayoutRoot.BottomSide>
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <avalonDock:LayoutDocumentPaneGroup DockWidth="100" >
+                        <avalonDock:LayoutDocumentPane x:Name="LayoutDocumentApplicationsPane" x:Uid="1"  />
+                    </avalonDock:LayoutDocumentPaneGroup>
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+
+        </avalonDock:DockingManager>
+    </Grid>
+</Window>

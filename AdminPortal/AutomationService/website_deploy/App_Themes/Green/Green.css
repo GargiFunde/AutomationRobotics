@@ -1,0 +1,131 @@
+﻿#accordionSidebar {
+    background-position: center;
+    background-color: #00695C;
+    font-size:1px;
+}
+
+#TopNav {
+    background-position: center;
+    background-color: #00695C;
+}
+
+#content {
+    background-position: center;
+    background-color: #B2DFDB;
+}
+
+.card, .shadow {
+    background-position: center;
+    background-color: #E0F2F1;
+}
+
+.modal-content {
+    background-position: center;
+    background-color: #E0F2F1 ;
+}
+
+/*.card-body,*/
+.table, .text-truncate {
+    background-position: center;
+    color: #013220;
+}
+
+tr:hover {
+    color: #004D40;
+}
+
+
+
+.text-truncate:hover {
+    color: black;
+}
+
+#dataTables-schedules {
+    background-position: center;
+    color: rgba(255,255,255,.8);
+}
+
+.txt {
+    background-position: center;
+    color: white;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #d1d3e2;
+}
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+        color: #b7b9cc;
+    }
+
+    .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+        color: #858796;
+    }
+
+.ddlstyle {
+    background-color: #00695C;
+    backface-visibility: hidden;
+    border: none;
+    color: #fff;
+   
+    vertical-align: middle;
+}
+/*.bg-gradient-light {
+    background-color: #00695C;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#00695C),to(#B2DFDB));
+    background-image: linear-gradient(180deg,#00695C 10%,#B2DFDB 100%);
+    background-size: cover
+}*/
+.footerD {
+    background-color: #00695C;
+}
+.copyright {
+    color: rgba(255,255,255,.8);
+}
+.sidebar-dark .sidebar-heading {
+    color: rgba(255,255,255,.8);
+}
+.modal-title {
+    color: #00695C;
+}
+.poptxt {
+    color: #00695C;
+    
+}
+.ddltext {
+    background-color: #00695C;
+    color:white;
+}
+.txtFont {
+    font-size: 14px;
+}
+
+.TableHeaderFont {
+    font-size: 16px;
+}
+.UserIcon {
+    Color: rgba(255,255,255,.8);  
+}
+.sidebar .nav-item.active .nav-link {
+    font-weight: 700;
+    background: border-box;
+    background-color: white;
+    color: #00695C;
+    padding: 10px;
+}
+
+    .sidebar .nav-item.active .nav-link .fas {
+        color: #00695C;
+    }
+.poptxtdata {
+    color: #00695C;
+}
+
+.topbar .dropdown-list .dropdown-header {
+    background-color: #00695C;
+    border: 1px solid rgba(255,255,255,.8);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    color: #fff;
+    font-size: 14px;
+}

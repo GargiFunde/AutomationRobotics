@@ -1,0 +1,107 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="BOTDesigner.Workflow" this:Workflow.in_Folder="C:\Work\Projects\WebDemo\Images"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:baaa="clr-namespace:Bot.Activity.ActivityLibrary.Activities;assembly=Bot.Activity.ActivityLibrary"
+ xmlns:baam="clr-namespace:Bot.Activity.ActivityLibrary.Misc;assembly=Bot.Activity.ActivityLibrary"
+ xmlns:baf="clr-namespace:Bot.Activity.Files;assembly=Bot.Activity.Files"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing"
+ xmlns:si="clr-namespace:System.IO;assembly=mscorlib"
+ xmlns:this="clr-namespace:BOTDesigner"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Folder" Type="InArgument(x:String)" />
+    <x:Property Name="io_FilePath" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <sap2010:WorkflowViewState.IdRef>BOTDesigner.Workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:Bitmap" Name="screenshot" />
+      <Variable x:TypeArguments="si:FileInfo" Name="screenshotFileInfo" />
+    </Sequence.Variables>
+    <baaa:Image_Capture ImageId="{x:Null}" ImagePath="{x:Null}" ContinueOnError="True" Height="555" sap2010:WorkflowViewState.IdRef="Image_Capture_1" Left="0" ResultBitmap="[screenshot]" Top="0" Type="Run Time" Width="500" />
+    <If Condition="[String.IsNullOrEmpty(io_filePath)]" DisplayName="If no file path" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Assign DisplayName="Make file path" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[io_FilePath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(in_Folder, "ExceptionScreenshot_"+DateTime.Now.ToString("yyMMdd.hhmmss")+".png")]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <baam:ShowMessageBox DisplayName="Message" sap2010:WorkflowViewState.IdRef="ShowMessageBox_2" InputData="[io_FilePath]" />
+    <Assign DisplayName="Create fileInfo with Path" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="si:FileInfo">[screenshotFileInfo]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="si:FileInfo">[new fileinfo(io_FilePath)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[Directory.Exists(screenshotFileInfo.DirectoryName)]" DisplayName="If directory does not exist, create it" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Else>
+        <baf:Folder_Create ContinueOnError="True" FolderPath="[screenshotFileInfo.DirectoryName]" sap2010:WorkflowViewState.IdRef="Folder_Create_1" />
+      </If.Else>
+    </If>
+    <baam:ShowMessageBox DisplayName="Message" sap2010:WorkflowViewState.IdRef="ShowMessageBox_1" InputData="[io_FilePath]" />
+    <baf:File_Create ContinueOnError="True" FullFilePathWithName="[io_FilePath]" sap2010:WorkflowViewState.IdRef="File_Create_1" />
+    <baaa:Log Debug="{x:Null}" Error="{x:Null}" Fatal="{x:Null}" Warning="{x:Null}" ContinueOnError="True" sap2010:WorkflowViewState.IdRef="Log_1" Information="[&quot;Screenshot saved at: &quot;+io_FilePath]" />
+    <sads:DebugSymbol.Symbol>dzxDOlxXb3JrXFByb2plY3RzXERlbW8xXFN0YW5kYXJkRnJhbWV3b3JrXFRha2VTY3JlZW5TaG90LnhhbWwcAWIBggEBAikDTQ4CAQEuBS7iAQIBHi8FOgoCARc7BTt/AgEUPAVDDgIBEEQFSAoCAQtJBUl/AgEISgVKhAECAQVLBUvUAQIBAi6tAS67AQIBIy7AAS7DAQIBIi5fLmQCASEunAEunwECASAu2gEu3wECAR8vEy84AgEYMQk4EgIBGjttO3wCARVBM0FOAgETPjQ+SAIBEUQTREkCAQxGCUaXAQIBDUltSXwCAQlKQkpRAgEGS6ABS9EBAgEDNjQ2nQECAR0zNTNCAgEbRj5GYgIBDg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Image_Capture_1" sap:VirtualizedContainerService.HintSize="464,109" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,208" />
+      <sap2010:ViewStateData Id="ShowMessageBox_2" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Folder_Create_1" sap:VirtualizedContainerService.HintSize="200,36" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="464,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ShowMessageBox_1" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="File_Create_1" sap:VirtualizedContainerService.HintSize="464,36" />
+      <sap2010:ViewStateData Id="Log_1" sap:VirtualizedContainerService.HintSize="464,36" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,1105">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="BOTDesigner.Workflow_1" sap:VirtualizedContainerService.HintSize="526,1225" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

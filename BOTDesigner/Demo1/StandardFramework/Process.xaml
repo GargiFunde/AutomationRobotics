@@ -1,0 +1,102 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="BOTDesigner.Workflow"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:baaa="clr-namespace:Bot.Activity.ActivityLibrary.Activities;assembly=Bot.Activity.ActivityLibrary"
+ xmlns:bac="clr-namespace:Bot.Activity.CSV;assembly=Bot.Activity.CSV"
+ xmlns:bae="clr-namespace:Bot.Activity.Excel;assembly=Bot.Activity.Excel"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TransactionData" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <sap2010:WorkflowViewState.IdRef>BOTDesigner.Workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.Generic</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="inputNumber" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[inputNumber]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_TransactionItem.Item("Input Number").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <baaa:Log Debug="{x:Null}" Error="{x:Null}" Fatal="{x:Null}" Warning="{x:Null}" ContinueOnError="True" sap2010:WorkflowViewState.IdRef="Log_1" Information="--------------------" />
+    <baaa:Log Debug="{x:Null}" Error="{x:Null}" Fatal="{x:Null}" Warning="{x:Null}" ContinueOnError="True" sap2010:WorkflowViewState.IdRef="Log_2" Information="[&quot;Result: &quot; + (CType(inputNumber,Integer)* 2).ToString]" />
+    <baaa:Log Debug="{x:Null}" Error="{x:Null}" Fatal="{x:Null}" Warning="{x:Null}" ContinueOnError="True" sap2010:WorkflowViewState.IdRef="Log_3" Information="--------------------" />
+    <If Condition="[in_TransactionItem.Item(&quot;Status&quot;).ToString.Trim.Contains(&quot;Pending&quot;) or in_TransactionItem.Item(&quot;Status&quot;).ToString.Trim.Contains(&quot;Error&quot;)]" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <baaa:Log Debug="{x:Null}" Error="{x:Null}" Fatal="{x:Null}" Warning="{x:Null}" ContinueOnError="True" sap2010:WorkflowViewState.IdRef="Log_4" Information="[&quot;Result: &quot; + (CType(inputNumber,Integer)* 2).ToString]" />
+          <baaa:DataTableSetCurrentRowCellValue ColumnNumber="1" ContinueOnError="True" CurrentDataRow="[in_TransactionItem]" CurrentRowColumnValue="[&quot;Success&quot;]" sap2010:WorkflowViewState.IdRef="DataTableSetCurrentRowCellValue_1" />
+          <bae:Excel_WriteFile ContinueOnError="True" FilePath="[in_Config(&quot;InputList&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Excel_WriteFile_1" IsHeader="True" NeedToClose="True" TableToWrite="[in_TransactionData]" WorksheetName="Sheet1" />
+          <baaa:CommentOut sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <bac:CSV_Write DefaultTableName="{x:Null}" Result="{x:Null}" ContinueOnError="True" Delimiter="," FilePath="C:\Users\A675903\Documents\Test\Demo\Data\Input\Input.csv" sap2010:WorkflowViewState.IdRef="CSV_Write_1" TableToSave="[in_TransactionData]" />
+          </baaa:CommentOut>
+        </Sequence>
+      </If.Then>
+    </If>
+    <sads:DebugSymbol.Symbol>dzVDOlxXb3JrXFByb2plY3RzXERlbW8xXFN0YW5kYXJkRnJhbWV3b3JrXFByb2Nlc3MueGFtbBkrA0cOAgEBLwU2DgIBHDcFN7kBAgEaOAU45gECARc5BTm5AQIBFToFRQoCAQI0MDRiAgEfMTExPgIBHTegATe2AQIBGzigATjjAQIBGDmgATm2AQIBFjoTOscBAgEDPAlDFAIBBD0LPewBAgESPgs+8wECAQ0/Cz+CAgIBBkALQh0CAQU9pgE96QECARM+aD5+AgEQPj4+QQIBDz6VAT6sAQIBDj+rAT+xAQIBDD/3AT//AQIBCz9AP20CAQk/0gE/6AECAQc=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Log_1" sap:VirtualizedContainerService.HintSize="464,36" />
+      <sap2010:ViewStateData Id="Log_2" sap:VirtualizedContainerService.HintSize="464,36" />
+      <sap2010:ViewStateData Id="Log_3" sap:VirtualizedContainerService.HintSize="464,36" />
+      <sap2010:ViewStateData Id="Log_4" sap:VirtualizedContainerService.HintSize="226,36" />
+      <sap2010:ViewStateData Id="DataTableSetCurrentRowCellValue_1" sap:VirtualizedContainerService.HintSize="226,36" />
+      <sap2010:ViewStateData Id="Excel_WriteFile_1" sap:VirtualizedContainerService.HintSize="226,36" />
+      <sap2010:ViewStateData Id="CSV_Write_1" sap:VirtualizedContainerService.HintSize="200,36" />
+      <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="226,124" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="248,476">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,624" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,1131">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="BOTDesigner.Workflow_1" sap:VirtualizedContainerService.HintSize="526,1211" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

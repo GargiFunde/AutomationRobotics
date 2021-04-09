@@ -1,0 +1,22 @@
+﻿<!--<UserControl x:Class="RobotConsole.UserControlSignInField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="250" Height="24"
+             Loaded="ControlLoaded"
+             Name="ucSignInFields">
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="230">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90" />
+            <ColumnDefinition Width="130" />
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Path= LoginFieldProperties.SignInMgrDisplayName}"  Grid.Column="0" HorizontalAlignment="Left" Height="24" Margin="0,0,0,-1"  VerticalAlignment="Top" Width="90" FontFamily="Arial" BorderThickness="1"/>
+        <TextBox Name="txtUser" Text="{Binding Path= FieldRunTimeValue}" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"   Grid.Column="1" VerticalAlignment="Top" Width="130" FontFamily="Arial" Margin="0,0,0,-1" />
+        <PasswordBox Name="txtPassword"  HorizontalAlignment="Left" Height="22" Visibility="Hidden"    Grid.Column="1" VerticalAlignment="Top" Width="130" FontFamily="Arial" Margin="0,0,0,-1" PasswordChanged="txtPassword_PasswordChanged" />
+        <ComboBox Name="cmbDropDown"  ItemsSource="{Binding Path=LoginFieldProperties.DropDownValues}" HorizontalAlignment="Left" Height="22" Visibility="Hidden"    Grid.Column="1" VerticalAlignment="Top" Width="130" FontFamily="Arial" Margin="0,0,0,-1" SelectionChanged="cmbDropDown_SelectionChanged"/>
+        
+        <TextBox Name="txtType"  Text="{Binding Path= LoginFieldProperties.Type}"  Visibility="Hidden"   />
+        --><!--<TextBox Name="txtpwd"  Text="{Binding Path= FieldRunTimeValue}"  Visibility="Hidden"   />--><!--
+    </Grid>
+</UserControl>-->

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="40173771-85d0-4ce0-9bc9-33078b02f24e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8090/AutomationService/BOTService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BOTService.disco" MetadataType="Disco" ID="5e5114cb-9459-47e7-9d30-9412aa414357" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?disco" />
+    <MetadataFile FileName="BOTService.xsd" MetadataType="Schema" ID="c0a53448-c63e-40a8-b9f6-5b90e2c8c985" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BOTService.wsdl" MetadataType="Wsdl" ID="8cb74e54-af91-4b8d-9ee2-44345750d6ce" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?wsdl" />
+    <MetadataFile FileName="BOTService1.xsd" MetadataType="Schema" ID="6ecae17a-0651-403f-a23c-4c2d96362e36" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BOTService2.xsd" MetadataType="Schema" ID="8cc356fc-4a11-46a3-a2da-caf91f79024e" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BOTService3.xsd" MetadataType="Schema" ID="2361373e-fb25-4644-9bcf-54bd1e6b3cb8" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BOTService4.xsd" MetadataType="Schema" ID="0d3ceb9b-b722-4fcb-be63-3334df818dd8" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BOTService5.xsd" MetadataType="Schema" ID="aac760e2-fa30-4035-a155-3b5eb0cf8ca2" SourceId="1" SourceUrl="http://localhost:8090/AutomationService/BOTService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

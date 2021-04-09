@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="RobotLocalController.RobotControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" BorderThickness="1" Width="235" Height="102">
+    <Grid x:Name="lblRoboIdValue" RenderTransformOrigin="0.507,0.312">
+        <Label Content="Robot Id :"  HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRobotIdValue" Content="{Binding RobotId}" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top"/>
+        <Label Content="Robot Name :"  HorizontalAlignment="Left" Margin="13,36,0,0" VerticalAlignment="Top"/>
+        <Label ToolTip="{Binding RobotFullName}" HorizontalAlignment="Left" Margin="95,40,0,36"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="18,70,0,0" VerticalAlignment="Top" Width="65" Height="22" Click="Start_Click"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="95,70,0,0" VerticalAlignment="Top" Width="65" Height="22" Click="Stop_Click"/>
+        <Button Content="Upgrade" HorizontalAlignment="Left" Margin="168,70,0,0" VerticalAlignment="Top" Width="65" Height="22"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="209,0,0,0" VerticalAlignment="Top" Width="24" Click="Delete_Click"/>
+        <TextBox x:Name="txtRobotName" Height="21" Margin="95,41,0,0" TextWrapping="Wrap" Text="{Binding RobotName}" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</UserControl>

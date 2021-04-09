@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1246244B-F1E7-4281-8795-D9A25A6F2D72}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Bot.Activity.Excel</RootNamespace>
+    <AssemblyName>Bot.Activity.Excel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDna.Integration, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f225e9659857edbe, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDna.Integration.1.1.0\lib\ExcelDna.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Graph, Version=3.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Graph.3.15.0\lib\net461\Microsoft.Graph.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Graph.Core, Version=1.21.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Graph.Core.1.21.0\lib\net45\Microsoft.Graph.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseNativeActivity.cs" />
+    <Compile Include="Excel_Append.cs" />
+    <Compile Include="Excel_AppendRange.cs" />
+    <Compile Include="Excel_AppendRangeActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_AppendRangeActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Append_Designer.xaml.cs">
+      <DependentUpon>Excel_Append_Designer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CellValue_Clear_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_CellValue_Clear_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CellValue_Read_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_CellValue_Read_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CellValue_Write_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_CellValue_Write_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CopyPaste.cs" />
+    <Compile Include="Excel_CopyPaste_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_CopyPaste_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CutPaste.cs" />
+    <Compile Include="Excel_Cutpaste_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Cutpaste_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Insert_Delete_Column.cs" />
+    <Compile Include="Excel_Insert_Delete_Column_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Insert_Delete_Column_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Insert_Delete_Rows.cs" />
+    <Compile Include="Excel_Insert_Delete_Rows_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Insert_Delete_Rows_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Macro_Run_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Macro_Run_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Range_Read_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Range_Read_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Range_Write.cs" />
+    <Compile Include="Excel_Range_Read.cs" />
+    <Compile Include="Excel_Range_Write_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Range_Write_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_ReadFile_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_ReadFile_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_ReadSingleRow.cs" />
+    <Compile Include="Excel_ReadSingleRow_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_ReadSingleRow_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_RowWrite.cs" />
+    <Compile Include="Excel_RowWrite_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_RowWrite_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Row_Read.cs" />
+    <Compile Include="Excel_Row_Read_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Row_Read_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbookopen_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbookopen_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_CloseAll_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_CloseAll_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_Close_Designer.xaml.cs">
+      <DependentUpon>Excel_Workbook_Close_Designer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_Count_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_Count_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_Create_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_Create_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_RefreshAll_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_RefreshAll_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_Save_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_Save_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Workbook_ToPDF.cs" />
+    <Compile Include="Excel_Workbook_ToPDF_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Workbook_ToPDF_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Worksheet_Count_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Worksheet_Count_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Worksheet_Create_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Worksheet_Create_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Worksheet_Delete_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Worksheet_Delete_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Worksheet_Exists_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_Worksheet_Exists_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_WriteFile_ActivityDesigner.xaml.cs">
+      <DependentUpon>Excel_WriteFile_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FilterDataTable.cs" />
+    <Compile Include="FilterDataTable_ActivityDesigner.xaml.cs">
+      <DependentUpon>FilterDataTable_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GetCellColor.cs" />
+    <Compile Include="GetCellColor_ActivityDesigner.xaml.cs">
+      <DependentUpon>GetCellColor_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Invokecsharp.cs" />
+    <Compile Include="LookUpRange.cs" />
+    <Compile Include="LookUpRange_ActivityDesigner.xaml.cs">
+      <DependentUpon>LookUpRange_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadCellFormula.cs" />
+    <Compile Include="ReadCellFormula_ActivityDesigner.xaml.cs">
+      <DependentUpon>ReadCellFormula_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetRangeColor.cs" />
+    <Compile Include="SetRangeColor_ActivityDesigner.xaml.cs">
+      <DependentUpon>SetRangeColor_ActivityDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StringToFilenameConverter.cs" />
+    <Compile Include="DynamicActivityStore.cs" />
+    <Compile Include="ExcelData.xaml.cs">
+      <DependentUpon>ExcelData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadExcelDesigner.xaml.cs">
+      <DependentUpon>ReadExcelDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_WriteFile.cs" />
+    <Compile Include="Excel_ReadFile.cs" />
+    <Compile Include="Excel_Workbook_Close.cs" />
+    <Compile Include="Excel_Workbook_CloseAll.cs" />
+    <Compile Include="Excel_Workbook_Count.cs" />
+    <Compile Include="Excel_Workbook_Create.cs" />
+    <Compile Include="Excel_Workbook_Open.cs" />
+    <Compile Include="Excel_Workbook_SaveAs.cs" />
+    <Compile Include="Excel_Worksheet_Count.cs" />
+    <Compile Include="Excel_Worksheet_Create.cs" />
+    <Compile Include="Excel_Worksheet_Delete.cs" />
+    <Compile Include="Excel_Worksheet_Exists.cs" />
+    <Compile Include="ThreadSafeDictionary.cs" />
+    <Page Include="ExcelData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_AppendRangeActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Append_Designer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_CellValue_Clear_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_CellValue_Read_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_CellValue_Write_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_CopyPaste_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Cutpaste_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Insert_Delete_Column_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Insert_Delete_Rows_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Macro_Run_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Range_Read_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Range_Write_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_ReadFile_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_ReadSingleRow_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_RowWrite_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Row_Read_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbookopen_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbook_CloseAll_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbook_Close_Designer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbook_Count_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbook_Create_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Workbook_RefreshAll_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Excel_Workbook_Save_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Workbook_ToPDF_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Worksheet_Count_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Worksheet_Create_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Worksheet_Delete_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_Worksheet_Exists_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Excel_WriteFile_ActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterDataTable_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GetCellColor_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LookUpRange_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReadCellFormula_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReadExcelDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ActivityDesigner1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Excel_CellValue_Read.cs" />
+    <Compile Include="Excel_CellValue_Clear.cs" />
+    <Compile Include="ActivityDesigner1.xaml.cs">
+      <DependentUpon>ActivityDesigner1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_CellValue_Write.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="Excel_Macro_Run.cs" />
+    <Page Include="SetRangeColor_ActivityDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="libman.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Excel_Worksheet_Count.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelAppend.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelCellValueClear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelCellValueRead.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelCellValueWrite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelCopypaste.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelCutpaste.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelInserDeleteColumn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelInsertDeleteRow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelMacroRun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelRangeRead.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelRangeWrite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelReadFile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelRowRead.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelRowWrite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbbokCloseAll.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbookClose.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbookCount.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbookCreate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbookOpen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbookSaveAs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorkbooktoPdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorksheetCreate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorksheetDelete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWorksheetExists.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExcelWriteFile.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FilterDataTable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GetCellColor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LookUpRange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ReadCellFormula.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SetRangeColor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ExcelAppend2.png" />
+    <Resource Include="Resources\ExcelCellValueClear2.png" />
+    <Resource Include="Resources\ExcelCellValueRead2.png" />
+    <Resource Include="Resources\ExcelCellValueWrite2.png" />
+    <Resource Include="Resources\ExcelCopypaste2.png" />
+    <Resource Include="Resources\ExcelCutpaste2.png" />
+    <Resource Include="Resources\ExcelInserDeleteColumn2.png" />
+    <Resource Include="Resources\ExcelInsertDeleteRow2.png" />
+    <Resource Include="Resources\ExcelMacroRun2.png" />
+    <Resource Include="Resources\ExcelRangeRead2.png" />
+    <Resource Include="Resources\ExcelRangeWrite2.png" />
+    <Resource Include="Resources\ExcelReadFile2.png" />
+    <Resource Include="Resources\ExcelRowRead2.png" />
+    <Resource Include="Resources\ExcelRowWrite2.png" />
+    <Resource Include="Resources\ExcelWorkbbokCloseAll2.png" />
+    <Resource Include="Resources\ExcelWorkbookClose2.png" />
+    <Resource Include="Resources\ExcelWorkbookCount2.png" />
+    <Resource Include="Resources\ExcelWorkbookCreate2.png" />
+    <Resource Include="Resources\ExcelWorkbookOpen2.png" />
+    <Resource Include="Resources\ExcelWorkbookSaveAs2.png" />
+    <Resource Include="Resources\ExcelWorkbooktoPdf2.png" />
+    <Resource Include="Resources\ExcelWorksheetCreate2.png" />
+    <Resource Include="Resources\ExcelWorksheetDelete2.png" />
+    <Resource Include="Resources\ExcelWorksheetExists2.png" />
+    <Resource Include="Resources\ExcelWriteFile2.png" />
+    <Resource Include="Resources\Excel_Worksheet_Count2.png" />
+    <Resource Include="Resources\FilterDataTable2.png" />
+    <Resource Include="Resources\GetCellColor2.png" />
+    <Resource Include="Resources\LookUpRange2.png" />
+    <Resource Include="Resources\ReadCellFormula2.png" />
+    <Resource Include="Resources\SetRangeColor2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{03ce7420-f2b5-4ad2-ab80-317de1d6d59b}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

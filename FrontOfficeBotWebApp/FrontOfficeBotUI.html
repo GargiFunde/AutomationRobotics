@@ -1,0 +1,1244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="utf-8" /> -->
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <title>Executor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="*">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="*"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="*"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            crossorigin="*"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="*"></script>
+    <!-- <link href="style.css" rel="stylesheet" /> -->
+    <!-- <link -->
+    <!-- rel="stylesheet" -->
+    <!-- href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" -->
+    <!-- integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" -->
+    <!-- crossorigin="anonymous" -->
+    <!-- /> -->
+    <!-- <link -->
+    <!-- href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" -->
+    <!-- rel="stylesheet" -->
+    <!-- /> -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        label {
+            font-weight: normal !important;
+        }
+
+        select {
+            width: 150px;
+            margin: 10px;
+        }
+
+            select:focus {
+                min-width: 150px;
+                width: auto;
+            }
+
+        h5 {
+            color: blue;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;padding:1%">
+    <!--  <div style="text-align: center; margin-top: 25px">
+        <input
+          type="text"
+          placeholder="Username"
+          style="margin-bottom: 8px"
+          id="username"
+        /><br />
+        <input
+          type="password"
+          placeholder="Password"
+          style="margin-bottom: 8px"
+          id="password"
+        /><br />
+        <input
+          type="text"
+          placeholder="Folder Name"
+          style="margin-bottom: 8px"
+          id="folderName"
+        /><br />
+        <input
+          type="text"
+          placeholder="File Name"
+          style="margin-bottom: 8px"
+          id="fileName"
+        /><br />
+        <button onclick="runbot()" type="button" class="btn btn-primary">
+          Go!</button
+        >&nbsp;&nbsp;&nbsp;&nbsp;
+        <button onclick="test()" type="button" class="btn btn-primary">
+          Test</button
+        ><br />
+
+        <div
+          id="result"
+          style="margin: 25px; color: blue; font-size: 18px"
+        ></div>
+      </div> -->
+    <!-- div for UI  -->
+    <!-- <div > -->
+    <div>
+        <div class="row">
+            <div class="col-sm-3 ">
+                <div class="well">
+                    <h5><b>Automation Group Name</b></h5>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="dropBusinessProcess"><b>Business Process:</b></label>
+                            </td>
+                            <td>
+                                <select name="BusinessProcess" id="dropBusinessProcess">
+                                    <option value="New Requisition">New Requisition</option>
+                                    <option value="Old Requisition">Old Requisition</option>
+                                </select>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <label id="lblRequisitionType" for="dropRequisitionType"><b>Requisition Type:</b></label>
+                            </td>
+                            <td>
+                                <select name="RequisitionType" id="dropRequisitionType">
+                                    <option value="CPU">CPU</option>
+                                    <option value="Disk">Disk</option>
+                                    <option value="CPU">Keyboard</option>
+                                    <option value="Disk">Memory</option>
+                                    <option value="CPU">Monitor</option>
+                                    <option value="Disk">Mouse</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label id="lblServices" for="dropServices"><b>Services:</b></label>
+                            </td>
+                            <td>
+                                <select name="Services" id="dropServices">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label id="lblDescription" for="dropDescription"><b>Description:</b></label>
+                            </td>
+                            <td>
+                                <textarea id="description" name="Feedback" form="usrform" rows="4" style="width: 100%; max-width: 100%;">Enter text here...</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label id="lblIncidentNo" for="IncidentNo" style="visibility:hidden"><b>Incident:</b></label>
+                            </td>
+                            <td>
+                                <textarea id="IncidentNo" name="IncidentNo" form="usrform" rows="1" style="width: 100%; max-width: 100%;visibility:hidden;">Enter Incident No..</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="float:right">
+
+                                <button type="button" onclick="GoBtnClick()">Go</button>
+                            </td>
+
+                            <td>
+                                <button type="button">Reset</button>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+
+
+
+
+
+
+                </div>
+
+                <div class="well">
+                    <h5><b>Key Fields:</b></h5>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="lblNumber"><b>Number:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblNumber">000001</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblOpened"><b>Opened:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblOpened">yes</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblShortdescription"><b>Short description:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblShortdescription">Web Automation</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblCaller"><b>Caller:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblCaller">Sanket</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblPriority"><b>Priority:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblPriority">High</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblState"><b>State:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblState">Maharastra</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblCategory"><b>Category:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblCategory">Web</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblAssignmentGroup"><b>Assignment Group:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblAssignmentGroup">E2E</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblAssignedto"><b>Assigned to:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblAssignedto">E2E product</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblUpdated"><b>Updated:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblUpdated">Yes</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lblUpdatedby"><b>Updated by:</b></label>
+                            </td>
+                            <td>
+                                <label id="lblUpdatedby">sanket</label>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="panel panel-default text-left">
+                            <tr>
+                                <td style="text-align:left">
+                                    <h5><b>Employee Details :</b></h5>
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Employee Deatils :</b></h4> -->
+                                </td>
+                            </tr>
+                            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+                            <tr>
+                                <td rowspan="3">
+                                    <img border="0" alt="W3Schools" src="C:\CloudBot\HostedSites\HostedSites\person.jpg" width="100" height="100">
+                                </td>
+                                <td>
+                                    <label for="lblempName"><b>Customer Name:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblempName">Sanket Dongare</label>
+                                </td>
+                                <td>
+                                    <label for="lblEmployeeType"><b>Customer Type:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblEmployeeType">permenent</label>
+                                </td>
+                                <td>
+                                    <label for="lblOrganisationalunit"><b>Organisational unit:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblOrganisationalunit">E2E Product</label>
+                                </td>
+                            </tr>
+
+                            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+                            <tr>
+                                <td>
+                                    <label for="lblempid"><b>Customer Id:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblempid">IW0000001</label>
+                                </td>
+                                <td>
+                                    <label for="lblManager"><b>Manager:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblManager">Sanket Dongare</label>
+                                </td>
+                                <td>
+                                    <label for="lblSubDivision"><b>Sub-Division:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblSubDivision">E2E Developer</label>
+                                </td>
+                            </tr>
+                            <!-- --------------------------------------------------------------------------------------------------------------------- -->
+                            <tr>
+                                <td>
+                                    <label for="lblCountry"><b>Country:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblCountry">India</label>
+                                </td>
+                                <td>
+                                    <label for="lblOffice"><b>Office:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblOffice">Baner pune</label>
+                                </td>
+                                <td>
+                                    <label for="lblAddress"><b>Address:</b></label>
+                                </td>
+                                <td>
+                                    <label id="lblAddress">Baner pune</label>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-8 well">
+                    <table class="panel panel-default text-left">
+                        <tr>
+                            <td>
+                                <h5><b>Update Details :</b></h5>
+                            </td>
+                            <td>
+                                <!-- <h4><b>Update Deatils</b></h4> -->
+                            </td>
+                            <td>
+                                <!-- <h4><b>Update Deatils</b></h4> -->
+                            </td>
+                            <td>
+                                <!-- <h4><b>Update Deatils</b></h4> -->
+                            </td>
+                        <tr>
+                        <tr>
+                            <td>
+                                <label for="Fname">First name:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="Fname" name="Fname">
+                            </td>
+
+                            <td>
+                                <label for="Lname">Last name:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="Lname" name="Lname">
+                            </td>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <label for="MobileNo">Mobile No:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="MobileNo" name="MobileNo">
+                            </td>
+
+                            <td>
+                                <label for="OfficeNo">Office RoomNo:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="OfficeNo" name="OfficeNo">
+                            </td>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <label for="Interest">Interest:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="Interest" name="Interest">
+                            </td>
+
+                            <td>
+                                <!-- <label for="Interest">Interest</label> -->
+                            </td>
+                            <td>
+                                <!-- <input type="text" id="Interest" name="Interest"> -->
+                            </td>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <!-- <button type="button">Click Me!</button> -->
+                            </td>
+                            <td style="float:right">
+
+                                <button type="button" onclick="UpdateDtlsBtnClick()">Update</button>
+                            </td>
+
+                            <td>
+                                <button type="button">Cancel</button>
+                            </td>
+                            <td>
+                                <!-- <input type="text" id="OfficeNo" name="OfficeNo"> -->
+                            </td>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table class="panel panel-default text-left">
+                        <tr>
+                            <td style="text-align:left">
+                                <h5><b>Notes :</b></h5>
+                            </td>
+                            <td>
+                                <!-- <h4><b>Update Deatils</b></h4> -->
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td width="100">
+                                <label for="Feedback">Feedback:</label>
+                            </td>
+                            <td>
+                                <textarea id="Feedback" name="Feedback" rows="4" style="width: 100%; max-width: 100%;">Enter text here...</textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="Complaint">Complaint:</label>
+                            </td>
+                            <td>
+                                <textarea id="Complaint" name="Complaint" rows="4" style="width: 100%; max-width: 100%;">Enter text here...</textarea>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <!-- <button type="button">Click Me!</button> -->
+                            </td>
+                            <td style="float:center">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" onclick="UpdateNotesBtnClick()">Update</button>
+
+                                <button type="button">Cancel</button>
+                            </td>
+
+
+
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h5><b>Details :</b></h5>
+                                </td>
+                                <td>
+                                    <!-- <h4><b>Update Deatils</b></h4> -	->
+                                    </td>
+                                    <td>
+                                    <!-- <h4><b>Update Deatils</b></h4> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <label id="lblLastCall"><b>Last Call on : Sun 06 2020 09:40 PM</b></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label id="lbltblfeedback"><b>Feedback</b></label>
+                                </td>
+                                <td>
+                                    <label id="lbltblComplaint"><b>Complaint</b></label>
+                                </td>
+                                <td>
+                                    <label id="lbltblDate"><b>Date</b></label>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label>
+                                </td>
+                                <td>
+                                    <label id="lbltblComplaint"></label>
+                                </td>
+                                <td>
+                                    <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label>
+                                </td>
+                                <td>
+                                    <label id="lbltblComplaint"> Its not good enough.</label>
+                                </td>
+                                <td>
+                                    <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label>
+                                </td>
+                                <td>
+                                    <label id="lbltblComplaint"> Its not good enough.</label>
+                                </td>
+                                <td>
+                                    <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label>
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table>
+
+                            <tr>
+                                <td>
+
+                                    <!-- <table class="panel panel-default text-left"> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <h5><b>Update Details :</b></h5> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -->
+                                    <!-- </td> -->
+                                    <!-- <tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td width="700" > -->
+                                    <!-- <label for="fname">First name:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <input type="text" id="Fname" name="Fname"> -->
+                                    <!-- </td> -->
+                                    <!-- <td width="700"> -->
+                                    <!-- <label for="lname">Last name:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <input type="text" id="lname" name="lname"> -->
+                                    <!-- </td> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td width="700"> -->
+                                    <!-- <label for="MobileNo">Mobile No:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <input type="text" id="MobileNo" name="MobileNo"> -->
+                                    <!-- </td> -->
+                                    <!-- <td width="900"> -->
+                                    <!-- <label for="OfficeNo">Office RoomNo:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <input type="text" id="OfficeNo" name="OfficeNo"> -->
+                                    <!-- </td> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <label for="Interest">Interest:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <input type="text" id="Interest" name="Interest"> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <label for="Interest">Interest</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <input type="text" id="Interest" name="Interest"> -->
+                                    <!-- </td> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <button type="button">Click Me!</button> -->
+                                    <!-- </td> -->
+                                    <!-- <td style="float:right"> -->
+                                    <!-- <button type="button">Update</button> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <button type="button">Cancel</button> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <input type="text" id="OfficeNo" name="OfficeNo"> -->
+                                    <!-- </td> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- </table> -->
+
+                                </td>
+                                <td rowspan="2" style="vertical-align:top">
+                                    <!-- <div class="well"> -->
+                                    <!-- <table> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <h5><b>Details :</b></h5> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -	-> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td colspan="3" > -->
+                                    <!-- <label id="lblLastCall"><b>Last Call on : Sun 06 2020 09:40 PM</b></label> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td > -->
+                                    <!-- <label id="lbltblfeedback"><b>Feedback</b></label> -->
+                                    <!-- </td> -->
+                                    <!-- <td > -->
+                                    <!-- <label id="lbltblComplaint"><b>Complaint</b></label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblDate"><b>Date</b></label> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblComplaint"></label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblComplaint"> Its not good enough.</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label> -->
+                                    <!-- </td> -->
+                                    <!-- </tr><tr> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltxtfeedback">Special sound and Switch control button blue LED indicator,5-6 hours playtime easy to operating full directivr</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblComplaint"> Its not good enough.</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <label id="lbltblDate">Mon 08-06-20; 6:40 PM</label> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- </table> -->
+                                    <!-- </div> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <!-- <table class="panel panel-default text-left"> -->
+                                    <!-- <tr> -->
+                                    <!-- <td style="text-align:left"> -->
+                                    <!-- <h5><b>Notes :</b></h5> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <!-- <h4><b>Update Deatils</b></h4> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td width="100"> -->
+                                    <!-- <label for="Feedback">Feedback:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <textarea name="Feedback" form="usrform"  rows="4" style="width: 100%; max-width: 100%;">Enter text here...</textarea> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- <tr> -->
+                                    <!-- <td> -->
+                                    <!-- <label for="Complaint">Complaint:</label> -->
+                                    <!-- </td> -->
+                                    <!-- <td> -->
+                                    <!-- <textarea name="Complaint" form="usrform"  rows="4" style="width: 100%; max-width: 100%;">Enter text here...</textarea> -->
+                                    <!-- </td> -->
+                                    <!-- </tr> -->
+                                    <!-- </table> -->
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- </div> -->
+
+        <footer class="container-fluid text-center">
+            <span>innowise.us</span>
+        </footer>
+
+    </div>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <!--<script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/signalr.js/jquery.signalR.min.js"></script>-->
+    <script src="signalr/hubs"></script>
+
+
+    <script crossorigin="anonymous">
+        function test() {
+            debugger;
+            $("#result").html(`
+                                        <div class="spinner-border text-success" role="status">
+                              <span class="sr-only">Loading...</span>
+</div>`);
+            $.get("http://localhost:8090/ExecutorController/api/executor/test", function (data) {
+                debugger;
+
+                $("#result").html(data);
+                setTimeout(() => {
+                    $("#result").html("");
+                }, 3000);
+            });
+        }
+
+        function runbot() {
+
+            getvalfromconfig();
+            $("#result").html(`
+                                        <div class="spinner-border text-success" role="status">
+                              <span class="sr-only">Loading...</span>
+</div>`);
+            //< !-- var u = $("#username").val(); -->
+            //< !-- var p = $("#password").val(); -->
+            //< !-- var folderName = $("#folderName").val(); -->
+            //< !-- var fileName = $("#fileName").val(); -->
+            //< !-- var u = "akash felix"; -->
+            //< !-- var p = "InnoWise@123"; -->
+            //< !-- var folderName = "Main"; -->
+            //< !-- var fileName = "Main.xaml"; -->
+            alert("in runbot " + User + "-" + Pass + "-" + Pfolder + "-" + Pfile + "-" + strjson);
+            var u = User;
+            var p = Pass;
+            var folderName = Pfolder;
+            var fileName = Pfile;
+            var inputargs = strjson;
+            console.log(
+                `username : ${u}  password : ${p}  folderName : ${folderName} fileName ${fileName}`
+            );
+            $.post("http://localhost:8090/ExecutorControllerB/api/executor/runbot", {
+                username: u,
+                password: p,
+                folderName: folderName,
+                fileName: fileName,
+                inputargs: inputargs,
+            }).done(function (data) {
+                $("#result").html(data);
+                setTimeout(() => {
+                    $("#result").html("");
+                }, 10000);
+            });
+        }
+
+
+
+        function editdetails() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'UpdateDetails.xml', true);
+
+            xhr.timeout = 2000; // time in milliseconds
+
+            xhr.onload = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var xmlDoc = this.responseXML;
+                    var x;
+                    var txt = "";
+                    x = xmlDoc.getElementsByTagName("FirstName")[0].childNodes[0];
+                    alert(x.nodeValue);
+                    x.nodeValue = "Prashant";
+                    x = xmlDoc.getElementsByTagName("FirstName")[0].childNodes[0];
+                    alert(x.nodeValue);
+
+                }
+
+            }
+
+            xhr.ontimeout = function (e) {
+                // XMLHttpRequest timed out. Do something here.
+            };
+
+            xhr.send(null);
+        }
+
+
+        function getupdatedetails() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'UpdateDetails.xml', true);
+
+            xhr.timeout = 2000; // time in milliseconds
+
+            xhr.onload = function () {
+                // Request finished. Do processing here.
+                var xmlDoc = this.responseXML; // <- Here's your XML file
+                updatexmlstr = new XMLSerializer().serializeToString(xmlDoc.documentElement);
+                updatexmlstr = "<?xml version='1.0' encoding='utf-8'?>" + updatexmlstr;
+                alert("in update read " + updatexmlstr);
+                xmlDoc = $.parseXML(updatexmlstr),
+                    $xml = $(xmlDoc),
+                    $FirstName = $xml.find("FirstName").text();
+                $LastName = $xml.find("LastName").text();
+                $MobileNo = $xml.find("MobileNo").text();
+                $OfficeRoomNo = $xml.find("OfficeRoomNo").text();
+                $Interest = $xml.find("Interest").text();
+
+                $("#Fname").val($FirstName);
+                $("#Lname").val($LastName);
+                $("#MobileNo").val($MobileNo);
+                $("#OfficeNo").val($OfficeRoomNo);
+                $("#Interest").val($Interest);
+
+
+            };
+
+            xhr.ontimeout = function (e) {
+                // XMLHttpRequest timed out. Do something here.
+            };
+
+            xhr.send(null);
+
+        }
+
+
+        function readconfig() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'Process.xml', true);
+
+            xhr.timeout = 2000; // time in milliseconds
+
+            xhr.onload = function () {
+                // Request finished. Do processing here.
+                var xmlDoc = this.responseXML; // <- Here's your XML file
+                xmlstr = new XMLSerializer().serializeToString(xmlDoc.documentElement);
+                xmlstr = "<?xml version='1.0' encoding='utf-8'?>" + xmlstr;
+                alert("in read " + xmlstr);
+
+            };
+
+            xhr.ontimeout = function (e) {
+                // XMLHttpRequest timed out. Do something here.
+            };
+
+            xhr.send(null);
+
+        }
+
+
+
+
+
+        function getvalfromconfig() {
+
+
+
+
+
+            //$.ajax({
+            //    type: "GET",
+            //    url: "",
+            //    dataType: "xml",
+
+            //    error: function (e) {
+            //        alert("An error occurred while processing XML file");
+            //        console.log("XML reading Failed: ", e);
+            //    },
+            //    success: function (response) {
+            //        alert("success");
+            //        console.log("XML reading Failed: ", e);
+            //    }
+
+            //});
+
+
+            alert("in get val from config" + xmlstr);
+            //    alert(xmlstr);
+            //  var xml = "<?xml version='1.0' encoding='utf-8'?>" + xmlstr;
+
+            //   var xml = "<?xml version='1.0' encoding='utf-8'?><Details><Username>akash felix</Username><Password>InnoWise@123</Password><ProcessA><FolderName>TestExec</FolderName><FileName>Main.xaml</FileName></ProcessA><ProcessB><FolderName>Main2</FolderName><FileName>Main.xaml</FileName></ProcessB><ProcessC><FolderName>Main3</FolderName><FileName>Main.xaml</FileName></ProcessC><ProcessD><FolderName>Main4</FolderName><FileName>Main.xaml</FileName></ProcessD></Details>",
+            xmlDoc = $.parseXML(xmlstr),
+                $xml = $(xmlDoc),
+                $UserName = $xml.find("Username").text();
+            $Password = $xml.find("Password").text();
+
+
+
+
+
+
+            alert(procid);
+
+            $ProcessFolderName = $xml.find(procid).find("FolderName").text();
+            $ProcessFileName = $xml.find(procid).find("FileName").text();
+            User = $UserName;
+            Pass = $Password;
+            Pfolder = $ProcessFolderName;
+            Pfile = $ProcessFileName;
+
+            alert($UserName + "-" + $Password + "-" + $ProcessFolderName + "-" + $ProcessFileName);
+
+        }
+
+        var User;
+        var Pass;
+        var Pfolder;
+        var Pfile;
+        var procid;
+        var strjson;
+        var xmlstr;
+        var updatexmlstr;
+
+        //< !-- function for go button-- >
+
+        function GoBtnClick() {
+
+            var procname = $("#dropBusinessProcess").val();
+            switch (procname) {
+
+                case "New Requisition":
+                    procid = "ProcessA";
+                    var jsonarr = {
+
+                        'RequisitionType': $("#dropRequisitionType").val(),
+                        'Services': $("#dropServices").val(),
+                        'Description': $("#description").val()
+
+
+                    };
+                    break;
+                case "Old Requisition":
+                    procid = "ProcessB";
+                    var jsonarr = {
+
+                        'IncidentNo': $("#IncidentNo").val(),
+
+
+
+                    };
+                    break;
+
+                default: break;
+
+            }
+
+
+
+
+            strjson = JSON.stringify(jsonarr);
+
+
+
+
+            runbot();
+
+        }
+        //< !-- function for update details button-- >
+
+        function UpdateDtlsBtnClick() {
+            procid = "ProcessC";
+
+            var jsonarr = {
+
+                'FirstName': $("#Fname").val(),
+                'LastName': $("#Lname").val(),
+                'MobileNo': $("#MobileNo").val(),
+                'OfficeRoomNo': $("#OfficeNo").val(),
+                'Interest': $("#Interest").val()
+
+
+            };
+
+            strjson = JSON.stringify(jsonarr);
+
+            alert("in method itself " + strjson);
+
+            editdetails();
+            // runbot();
+        }
+        //< !-- function for update notes button-- >
+
+        function UpdateNotesBtnClick() {
+            procid = "ProcessD";
+
+            var jsonarr = {
+
+                'Feedback': $("#Feedback").val(),
+
+                'Complaint': $("#Complaint").val()
+
+
+            };
+
+            strjson = JSON.stringify(jsonarr);
+            runbot();
+        }
+        //< !-- function load emp dtls-- >
+
+        function LoadEmpDtls() {
+            procid = "ProcessE";
+
+            var jsonarr = {
+
+                'CustomerName': $("#lblempName").val(),
+                'CustomerType': $("#lblCustomerType").val(),
+                'OrganisationalUnit': $("#lblOrganisationalunit").val(),
+                'CustomerId': $("#lblempid").val(),
+                'Manager': $("#lblManager").val(),
+                'SubDivision': $("#lblSubDivision").val(),
+                'Country': $("#lblCountry").val(),
+                'Office': $("#lblOffice").val(),
+                'Address': $("#lblAddress").val()
+
+
+            };
+
+            strjson = JSON.stringify(jsonarr);
+            runbot();
+        }
+
+
+
+
+
+
+        $(document).ready(function () {
+
+
+            readconfig();
+            getupdatedetails();
+
+            $("#dropBusinessProcess").change(function () {
+                alert("Dropdown val changed");
+                var dropval = $("#dropBusinessProcess").val();
+                if (dropval == "Old Requisition") {
+
+
+                    $("#dropServices").hide();
+                    $("#dropRequisitionType").hide();
+                    $("#description").hide();
+                    $("#lblServices").hide();
+                    $("#lblRequisitionType").hide();
+                    $("#lblDescription").hide();
+                    $("#lblIncidentNo").css("visibility", "visible");
+                    $("#IncidentNo").css("visibility", "visible");
+                }
+                else if (dropval == "New Requisition") {
+
+                    $("#dropServices").show();
+                    $("#dropRequisitionType").show();
+                    $("#description").show();
+                    $("#lblServices").show();
+                    $("#lblRequisitionType").show();
+                    $("#lblDescription").show();
+                    $("#lblIncidentNo").css("visibility", "hidden");
+                    $("#IncidentNo").css("visibility", "hidden");
+                }
+            });
+
+
+            $(function () {
+                console.log(" Connection Hub : " + $.connection.myHub);
+                var chat = $.connection.myHub; //connection to hub object is created.
+                $.connection.logging = true;
+                // create a function that the hub can call back to display messages.
+                //var sr;
+                chat.client.addNewMessageToPage = function (x) {
+                    alert("Add message to page received" + x);
+                    var jsonobj = JSON.parse(x);
+                    for (var k in jsonobj) {
+                        if (k == "Number") {
+                            $("#lblNumber").text(jsonobj.Number);
+                        }
+                        else if (k == "Opened") {
+                            $("#lblOpened").text(jsonobj.Opened);
+                        }
+                        else if (k == "ShortDescription") {
+                            $("#lblShortdescription").text(jsonobj.ShortDescription);
+                        }
+                        else if (k == "Caller") {
+                            $("#lblCaller").text(jsonobj.Caller);
+                        }
+                        else if (k == "Priority") {
+                            $("#lblPriority").text(jsonobj.Priority);
+                        }
+                        else if (k == "State") {
+                            $("#lblState").text(jsonobj.State);
+                        }
+                        else if (k == "Category") {
+                            $("#lblCategory").text(jsonobj.Category);
+                        }
+                        else if (k == "AssignmentGroup") {
+                            $("#lblAssignmentGroup").text(jsonobj.AssignmentGroup);
+                        }
+                        else if (k == "AssignedTo") {
+                            $("#lblAssignedto").text(jsonobj.AssignedTo);
+                        }
+                        else if (k == "Updated") {
+                            $("#lblUpdated").text(jsonobj.Updated);
+                        }
+                        else if (k == "UpdatedBy") {
+                            $("#lblUpdatedby").text(jsonobj.UpdatedBy);
+                        }
+                    }
+
+                };
+
+
+                $.connection.hub.logging = true; //logs generated by debug
+
+                //hub starts connection with client
+                $.connection.hub.start().done(function () {
+                    console.log("Connection starting");
+
+
+
+                });
+            });
+
+
+        });
+
+
+    </script>
+
+    <script>
+
+
+    </script>
+</body>
+</html>

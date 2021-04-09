@@ -1,0 +1,599 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{217E2D34-F6DF-431B-AC5A-B368F481A530}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>WatiN.Core</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WatiN.Core</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\Build\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;NET11</DefineConstants>
+    <DocumentationFile>WatiN.Core.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1591</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\Build\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>WatiN.Core.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AutomatedDebug|AnyCPU' ">
+    <OutputPath>..\..\build\Debug\Core\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>WatiN.Core.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>1591</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>E:\Work\Live\InternetExplorerPlugin\obj\Debug\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml">
+      <Name>Microsoft.mshtml</Name>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+      <AssemblyFolderKey>hklm\primary interop assemblies</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllFramesProcessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Area.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AreaCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseElementCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Button.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ButtonCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CheckBoxCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\AlwaysTrueComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\BaseComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\BoolComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\PredicateElementComparer.cs" />
+    <Compile Include="Comparers\PredicateStringComparer.cs" />
+    <Compile Include="Comparers\RegexComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\StringComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\StringContainsAndCaseInsensitiveComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\StringEqualsAndCaseInsensitiveComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\TypeComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comparers\UriComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AlwaysTrueConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AttributeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\BaseConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ElementConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\IndexConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\LabelTextConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NotConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ObsoleteConstraints.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ProximityTextConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\TableRowAttributeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DefaultSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\AlertAndConfirmDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\AlertDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\BaseDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\CertificateWarningHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\ConfirmDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\DialogWatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\FileDownloadHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\FileDownloadOptionEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\FileUploadDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\Hwnd.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\JavaDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\LogonDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\PrintDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\PromptDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\ReturnDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\SecurityAlertDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\SimpleJavaDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\UseDialogOnce.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\VbScriptMsgBoxDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\WinButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DialogHandlers\Window.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Div.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DivCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Document.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DomContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Element.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElementAttributeBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElementCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElementsContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElementsSupport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ElementTag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ElementDisabledException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ElementNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ElementReadOnlyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\FrameNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\HtmlDialogNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\IENotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\InvalidAttributException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\JavaScriptException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\MissingAlertException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ReEntryException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ReferenceCountException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\RunScriptException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\SelectListItemNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\TimeoutException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\WatiNException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileUpload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileUploadCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Find.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FindByDefaultFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FormCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Frame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameByIndexProcessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrameCountProcessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HTMLDialog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HtmlDialogCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IE.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEAttributeBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IECollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEWaitForComplete.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IE\IEBrowser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IE\IEElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IE\IEElementFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Image.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IAttributeBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ICompare.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ICompareElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IDialogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IElementCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IElementsContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IFindByDefaultFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IHwnd.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ILogWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\INativeBrowser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\INativeElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\INativeElementFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ISettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ITextElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IWait.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Label.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LabelCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Link.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LinkCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\ConsoleLogWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\DebugLogWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\Logger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\NoLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Option.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OptionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Para.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParaCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadioButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadioButtonCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RadioCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelectList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelectListCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Span.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpanCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Style.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Table.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableBody.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableBodyCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableCell.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableCellCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableRow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableRowCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextFieldCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypedElementFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UtilityClasses\CaptureWebPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UtilityClasses\SimpleTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UtilityClasses\Utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UtilityClasses\Win32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UtilityClasses\WinInet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WaitForComplete.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b2b0bd5b-2f01-49f5-8848-c426b91e33d7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logger\Logger.csproj">
+      <Project>{03CE7420-F2B5-4AD2-AB80-317DE1D6D59B}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Windows\Window\UIAComWrapper\UIAComWrapper\UIAComWrapper.csproj">
+      <Project>{1DD63894-DBB9-40EF-BFF2-55624CB285AF}</Project>
+      <Name>UIAComWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

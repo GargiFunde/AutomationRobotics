@@ -1,0 +1,115 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="BOTDesigner.Workflow" this:Workflow.in_ConfigFile="C:\Work\Projects\Demo1\Data\Config.csv"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:baaa="clr-namespace:Bot.Activity.ActivityLibrary.Activities;assembly=Bot.Activity.ActivityLibrary"
+ xmlns:bac="clr-namespace:Bot.Activity.CSV;assembly=Bot.Activity.CSV"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:this="clr-namespace:BOTDesigner"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ConfigFile" Type="InArgument(x:String)" />
+    <x:Property Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap2010:WorkflowViewState.IdRef>BOTDesigner.Workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>Microsoft.Activities</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataRow" Name="drConfigRow" />
+    </Sequence.Variables>
+    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="configTable" />
+        <Variable x:TypeArguments="x:String" Name="variable2" />
+      </Sequence.Variables>
+      <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_Config]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[new Dictionary(of String, object)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <bac:CSV_Read ContinueOnError="True" DefaultTableName="ConfigTable" Delimiter="," FilePath="[in_ConfigFile]" sap2010:WorkflowViewState.IdRef="CSV_Read_1" ResultTable="[configTable]" />
+      <baaa:DataTableForEach ListResult="{x:Null}" ColumnNumber="0" ContinueOnError="True" CurrentDataRow="[drConfigRow]" DataTableObject="[configTable]" sap2010:WorkflowViewState.IdRef="DataTableForEach_1">
+        <baaa:DataTableForEach.Activities>
+          <scg:List x:TypeArguments="Activity" Capacity="4">
+            <If Condition="[NOT String.IsNullOrEmpty(drConfigRow(&quot;Name&quot;).ToString.Trim)]" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Assign DisplayName="Assign- Add KeyValue" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[out_Config(drConfigRow("Name").ToString.Trim)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[drConfigRow("Value")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+            </If>
+          </scg:List>
+        </baaa:DataTableForEach.Activities>
+      </baaa:DataTableForEach>
+    </Sequence>
+    <sads:DebugSymbol.Symbol>d0BDOlxXb3JrXFByb2plY3RzXERlbW8xXFN0YW5kYXJkRnJhbWV3b3JrXEluaXRpYWxpemVTZXR0aW5ncy54YW1sFAFmAY0BAQIrA1MOAgEBLwVREAIBAjQHOxACARU8Bzy/AQIBDj0HUB8CAQM5TDlvAgEYNk02WQIBFjytATy8AQIBEzxVPFgCARI8PTxKAgERPGI8cwIBDz1rPXoCAQY9iwE9mgECAQRADU0SAgEIQBtAZAIBCUIRSxwCAQpDE0ocAgELSD5IVAIBDUU/RW4CAQw=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="482,60" />
+      <sap2010:ViewStateData Id="CSV_Read_1" sap:VirtualizedContainerService.HintSize="482,22" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="264,184">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,332" />
+      <sap2010:ViewStateData Id="DataTableForEach_1" sap:VirtualizedContainerService.HintSize="482,392" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="504,678">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="526,802">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="BOTDesigner.Workflow_1" sap:VirtualizedContainerService.HintSize="566,882" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

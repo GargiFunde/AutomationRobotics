@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF40BB63-4741-41F1-9461-FA9A7319AB6C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BOTDesigner</RootNamespace>
+    <AssemblyName>BOTDesigner</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BOTDesigner.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>E2Elogo2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.6.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirstFloor.ModernUI.1.0.6.7\lib\net40\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=2.8.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.8.26\lib\netstandard2.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=6.0.1.278, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.6.0.1\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Activities.Build" />
+    <Reference Include="Microsoft.Activities.Extensions, Version=2.0.6.9, Culture=neutral, PublicKeyToken=23b0c89d0d5ad43f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Activities.Extensions.2.0.6.9\lib\Net45\Microsoft.Activities.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities.Extensions.Http, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Activities.Extensions.Http.1.0.2\lib\net45\Microsoft.Activities.Extensions.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Activities.Extensions.Http.UnitTesting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Activities.Extensions.Http.1.0.2\lib\net45\Microsoft.Activities.Extensions.Http.UnitTesting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.VisualBasic.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.VisualBasic.Workspaces.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=3.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.3.7.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.DurableInstancing" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.35.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.AttributedModel.1.4.1\lib\net461\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.35.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Convention.1.4.1\lib\net461\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.35.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Hosting.1.4.1\lib\net461\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.35.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Runtime.1.4.1\lib\net461\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.35.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.TypedParts.1.4.1\lib\net461\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.8.1\lib\net461\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.7.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro_org">
+      <HintPath>..\ExternalDLL\Xceed.Wpf.AvalonDock.Themes.Metro_org.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Office2007, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.Themes.Office2007.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Windows10, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.AvalonDock.Themes.Windows10.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock_org">
+      <HintPath>..\ExternalDLL\Xceed.Wpf.AvalonDock_org.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes.Office2007, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.Themes.Office2007.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Themes.Windows10, Version=4.0.20076.12200, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.Themes.Windows10.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Resource Include="Resources\WindowXpath.png" />
+    <Resource Include="Resources\WebXpath.png" />
+    <Resource Include="Resources\StartDebug.png" />
+    <Resource Include="Resources\ShowLogFiles.png" />
+    <Resource Include="Resources\ResumeDebug.png" />
+    <Resource Include="Resources\MinimiseMaximise.png" />
+    <Resource Include="Resources\Import.png" />
+    <Resource Include="Resources\Export.png" />
+    <Resource Include="Resources\E2Elogo2.png" />
+    <Resource Include="Resources\AddRemove.png" />
+    <Resource Include="Resources\RestoreWhite.png" />
+    <Resource Include="Resources\MinimizeWhite.png" />
+    <Resource Include="Resources\CloseWhite.png" />
+    <Resource Include="Resources\WarningAlert.png" />
+    <Resource Include="Resources\Messages.png" />
+    <Resource Include="Resources\ErrorAlert.png" />
+    <Resource Include="Resources\ClearLogs.png" />
+    <Resource Include="Resources\importactivity.png" />
+    <Resource Include="Resources\Xpath.png" />
+    <Resource Include="Resources\stop.png" />
+    <Resource Include="Resources\Stepover.png" />
+    <Resource Include="Resources\Stepinto.png" />
+    <Resource Include="Resources\StateMachineDropDown.png" />
+    <Resource Include="Resources\Settings.png" />
+    <Resource Include="Resources\SaveDropDown.png" />
+    <Resource Include="Resources\SaveAll.png" />
+    <Resource Include="Resources\Save.png" />
+    <Resource Include="Resources\Run.png" />
+    <Resource Include="Resources\Publish.png" />
+    <Resource Include="Resources\NewProcess.png" />
+    <Resource Include="Resources\Logs.png" />
+    <Resource Include="Resources\ImportExport.png" />
+    <Resource Include="Resources\Flowchart.png" />
+    <Resource Include="Resources\Debug.png" />
+    <Resource Include="Resources\ClearLog.png" />
+    <Resource Include="Resources\WorkflowDiagram.png" />
+    <Resource Include="Resources\StateMachineDiagram.png" />
+    <Resource Include="Resources\SequenceDiagram.png" />
+    <Resource Include="Resources\OpenProject.png" />
+    <Resource Include="Resources\OpenExplorer.png" />
+    <Reference Include="Portable.Licensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Work\BOTDesignerMaster\Build\Portable.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Activities">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.Ribbon">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Workflow.Activities">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CSharpExpressionEditor\CSharpExpressionHelper.cs" />
+    <Compile Include="CSharpExpressionEditor\ExpressionHelper.cs" />
+    <Compile Include="CSharpExpressionEditor\ExpressionSelection.cs" />
+    <Compile Include="CSharpExpressionEditor\ExpressionValidationContext.cs" />
+    <Compile Include="CSharpExpressionEditor\LineToHeightConverter.cs" />
+    <Compile Include="CSharpExpressionEditor\ParserContext.cs" />
+    <Compile Include="CSharpExpressionEditor\RoslynExpressionEditor.xaml.cs">
+      <DependentUpon>RoslynExpressionEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CSharpExpressionEditor\RoslynExpressionEditorInstance.cs" />
+    <Compile Include="CSharpExpressionEditor\RoslynExpressionEditorService.cs" />
+    <Compile Include="CSharpExpressionEditor\XamlUtilities.cs" />
+    <Compile Include="DesignerLoginHelper.cs" />
+    <Compile Include="Helpers\CommandService.cs" />
+    <Compile Include="Helpers\CustomCommands.cs" />
+    <Compile Include="Helpers\CustomTrackingParticipant.cs" />
+    <Compile Include="Helpers\CustomWfDesigner.cs" />
+    <Compile Include="Helpers\QueryCompletionData.cs" />
+    <Compile Include="LicenseActivator.xaml.cs" />
+    <Compile Include="LicenseHelper.cs" />
+    <Compile Include="SecurityController.cs" />
+    <Compile Include="VbExpressionEditor\VbExpressionEditorInstance.cs" />
+    <Compile Include="VbExpressionEditor\VbExpressionEditorService.cs" />
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewProject.xaml.cs" />
+    <Compile Include="Views\Publish.xaml.cs" />
+    <Compile Include="Views\Publishing.xaml.cs">
+      <DependentUpon>Publishing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\SecurityEncryptHelper.cs" />
+    <Compile Include="Views\Settings.xaml.cs" />
+    <Compile Include="Views\Trial.xaml.cs">
+      <DependentUpon>Trial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualTrackingParticipant.cs" />
+    <Compile Include="WorkflowEntity.cs" />
+    <None Include="App.config" />
+    <None Include="CSharpExpressionEditor\LICENSE" />
+    <None Include="CSharpExpressionEditor\README.md" />
+    <None Include="defaultWorkflow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="SampleWorkflow\meetup.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Include="SampleWorkflow\AzureVmPowerOperations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SampleWorkflow\LocalWinServicesCSV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SampleWorkflow\SvcMonitoring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sequence.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Page Include="CSharpExpressionEditor\RoslynExpressionEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="LicenseActivator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings\ModernUI.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings\ModernUI.Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddRemoveActivities.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DashBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Export.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Import.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TreeVM\TreeViewItemExtended.cs" />
+    <Compile Include="Views\AddRemoveActivities.xaml.cs" />
+    <Compile Include="Views\CommonTreeView.xaml.cs" />
+    <Compile Include="Views\DashBoard.xaml.cs" />
+    <Compile Include="Views\Export.xaml.cs" />
+    <Compile Include="Views\Import.xaml.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\NewProject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Publish.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Publishing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Trial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon_app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityLibraries\MeetupActivityLibrary\Bot.Activity.ActivityLibrary.csproj">
+      <Project>{9212f9e7-b12c-4fba-af4d-ea9b42a2aafd}</Project>
+      <Name>Bot.Activity.ActivityLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bot.Activity.Excel\Bot.Activity.Excel.csproj">
+      <Project>{1246244b-f1e7-4281-8795-d9a25a6f2d72}</Project>
+      <Name>Bot.Activity.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BotDesignCommon\BotDesignCommon.csproj">
+      <Project>{33f02234-88b2-4a87-be1b-e65df1e2de9d}</Project>
+      <Name>BotDesignCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b2b0bd5b-2f01-49f5-8848-c426b91e33d7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b2b0bd5b-2f01-49f5-8848-c426b91e33d7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LicenseManager\LicenseManager.csproj">
+      <Project>{0a01f3ce-cf3b-41d8-a14a-af01aaf47aef}</Project>
+      <Name>LicenseManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{03ce7420-f2b5-4ad2-ab80-317de1d6d59b}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MRUModelLib\MRULib\MRULib.csproj">
+      <Project>{5fffcbbe-5740-4c88-8d71-90d7a862dc2c}</Project>
+      <Name>MRULib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MRUModelLib\MRUModelLib.csproj">
+      <Project>{93122678-d235-498b-a3f5-28d49b4268ac}</Project>
+      <Name>MRUModelLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Bot.Activity.Web.csproj">
+      <Project>{6f8b9d30-7f3b-42ec-a8be-c98a2484978c}</Project>
+      <Name>Bot.Activity.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinDriverPlugin\Bot.Activity.WinDriverPlugin.csproj">
+      <Project>{8840120c-7200-476b-8ad7-0c8d972ae932}</Project>
+      <Name>Bot.Activity.WinDriverPlugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExpressionEditor\Event.png" />
+    <EmbeddedResource Include="Resources\ExpressionEditor\Field.png" />
+    <EmbeddedResource Include="Resources\ExpressionEditor\Method.png" />
+    <EmbeddedResource Include="Resources\ExpressionEditor\Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\blanksequence.png" />
+    <Resource Include="Resources\Menu\BlankSequence1.ico" />
+    <Resource Include="Resources\Menu\clearlog.png" />
+    <Resource Include="Resources\Menu\clearlog1.png" />
+    <Resource Include="Resources\Menu\debug.png" />
+    <Resource Include="Resources\Menu\delete.ico" />
+    <Resource Include="Resources\Menu\dev.png" />
+    <Resource Include="Resources\Menu\error.png" />
+    <Resource Include="Resources\Menu\error1.png" />
+    <Resource Include="Resources\Menu\explorer.png" />
+    <Resource Include="Resources\Menu\export.png" />
+    <Resource Include="Resources\Menu\file.png" />
+    <Resource Include="Resources\Menu\folder.png" />
+    <Resource Include="Resources\Menu\image.png" />
+    <Resource Include="Resources\Menu\image1.png" />
+    <Resource Include="Resources\Menu\image2.png" />
+    <Resource Include="Resources\Menu\import.png" />
+    <Resource Include="Resources\Menu\importactivity.png" />
+    <Resource Include="Resources\Menu\importexport.ico" />
+    <Resource Include="Resources\Menu\Info.png" />
+    <Resource Include="Resources\Menu\Librery.png" />
+    <Resource Include="Resources\Menu\minisequence.png" />
+    <Resource Include="Resources\Menu\ministatemachine.png" />
+    <Resource Include="Resources\Menu\miniworkflow.png" />
+    <Resource Include="Resources\Menu\openproject.png" />
+    <Resource Include="Resources\Menu\playrun.png" />
+    <Resource Include="Resources\Menu\project.png" />
+    <Resource Include="Resources\Menu\propertydetails.png" />
+    <Resource Include="Resources\Menu\propertydetails1.png" />
+    <Resource Include="Resources\Menu\publish.png" />
+    <Resource Include="Resources\Menu\publish1.png" />
+    <Resource Include="Resources\Menu\run1.png" />
+    <Resource Include="Resources\Menu\saveall.png" />
+    <Resource Include="Resources\Menu\savedown.png" />
+    <Resource Include="Resources\Menu\sendlog.png" />
+    <Resource Include="Resources\Menu\Settings.png" />
+    <Resource Include="Resources\Menu\show.png" />
+    <Resource Include="Resources\Menu\showlog.png" />
+    <Resource Include="Resources\Menu\stopOld.png" />
+    <Resource Include="Resources\Menu\uat.png" />
+    <Resource Include="Resources\Menu\untitled.png" />
+    <Resource Include="Resources\Menu\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\activityIcon.ico" />
+    <Resource Include="Images\backarrow.png" />
+    <Resource Include="Images\BlankSequence.ico" />
+    <Resource Include="Images\BlankSequence.png" />
+    <Resource Include="Images\BlankStateMachine.png" />
+    <Resource Include="Images\BlankStateMachine1.png" />
+    <Resource Include="Images\BlankWorkflow.png" />
+    <None Include="Images\BotIt.ico" />
+    <None Include="Images\BotIt.png" />
+    <Resource Include="Images\BotIt11.PNG" />
+    <Resource Include="Images\BotItIco.ico" />
+    <Resource Include="Images\BotItIco11.ico" />
+    <Resource Include="Images\Clear.ico" />
+    <Resource Include="Images\Collapse.ico" />
+    <Resource Include="Images\DeleteRow.ico" />
+    <Resource Include="Images\Error.ico" />
+    <Resource Include="Images\Expand.ico" />
+    <Resource Include="Images\file.png" />
+    <Resource Include="Images\Flowchart-1.png" />
+    <Resource Include="Images\Flowchart.png" />
+    <Resource Include="Images\folder.png" />
+    <Resource Include="Images\import.png" />
+    <Resource Include="Images\importExport.ico" />
+    <Resource Include="Images\Info.ico" />
+    <Resource Include="Images\LaunchApp.PNG" />
+    <Resource Include="Images\New-1.png" />
+    <Resource Include="Images\new.png" />
+    <Resource Include="Images\PLAY RUN.png" />
+    <Resource Include="Images\playrun.png" />
+    <Resource Include="Images\ProjectIcon.bmp" />
+    <Resource Include="Images\PUBLISH.png" />
+    <Resource Include="Images\PUBLISH1.png" />
+    <Resource Include="Images\Run-1.png" />
+    <Resource Include="Images\Run-2.png" />
+    <Resource Include="Images\run.png" />
+    <Resource Include="Images\run1.png" />
+    <Resource Include="Images\Save-1.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\Sequence.png" />
+    <Resource Include="Images\Settings.png" />
+    <Resource Include="Images\SHOELOG.png" />
+    <Resource Include="Images\showlog.png" />
+    <Resource Include="Images\State Machine-1.png" />
+    <Resource Include="Images\State Machine.png" />
+    <Resource Include="Images\STOP.png" />
+    <Resource Include="Images\Warning.ico" />
+    <Resource Include="Images\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="importactivity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\new4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\new5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\new6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\save6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\start6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stop6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\debug6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\log6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\settings6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\import-export6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\import6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\sequence6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\flowchart6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\play7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\ministatemachine6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\saveall6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\saveas6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\startdebug6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stopdebug6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\maximise-minimise6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\showlog6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\clearlog6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\export7.png" />
+    <Resource Include="Resources\Menu\import7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\robot.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\robot1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\openExplorer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\sequence2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\workflow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\planning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addremove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deleteactivity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\Append text 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Clear_16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Close 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Close workbook 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Copy_24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Create 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Create Text File 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Cut _ 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Delete 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Delete Folder 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Enter Text 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Excel Workbook create 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Exist 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\File Copy 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\File Move 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\File open 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Folder create 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Get Information 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Key down 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Key Press 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Key Stroke 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Key up 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Mouse action 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\MultipageTifToText 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Paste 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\PDF 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Range 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\read 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Read File 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Read file oledb 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Read oledb 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Refresh 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Run_24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Save 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Save as 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Send Key 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Single Image to text 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\VBA Run 16 Px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Workbook count 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Workbook Open 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Workbook_closeAll 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\worksheet count 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\worksheet create 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\worksheet delete.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Worksheet exist 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Write 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\write file 24 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Write new file.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Write olebd 16 px.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\Write text 16 px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\icon_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ClearLogs.png" />
+    <Resource Include="Images\ErrorAlert2.png" />
+    <Resource Include="Images\WarningAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\messages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\importactivity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\callazure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\credexists.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\deletecred.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\getcred.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\savecred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\cellclear.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\cellwrite.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\csvread.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\csvwrite.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\getpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\folderexists.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\folderlist.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\foldermove.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\getinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\sp2txt.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\txt2sp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\putty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\simmoz.png" />
+    <Resource Include="Icons\E2E BOTS ICONS\simtxt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\debugging.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\log-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\imp-exp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\seq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\workflow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\flowchart-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\robo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\add-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\loadgiphy5.gif" />
+    <Resource Include="Resources\Menu\opengiphy2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\E2ELogo0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\E2ELogo0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\ReadCSV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="E2ELogo1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\BlankStateMachine.png" />
+    <Resource Include="Resources\Menu\BlankWorkflow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\writeCSV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\readCSV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\document1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\add-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\floppy-disk .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\play123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stop123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\ladybird.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\ui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\files-and-folders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\impexp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\pub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\exp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\row.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\rowbyvalue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\tablerow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\tablecurrentrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\imagefind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\goto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\openBrowser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\messagebox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\workflow123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\workflow123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\statemachine123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\sequence123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\Cool Sky.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\Moonlit Asteroid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\Mystic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\invoke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\log-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\opendesktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\range.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\equal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\retry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\desktoptile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UndefinedPathErrorText.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\s1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="E2Elogo2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\X-Path.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\closewhite.png" />
+    <Resource Include="Images\maximizewhite.png" />
+    <Resource Include="Images\minimizewhite.png" />
+    <Resource Include="Images\restorewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\E2Elogo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\E2E BOTS ICONS\ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\E2Elogo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="e2elogo3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\startDebug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stepinto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stepover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\stopDebug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\resume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\ie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Menu\Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
