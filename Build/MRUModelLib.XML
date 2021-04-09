@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MRUModelLib</name>
+    </assembly>
+    <members>
+        <member name="T:MRUModelLib.Spot">
+            <summary>
+            Determines whether an MRU entry is added in last or first spot
+            in list of MRU entries.
+            </summary>
+        </member>
+        <member name="T:MRUModelLib.Factory">
+            <summary>
+            Factory creates new objects from default constructors.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Factory.CreateMRUList">
+            <summary>
+            Get a new settingsmanager object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Factory.CreateEntry(System.String,System.Boolean)">
+            <summary>
+            Model item constructor from parameters
+            </summary>
+            <param name="name"></param>
+            <param name="fullTime"></param>
+        </member>
+        <member name="T:MRUModelLib.Interfaces.IMRUEntry">
+            <summary>
+            Models the interface for one MRU entry in a list of entries.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Interfaces.IMRUEntry.IsPinned">
+            <summary>
+            Gets file name and path of this MRU entry.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Interfaces.IMRUEntry.PathFileName">
+            <summary>
+            Gets the path and filename of this entry.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUEntry.SetIsPinned(System.Boolean)">
+            <summary>
+            Resets the IsPinned property value according to the given parameter value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUEntry.SetPathFileName(System.String)">
+            <summary>
+            Resets the PathFileName property value according to the given parameter value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:MRUModelLib.Interfaces.IMRUList">
+            <summary>
+            Implement an interface for an object that manages MRU file entries.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Interfaces.IMRUList.Entries">
+            <summary>
+            Get/set list of MRU entries for this object.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUList.Add(System.String,System.Boolean,MRUModelLib.Spot)">
+            <summary>
+            Adds an MRU entry into the list of MRU entries.
+            </summary>
+            <param name="fileName"></param>
+            <param name="isPinned"></param>
+            <param name="addInSpot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUList.Add(MRUModelLib.Interfaces.IMRUEntry,MRUModelLib.Spot)">
+            <summary>
+            Adds an MRU entry into the list of MRU entries.
+            </summary>
+            <param name="emp"></param>
+            <param name="addInSpot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUList.Remove(MRUModelLib.Spot)">
+            <summary>
+            Removes the first or last entry in the MRU List.
+            </summary>
+            <param name="spotInPosition"></param>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUList.Remove(System.String)">
+            <summary>
+            Remove an MRU entry by its path value.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:MRUModelLib.Interfaces.IMRUList.Clear">
+            <summary>
+            Removes all MRU entries.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:MRUModelLib.Models.MRUEntry">
+            <summary>
+            Models the object for one MRU entry in a list of entries.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.#ctor">
+            <summary>
+            Standard Constructor
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.#ctor(MRUModelLib.Models.MRUEntry)">
+            <summary>
+            Copy Constructor
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.#ctor(System.String,System.Boolean)">
+            <summary>
+            Convinience constructor
+            </summary>
+            <param name="name"></param>
+            <param name="fullTime"></param>
+        </member>
+        <member name="P:MRUModelLib.Models.MRUEntry.PathFileName">
+            <summary>
+            Gets file name and path of this MRU entry.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Models.MRUEntry.IsPinned">
+            <summary>
+            Gets whether this entry is pinned or not.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.ToString">
+            <summary>
+            Standard to string method overwrite.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.SetIsPinned(System.Boolean)">
+            <summary>
+            Resets the IsPinned property value according to the given parameter value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.SetPathFileName(System.String)">
+            <summary>
+            Resets the PathFileName property value according to the given parameter value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.Clone">
+            <summary>
+            <seealso cref="!:ICloneable"/>
+            Supports cloning, which creates a new instance of a class with the same value
+            as an existing instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.MRUModelLib#Models#Persistables#IPersistableItem#GetObjectForPersistence">
+            <summary>
+            Returns the current model in an pojo transport persistable fashion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUEntry.MRUModelLib#Models#Persistables#IPersistableItem#SetObjectFromPersistence(MRUModelLib.Models.Persistables.MRUEntryPersistable)">
+            <summary>
+            Set current object states from an object that represents
+            the persisted values (from standard pojo transport, eg.: from XML serialization).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRUModelLib.Models.MRUList">
+            <summary>
+            Models the object for the list of MRU entries.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.#ctor">
+            <summary>
+            Class constructor.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.#ctor(MRUModelLib.Interfaces.IMRUList)">
+            <summary>
+            Copy class constructor.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Models.MRUList.Entries">
+            <summary>
+            Get/set list of MRU entries for this object.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Add(System.String,System.Boolean,MRUModelLib.Spot)">
+            <summary>
+            Adds an MRU entry into the list of MRU entries.
+            </summary>
+            <param name="fileName"></param>
+            <param name="isPinned"></param>
+            <param name="addInSpot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Add(MRUModelLib.Interfaces.IMRUEntry,MRUModelLib.Spot)">
+            <summary>
+            Adds an MRU entry into the list of MRU entries.
+            </summary>
+            <param name="emp"></param>
+            <param name="addInSpot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Remove(MRUModelLib.Spot)">
+            <summary>
+            Removes the first or last entry in the MRU List.
+            </summary>
+            <param name="spotInPosition"></param>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Remove(System.String)">
+            <summary>
+            Remove an MRU entry by its path value.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Clear">
+            <summary>
+            Removes all MRU entries.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.Clone">
+            <summary>
+            <seealso cref="T:System.ICloneable"/>
+            Supports cloning, which creates a new instance of a class with the same value
+            as an existing instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.MRUModelLib#Models#Persistables#IPersistable#GetObjectForPersistence">
+            <summary>
+            Returns the current model in an pojo transport persistable fashion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.MRUList.MRUModelLib#Models#Persistables#IPersistable#SetObjectFromPersistence(MRUModelLib.Models.Persistables.MRUListPersistable)">
+            <summary>
+            Set current object states from an object that represents
+            the persisted values (from standard pojo transport, eg.: from XML serialization).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRUModelLib.Models.Persistables.IPersistable">
+            <summary>
+            Implements an interface for converting:
+            1) a model into a pojo object
+            2) a pojo object into a model
+            
+            the pojo object can be used for data transport or XML serialization/de-serialization.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.IPersistable.GetObjectForPersistence">
+            <summary>
+            Returns the current model in an XML persistable fashion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.IPersistable.SetObjectFromPersistence(MRUModelLib.Models.Persistables.MRUListPersistable)">
+            <summary>
+            Set current object states from an object that represents
+            the persisted values (from standard XML serialization).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRUModelLib.Models.Persistables.IPersistableItem">
+            <summary>
+            Implements an interface for converting:
+            1) a model into a pojo object
+            2) a pojo object into a model
+            
+            the pojo object can be used for data transport or XML serialization/de-serialization.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.IPersistableItem.GetObjectForPersistence">
+            <summary>
+            Returns the current model in an XML persistable fashion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.IPersistableItem.SetObjectFromPersistence(MRUModelLib.Models.Persistables.MRUEntryPersistable)">
+            <summary>
+            Set current object states from an object that represents
+            the persisted values (from standard XML serialization).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRUModelLib.Models.Persistables.MRUEntryPersistable">
+            <summary>
+            Implements a simple MRUList pojo object that can be used for transport
+            data functions or XML serialization/deserialization.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.MRUEntryPersistable.#ctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Models.Persistables.MRUEntryPersistable.PathFileName">
+            <summary>
+            Gets file name and path of this MRU entry.
+            </summary>
+        </member>
+        <member name="P:MRUModelLib.Models.Persistables.MRUEntryPersistable.IsPinned">
+            <summary>
+            Gets whether this entry is pinned or not.
+            </summary>
+        </member>
+        <member name="T:MRUModelLib.Models.Persistables.MRUListPersistable">
+            <summary>
+            Implements a simple MRUList pojo object that can be used for transport
+            data functions or XML serialization/deserialization.
+            </summary>
+        </member>
+        <member name="M:MRUModelLib.Models.Persistables.MRUListPersistable.#ctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+    </members>
+</doc>

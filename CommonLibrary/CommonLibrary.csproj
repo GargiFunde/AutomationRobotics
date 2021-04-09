@@ -35,9 +35,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.SHDocVw">
-      <HintPath>..\ExternalDLL\Interop.SHDocVw.dll</HintPath>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Build\Interop.SHDocVw.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Activities.Build" />
     <Reference Include="PresentationCore" />

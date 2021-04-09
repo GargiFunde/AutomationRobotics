@@ -1,0 +1,86 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="RobotDesigner.Workflow" sap2010:WorkflowViewState.IdRef="RobotDesigner.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:c="clr-namespace:CommonLibrary;assembly=CommonLibrary"
+ xmlns:caa="clr-namespace:Core.ActivityLibrary.Activities;assembly=Core.ActivityLibrary"
+ xmlns:cam="clr-namespace:Core.ActivityLibrary.Misc;assembly=Core.ActivityLibrary"
+ xmlns:i="clr-namespace:InternetExplorer;assembly=InternetExplorer"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="variable1" />
+      <Variable x:TypeArguments="x:Boolean" Name="variable2" />
+    </Sequence.Variables>
+    <Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <i:OpenWebApplication ApplicationID="Ticketing" sap2010:WorkflowViewState.IdRef="OpenWebApplication_3" LaunchResult="[variable1]" LoginUrl="https://www.google.co.in" SearchUrl="https://www.google.co.in" TimeOutInSecond="1000" />
+      <i:OpenWebApplication ApplicationID="Billing" sap2010:WorkflowViewState.IdRef="OpenWebApplication_4" LaunchResult="[variable2]" LoginUrl="http://localhost/Billing/Provisioning_Login.htm" SearchUrl="http://localhost/Billing/Provisioning.htm" TimeOutInSecond="1000" />
+    </Parallel>
+    <caa:AttachApplicationActivity ApplicationIDToAttach="Ticketing" sap2010:WorkflowViewState.IdRef="AttachApplicationActivity_6" strUniqueControlld="180325211441">
+      <caa:AttachApplicationActivity.Activities>
+        <scg:List x:TypeArguments="c:ActivityExtended" Capacity="8">
+          <i:WebControlProperties ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="class = abc" ControlId="lst-ib" ControlName="q" sap2010:WorkflowViewState.IdRef="WebControlProperties_1" UniqueControlld="180325211446" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[4]/FORM[1]/DIV[2]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/INPUT[1]" />
+          <i:WebControlProperties ControlId="{x:Null}" ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="class = abc" ControlName="btnK" sap2010:WorkflowViewState.IdRef="WebControlProperties_2" UniqueControlld="180325211448" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[4]/FORM[1]/DIV[2]/DIV[3]/CENTER[1]/INPUT[1]" />
+          <i:WebControlProperties ControlId="{x:Null}" ControlName="{x:Null}" ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="Role = 1" sap2010:WorkflowViewState.IdRef="WebControlProperties_3" UniqueControlld="180325211450" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[7]/SPAN[1]/CENTER[1]/DIV[3]/DIV[1]/DIV[1]/A[1]" />
+          <i:WebControlProperties ControlId="{x:Null}" ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="class = abc" ControlName="btnK" sap2010:WorkflowViewState.IdRef="WebControlProperties_4" UniqueControlld="180325234117" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[4]/FORM[1]/DIV[2]/DIV[3]/CENTER[1]/INPUT[1]" />
+          <i:WebControlProperties ControlId="{x:Null}" ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="class = abc" ControlName="btnI" sap2010:WorkflowViewState.IdRef="WebControlProperties_5" UniqueControlld="180325234119" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[4]/FORM[1]/DIV[2]/DIV[3]/CENTER[1]/INPUT[2]" />
+          <i:WebControlProperties ControlId="{x:Null}" ControlName="{x:Null}" ControlType="{x:Null}" IsEventField="{x:Null}" JavaScript="{x:Null}" PropertyID="{x:Null}" Relative="{x:Null}" AttributeNames="class = abc" sap2010:WorkflowViewState.IdRef="WebControlProperties_6" UniqueControlld="180325234133" XPath="/HTML[1]/BODY[1]/DIV[1]/DIV[7]/SPAN[1]/CENTER[1]/DIV[3]/DIV[1]/DIV[1]/A[4]" />
+        </scg:List>
+      </caa:AttachApplicationActivity.Activities>
+    </caa:AttachApplicationActivity>
+    <If Condition="[variable1 = True AndAlso variable2= True]" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <cam:ShowMessageBox DisplayName="Message" sap2010:WorkflowViewState.IdRef="ShowMessageBox_1" InputData="[&quot;Completed&quot;]" />
+      </If.Then>
+      <If.Else>
+        <cam:ShowMessageBox DisplayName="Message" sap2010:WorkflowViewState.IdRef="ShowMessageBox_2" InputData="[&quot;Failed&quot;]" />
+      </If.Else>
+    </If>
+    <sads:DebugSymbol.Symbol>d0hGOlxSZWhvc3RlZC1Xb3JrZmxvdy1EZXNpZ25lci1tYXN0ZXJcUmVob3N0ZWREZXNpZ25lclxiaW5cRGVidWdcUE9DLnhhbWwWHgM8DgIBASMFJhACAQwnBTIlAgEKMwU6CgIBAiQHJOsBAgEUJQclkQICAQ0nOidFAgELMxMzPwIBAzUJNYwBAgEIOAk4iQECAQYkeySIAQIBGSTiASToAQIBGCQrJDYCARckkgEkrAECARYktwEk0QECARUleSWGAQIBEiWIAiWOAgIBESUrJTQCARAlkAElwQECAQ8lzAEl9wECAQ41cDWJAQIBCThwOIYBAgEH</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="OpenWebApplication_3" sap:VirtualizedContainerService.HintSize="200,40" />
+      <sap2010:ViewStateData Id="OpenWebApplication_4" sap:VirtualizedContainerService.HintSize="200,40" />
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="554,86" />
+      <sap2010:ViewStateData Id="WebControlProperties_1" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="WebControlProperties_2" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="WebControlProperties_3" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="WebControlProperties_4" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="WebControlProperties_5" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="WebControlProperties_6" sap:VirtualizedContainerService.HintSize="209,36" />
+      <sap2010:ViewStateData Id="AttachApplicationActivity_6" sap:VirtualizedContainerService.HintSize="554,330" />
+      <sap2010:ViewStateData Id="ShowMessageBox_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="ShowMessageBox_2" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="554,208" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="576,828">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="RobotDesigner.Workflow_1" sap:VirtualizedContainerService.HintSize="616,908" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

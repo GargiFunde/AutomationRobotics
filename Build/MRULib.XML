@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MRULib</name>
+    </assembly>
+    <members>
+        <member name="T:MRULib.Behaviours.BindingProxy">
+            <summary>
+            Implements an XAML proxy which can be used to bind items (TreeViewItem, ListViewItem etc)
+            with a viewmodel that manages the collections.
+            
+            Source: http://www.thomaslevesque.com/2011/03/21/wpf-how-to-bind-to-data-when-the-datacontext-is-not-inherited/
+             Issue: http://stackoverflow.com/questions/9994241/mvvm-binding-command-to-contextmenu-item
+            </summary>
+        </member>
+        <member name="F:MRULib.Behaviours.BindingProxy.DataProperty">
+             <summary>
+             Backing storage of the Data dependency property.
+            
+             Gets/sets the data object this class is forwarding to everyone
+             who has a reference to this object.
+             </summary>
+        </member>
+        <member name="P:MRULib.Behaviours.BindingProxy.Data">
+            <summary>
+            Gets/sets the data object this class is forwarding to everyone
+            who has a reference to this object.
+            </summary>
+        </member>
+        <member name="M:MRULib.Behaviours.BindingProxy.CreateInstanceCore">
+            <summary>
+            Overrides of Freezable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRULib.Converters.ZeroToVisibilityConverter">
+            <summary>
+            XAML mark up extension to convert a null value into a visibility value.
+            </summary>
+        </member>
+        <member name="M:MRULib.Converters.ZeroToVisibilityConverter.#ctor">
+            <summary>
+            Standard Constructor
+            </summary>
+        </member>
+        <member name="M:MRULib.Converters.ZeroToVisibilityConverter.ProvideValue(System.IServiceProvider)">
+            <summary>
+            When implemented in a derived class, returns an object that is provided
+            as the value of the target property for this markup extension.
+            
+            When a XAML processor processes a type node and member value that is a markup extension,
+            it invokes the ProvideValue method of that markup extension and writes the mResult into the
+            object graph or serialization stream. The XAML object writer passes service context to each
+            such implementation through the serviceProvider parameter.
+            </summary>
+            <param name="serviceProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.Converters.ZeroToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Zero to visibility conversion method
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.Converters.ZeroToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Visibility to Zero conversion method (is disabled and will throw an exception when invoked)
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MRULib.Localiz.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.CMD_MRU_RemoveEntry_Description">
+            <summary>
+              Looks up a localized string similar to Remove MRU Entry.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_AppCommand_CopyFileURLToClipboard">
+            <summary>
+              Looks up a localized string similar to Copy path to clipboard.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_LOAD_FILE">
+            <summary>
+              Looks up a localized string similar to Load File....
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_LOAD_FILE_TT">
+            <summary>
+              Looks up a localized string similar to Loads the selected file ....
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_MRU_MENUITEM_COPYURL">
+            <summary>
+              Looks up a localized string similar to Copy Path to Clipboard.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_MRU_MENUITEM_OpenInContainingFolder">
+            <summary>
+              Looks up a localized string similar to Open in containing Folder.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_MRU_MENUITEM_OpenWithWindowsApp">
+            <summary>
+              Looks up a localized string similar to Open with Windows Application....
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_MRU_MENUITEM_Remove">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_REMOVE_ALL_ITEMS">
+            <summary>
+              Looks up a localized string similar to Remove All.
+            </summary>
+        </member>
+        <member name="P:MRULib.Localiz.Strings.STR_REMOVE_ALL_ITEMS_TT">
+            <summary>
+              Looks up a localized string similar to Removes all items in the list..
+            </summary>
+        </member>
+        <member name="T:MRULib.ViewModels.Base.RelayCommand`1">
+            <summary>
+            A command whose sole purpose is to 
+            relay its functionality to other
+            objects by invoking delegates. The
+            default return value for the CanExecute
+            method is 'true'.
+            
+            Source: http://www.codeproject.com/Articles/31837/Creating-an-Internationalized-Wizard-in-WPF
+            </summary>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand`1.#ctor(System.Action{`0})">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="execute"></param>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
+            <summary>
+            Creates a new command.
+            </summary>
+            <param name="execute">The execution logic.</param>
+            <param name="canExecute">The execution status logic.</param>
+        </member>
+        <member name="E:MRULib.ViewModels.Base.RelayCommand`1.CanExecuteChanged">
+            <summary>
+            Eventhandler to re-evaluate whether this command can execute or not
+            </summary>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand`1.CanExecute(System.Object)">
+            <summary>
+            Determine whether this pre-requisites to execute this command are given or not.
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand`1.Execute(System.Object)">
+            <summary>
+            Execute the command method managed in this class.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:MRULib.ViewModels.Base.RelayCommand">
+            <summary>
+            A command whose sole purpose is to 
+            relay its functionality to other
+            objects by invoking delegates. The
+            default return value for the CanExecute
+            method is 'true'.
+            </summary>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Creates a new command that can always execute.
+            </summary>
+            <param name="execute">The execution logic.</param>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand.#ctor(MRULib.ViewModels.Base.RelayCommand)">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="inputRC"></param>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            Creates a new command.
+            </summary>
+            <param name="execute">The execution logic.</param>
+            <param name="canExecute">The execution status logic.</param>
+        </member>
+        <member name="E:MRULib.ViewModels.Base.RelayCommand.CanExecuteChanged">
+            <summary>
+            Eventhandler to re-evaluate whether this command can execute or not
+            </summary>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Execute the attached CanExecute methode delegate (or always return true)
+            to determine whether the command managed in this object can execute or not.
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.ViewModels.Base.RelayCommand.Execute(System.Object)">
+            <summary>
+            Return the attached delegate method.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:MRULib.Views.CheckPin">
+            <summary>
+            Class implements a custom control that displays a check pin -
+            a needle that is in
+            IsChecked = true state (needle is pinned vertically)
+            
+            or
+            IsChecked = false state (needle is note pinned, displayed only on mouseover vie PinnableBoxItem)
+            
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.CheckPin.#cctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.Extensions.FormatWith(System.String,System.Object[])">
+            <summary>
+            Extend the string constructor with a string.Format like syntax.
+            </summary>
+            <param name="s"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock">
+            <summary>
+            This PathTrimmingTextBlock textblock attaches itself to the events of a parent container and
+            displays a trimmed path text when the size of the parent (container) is changed.
+            
+            http://www.codeproject.com/Tips/467054/WPF-PathTrimmingTextBlock
+            </summary>
+        </member>
+        <member name="F:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.PathProperty">
+            <summary>
+            Path dependency property that stores the trimmed path
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.#ctor">
+            <summary>
+            Class Constructor
+            </summary>
+        </member>
+        <member name="P:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.Path">
+            <summary>
+            Path dependency property that stores the trimmed path
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.PathTrimmingTextBlock_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Textblock is constructed and start its live - lets attach to the
+            size changed event handler of the containing parent.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.PathTrimmingTextBlock_Unloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Remove custom event handlers and clean-up on unload.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.container_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Trim the containing text (path) accordingly whenever the parent container changes its size.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MRULib.Views.PathTrimmingTextBlock.PathTrimmingTextBlock.GetTrimmedPath(System.Double)">
+            <summary>
+            Compute the text to display (with ellipsis) that fits the ActualWidth of the container
+            </summary>
+            <param name="width"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.Views.BoolOrToVisibilityConverter.#ctor">
+            <summary>
+            Converter class
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.BoolOrToVisibilityConverter.ProvideValue(System.IServiceProvider)">
+            <summary>
+            When implemented in a derived class, returns an object that is provided
+            as the value of the target property for this markup extension.
+            
+            When a XAML processor processes a type node and member value that is a markup extension,
+            it invokes the ProvideValue method of that markup extension and writes the result into the
+            object graph or serialization stream. The XAML object writer passes service context to each
+            such implementation through the serviceProvider parameter.
+            </summary>
+            <param name="serviceProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.Views.BoolOrToVisibilityConverter.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Disabled convert back method (throws an exception upon being called)
+            </summary>
+            <param name="value"></param>
+            <param name="targetTypes"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.Views.PinableListBox.#cctor">
+            <summary>
+            Static Standard Constructor
+            
+            Getting CustomControl style from Themes/Generic.xaml does not work ???
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PinableListBox.OnApplyTemplate">
+            <summary>
+            Standard method is executed when control template is applied to lookless control.
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PinableItemsControl.#cctor">
+            <summary>
+            Static Standard Constructor
+            
+            Getting CustomControl style from Themes/Generic.xaml does not work ???
+            </summary>
+        </member>
+        <member name="M:MRULib.Views.PinableItemsControl.OnApplyTemplate">
+            <summary>
+            Standard method is executed when control template is applied to lookless control.
+            </summary>
+        </member>
+        <member name="T:MRULib.RecentItems">
+            <summary>
+            Interaction logic for RecentItems.xaml
+            </summary>
+            <summary>
+            RecentItems
+            </summary>
+        </member>
+        <member name="F:MRULib.RecentItems.LoadFileCommandHeaderProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for LoadFileCommandHeader.
+            </summary>
+        </member>
+        <member name="M:MRULib.RecentItems.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MRULib.MRU.ViewModels.Base.BaseViewModel">
+            <summary>
+            Every ViewModel class is required to implement the INotifyPropertyChanged
+            interface in order to tell WPF when a property changed (for instance, when
+            a method or setter is executed).
+            
+            Therefore, the PropertyChanged methode has to be called when data changes,
+            because the relevant properties may or may not be bound to GUI elements,
+            which in turn have to refresh their display.
+            
+            The PropertyChanged method is to be called by the members and properties of
+            the class that derives from this class. Each call contains the name of the
+            property that has to be refreshed.
+            
+            The BaseViewModel is derived from from System.Windows.DependencyObject to allow
+            resulting ViewModels the implemantion of dependency properties. Dependency properties
+            in turn are useful when working with IValueConverter and ConverterParameters.
+            </summary>
+        </member>
+        <member name="E:MRULib.MRU.ViewModels.Base.BaseViewModel.PropertyChanged">
+            <summary>
+            Standard event handler of the <seealso cref="T:System.ComponentModel.INotifyPropertyChanged"/> interface
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.Base.BaseViewModel.RaisePropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Tell bound controls (via WPF binding) to refresh their display.
+            
+            Sample call: this.NotifyPropertyChanged(() => this.IsSelected);
+            where 'this' is derived from <seealso cref="T:MRULib.MRU.ViewModels.Base.BaseViewModel"/>
+            and IsSelected is a property.
+            </summary>
+            <typeparam name="TProperty"></typeparam>
+            <param name="property"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.Base.BaseViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Tell bound controls (via WPF binding) to refresh their display.
+            
+            Sample call: this.OnPropertyChanged("IsSelected");
+            where 'this' is derived from <seealso cref="T:MRULib.MRU.ViewModels.Base.BaseViewModel"/>
+            and IsSelected is a property.
+            </summary>
+            <param name="propertyName">Name of property to refresh</param>
+        </member>
+        <member name="T:MRULib.MRU.ViewModels.MRUEntryViewModel">
+            <summary>
+            Implements an object that manages all properties for
+            1 recent file entry.
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUEntryViewModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUEntryViewModel.#ctor(MRUModelLib.Interfaces.IMRUEntry)">
+            <summary>
+            Constructor from model
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUEntryViewModel.#ctor(MRULib.MRU.ViewModels.MRUEntryViewModel)">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="copySource"></param>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUEntryViewModel.PathFileName">
+            <summary>
+            Gets the complete path of this viewmodel item.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUEntryViewModel.DisplayPathFileName">
+            <summary>
+            Gets a partial path of this viewmodel item.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUEntryViewModel.IsPinned">
+            <summary>
+            Gets whether the item is currently pinned or not.
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUEntryViewModel.GetModel">
+            <summary>
+            Gets a model entry copy for this entry.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRULib.MRU.ViewModels.MRUSortMethod">
+            <summary>
+            This enumeration is used to control the behaviour of pinned entries.
+            </summary>
+        </member>
+        <member name="F:MRULib.MRU.ViewModels.MRUSortMethod.PinnedEntriesFirst">
+            <summary>
+            Pinned entries are sorted and displayed at the beginning of the list or just be bookmarked
+            and stay wehere they are in the list.
+            </summary>
+        </member>
+        <member name="F:MRULib.MRU.ViewModels.MRUSortMethod.UnsortedFavourites">
+            <summary>
+            Pinned entries are just be bookmarked and stay wehere they are in the list. This can be useful
+            for a list of favourites (which stay if pinned) while other unpinned entries are changed as the
+            user keeps opening new items and thus, changing the MRU list...
+            </summary>
+        </member>
+        <member name="T:MRULib.MRU.ViewModels.LoadFileCommandExecuted">
+            <summary>
+            Defines a delegate methode that is called when a recent file list entry is clicked.
+            </summary>
+            <param name="LoadFile"></param>
+        </member>
+        <member name="T:MRULib.MRU.ViewModels.MRUListViewModel">
+            <summary>
+            Implements an object that manages all properties for
+            a list of recent file entries.
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.#ctor(MRUModelLib.Interfaces.IMRUList,MRULib.MRU.ViewModels.MRUSortMethod)">
+            <summary>
+            Construct ViewModel from Model
+            </summary>
+            <param name="listModel"></param>
+            <param name="pinEntryAtHeadOfList"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.#ctor(MRULib.MRU.ViewModels.MRUListViewModel)">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="copy"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.#ctor(MRUModelLib.Interfaces.IMRUList)">
+            <summary>
+            Default constructor (optional from list of models)
+            </summary>
+            <param name="listModel"></param>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.PinSortMode">
+            <summary>
+            Get/set property to determine whether a pinned entry is shown
+            1> at the beginning of the MRU list
+            or
+            2> remains where it currently is.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.ListOfMRUEntries">
+            <summary>
+            Gets a list of MRU file entries for display in listbox.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.Count">
+            <summary>
+            Gets the count of the items in the MRU items list.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.LoadFileCommandHeader">
+            <summary>
+            Gets/Sets the caption of the Load file command.
+            Reset this value if the default string is not appropriate.
+            Override this property if you want to implement your own logic.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.LoadFileCommandHeaderDescription">
+            <summary>
+            Gets/Sets the description of the Load file command (displayed as tooltip).
+            Reset this value if the default string is not appropriate.
+            Override this property if you want to implement your own logic.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.LoadFileCommand">
+            <summary>
+            Gets a (Load File) command that executes when a file entry is clicked.
+            Override this property if you want to implement you own command framework.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.LoadFileCommandDelegate">
+            <summary>
+            Gets/sets the delegate method that is called when an entry is clicked.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.PinUnpinEntryCommand">
+            <summary>
+            Gets a (Load File) command that executes when a file entry is clicked.
+            Override this property if you want to implement you own command framework.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.RemoveItemCommand">
+            <summary>
+            Gets a command that removes the item in the
+            parameter from the list of items.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.ClearItemsCommand">
+            <summary>
+            Gets a command that clears the list of items.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.CopyUriCommand">
+            <summary>
+            Gets a command that copies the path of the item into the clipboard.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.OpenWithWindowsAppCommand">
+            <summary>
+            Gets a command that will execute the associated
+            Windows application with the selected file.
+            </summary>
+        </member>
+        <member name="P:MRULib.MRU.ViewModels.MRUListViewModel.OpenInContainingFolderCommand">
+            <summary>
+            Gets a command that will display the selected file in Windows Explorer folder.
+            </summary>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.PinUnpinEntry(System.Boolean,MRULib.MRU.ViewModels.MRUEntryViewModel)">
+            <summary>
+            Adjust the pinned state from pinned to unpinned or vice versa
+            depending on actual pin state.
+            </summary>
+            <param name="bPinOrUnPinMruEntry"></param>
+            <param name="mruEntry"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.AddMRUEntry(System.String)">
+            <summary>
+            Standard short-cut method to add a new unpinned entry from a string
+            </summary>
+            <param name="newEntry">File name and path file</param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.AddMRUEntry(MRULib.MRU.ViewModels.MRUEntryViewModel)">
+            <summary>
+            Standard add a new entry from an existing viewmodel entry.
+            </summary>
+            <param name="newEntry"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.RemoveEntry(System.String)">
+            <summary>
+            Remove an entry if it points to this path.
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.FindMRUEntry(System.String)">
+            <summary>
+            Find the MRU entry with this filePathName and return it.
+            </summary>
+            <param name="filePathName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.CountPinnedEntries">
+            <summary>
+            Count number of entries in pinnded state.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.OpenFileLocationInWindowsExplorer(System.String)">
+            <summary>
+            Convinience method to open Windows Explorer with a selected file (if it exists).
+            Otherwise, Windows Explorer is opened in the location where the file should be at.
+            </summary>
+            <param name="oFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.SetPersistable(MRUModelLib.Models.Persistables.MRUListPersistable)">
+            <summary>
+            Clears the current list of items and replaces it with content from the
+            persistence object.
+            </summary>
+            <param name="persit"></param>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.GetPersistable">
+            <summary>
+            Converts the current content into a persistable object collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.GetPeristableItems">
+            <summary>
+            Gets all items in the viemodel as persistable object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.GetModelList">
+            <summary>
+            Gets the entire model object graph for this viewmodel.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MRULib.MRU.ViewModels.MRUListViewModel.GetModelItems">
+            <summary>
+            Gets all items in the viemodel as model object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MRULib.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MRULib.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MRULib.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<RabbitMQConnection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" HostName="localhost" PortNumber="5672" UserName="se" Password="se">
+  <PublisherQueueDetails BindExchangeToQueue="true" QueueCriteriaFlag="AutomationSuccess" RoutingKey="automation.success">
+    <Exchange  Name="robot.x.automation" AutoDelete="false" Durable="false" IsInternal="false" />
+    <QueueDetails Name="robot.q.success" AutoDelete="false" Durable="true" ReqAcknowlegement="false" />
+  </PublisherQueueDetails>
+  <PublisherQueueDetails BindExchangeToQueue="true" QueueCriteriaFlag="AutomationFailure" RoutingKey="automation.failure">
+    <Exchange  Name="robot.x.automation"  AutoDelete="false" Durable="false" IsInternal="false" />
+    <QueueDetails Name="robot.q.failure" AutoDelete="false" Durable="true" ReqAcknowlegement="false" />
+  </PublisherQueueDetails>
+  <PublisherQueueDetails BindExchangeToQueue="true" RoutingKey="automation.health">
+    <Exchange  Name="robot.x.automation"  AutoDelete="false" Durable="false" IsInternal="false" />
+    <QueueDetails Name="robot.q.health" AutoDelete="false" Durable="true" ReqAcknowlegement="false" />
+  </PublisherQueueDetails>
+  <SubscriberQueueDetails BindExchangeToQueue="true" QueueCriteriaFlag="AutomationQueue" RoutingKey="Self.Group2">
+    <Exchange Name="robot.x.automation" AutoDelete="false" Durable="false" IsInternal="false" />
+    <QueueDetails Name="robot.q.automation" AutoDelete="false" Durable="true" ReqAcknowlegement="false" />
+  </SubscriberQueueDetails>
+</RabbitMQConnection>

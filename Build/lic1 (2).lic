@@ -1,0 +1,18 @@
+﻿<License>
+  <Id>e0094777-2e7f-4556-b5b5-1318e060d5cb</Id>
+  <Type>Trial</Type>
+  <Quantity>5</Quantity>
+  <LicenseAttributes>
+    <Attribute name="Software">WPF License Manager</Attribute>
+  </LicenseAttributes>
+  <ProductFeatures>
+    <Feature name="Sales">True</Feature>
+    <Feature name="Billing">False</Feature>
+  </ProductFeatures>
+  <Customer>
+    <Name>Thorsten Weiss</Name>
+    <Email>weiss.thorsten@gmx.de</Email>
+  </Customer>
+  <Expiration>Tue, 19 Feb 2019 18:30:00 GMT</Expiration>
+  <Signature>MEUCIFUwB8WGu7OaoX0IKhAd++cvaVojfi7nl5cy22hjh4d5AiEAr3fq+XDd3VM2azsyrQDuDTKWWeVeNqch/tgzKrhce/s=</Signature>
+</License>
